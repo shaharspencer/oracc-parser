@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment / secrets
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ORACC cache and downloaded data (heavy — use Zenodo for distribution)
+oracc_cache/
+oracc_output/
+*.zip
+
+# Test artifacts
+tests/test_output/
+
+# Jupyter
+.ipynb_checkpoints/

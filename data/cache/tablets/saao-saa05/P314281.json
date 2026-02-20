@@ -1,0 +1,4482 @@
+{
+ "config_fingerprint": "68334c64",
+ "record": {
+  "metadata": {
+   "identifier": "saao/saa05_P314281",
+   "project": "saao/saa05",
+   "id_text": "P314281",
+   "metadata_raw_dict": {
+    "langs": "0x08000000",
+    "project": "saa05",
+    "designation": "SAA 05 129",
+    "atae_lists": "atae/saao:P314281",
+    "has_date": "no",
+    "date": "(717-706)",
+    "accession_no": "Rm 2, 460",
+    "ancient_author": "(unknown)",
+    "ancient_recipient": "[the king]",
+    "archive": "099 - Miscellaneous",
+    "cdli_accession_no": "Rm 2, 460",
+    "cdli_id": "P314281",
+    "cdli_museum_no": "BM —",
+    "ch_name": "Letters from Kurbail and Nearby Provinces",
+    "ch_no": "Ch. 7",
+    "ch_num_name": "Ch. 7 (Letters from Kurbail and Nearby Provinces)",
+    "collection": "British Museum, London, UK",
+    "comp_wit": "witness",
+    "credits": "Adapted from Giovanni B. Lanfranchi and Simo Parpola, The Correspondence of Sargon II, Part II: Letters from the Northern and Northeastern Provinces (State Archives of Assyria, 5), 1990. Lemmatised by Mikko Luukko, 2009-11, as part of the AHRC-funded research project “Mechanisms of Communication in an Ancient Empire: The Correspondence between the King of Assyria and his Magnates in the 8th Century BC” (AH/F016581/1; University College London) directed by Karen Radner. The annotated edition is released under the Creative Commons Attribution Share-Alike license 3.0. Please cite this page as http://oracc.org/saao/P314281/.",
+    "ct_53_no": "CT 53 872",
+    "date_of_origin": "Sargon2.000.00.00",
+    "dialect": "Neo-Assyrian",
+    "display_name": "SAA 05 129",
+    "dossier": "SAA05.07.04.c",
+    "edited_twice": "no",
+    "genre": "Administrative Letter",
+    "id_text": "P314281",
+    "language": "Akkadian",
+    "material": "clay",
+    "museum_no": "BM —",
+    "object_type": "tablet",
+    "oracc_header": "&P314281 = SAA 05 129#project: saao/saa22#atf: lang nb#key: file=SAA22/SAA22.saa#key: musno=Rm 2, 460#key: cdli=Rm 2, 460#key: date=Sargon II#key: writer=(unknown)#key: preservation=",
+    "period": "Neo-Assyrian",
+    "please_cite": "Please cite this page as http://oracc.org/saao/P314281/.",
+    "pleiades_id": "874621",
+    "primary_publication": "CT 53 872",
+    "proposed_date": "(717-706)",
+    "provenience": "Kuyunjik (Nineveh)",
+    "pleiades_coord": "[43.151937,36.358684]",
+    "publication_history": "SAA 05, 129",
+    "regnal_dates": "721–705 BC",
+    "rework": "no",
+    "ruler": "Sargon II",
+    "saa_attribution": "Adapted from Giovanni B. Lanfranchi and Simo Parpola, The Correspondence of Sargon II, Part II: Letters from the Northern and Northeastern Provinces (State Archives of Assyria, 5), 1990. Lemmatised by Mikko Luukko, 2009-11, as part of the AHRC-funded research project “Mechanisms of Communication in an Ancient Empire: The Correspondence between the King of Assyria and his Magnates in the 8th Century BC” (AH/F016581/1; University College London) directed by Karen Radner. The annotated edition is released under the Creative Commons Attribution Share-Alike license 3.0.",
+    "saa_cdli_accession": "yes",
+    "saa_cdli_id": "yes",
+    "saa_cdli_museum": "yes",
+    "saao_lists": "saao/saa05:P314281",
+    "script": "Neo-Assyrian",
+    "script_remarks": "inscribed",
+    "script_type": "Cuneiform",
+    "secondary_record": "no",
+    "sender_loc": "Kurbail",
+    "short_title": "Sargon Letters 2",
+    "title": "Where are the King’s Logs?",
+    "vol_title": "The Correspondence of Sargon II, Part II: Letters from the Northern and Northeastern Provinces",
+    "volume": "SAA 5",
+    "public": "no",
+    "images": [],
+    "trans": [
+     "en"
+    ]
+   },
+   "geographical_information": {
+    "state_supergroup": "Neo-Assyrian Empire",
+    "city": {
+     "city_name": "Nineveh",
+     "city_plaides_id": "874621"
+    },
+    "sender_city": ""
+   },
+   "chronological_information": {
+    "tablet_period": {
+     "period_name": "neo-assyrian",
+     "period_start_year": -911,
+     "period_end_year": -612
+    },
+    "start_year": -717,
+    "end_year": -706,
+    "years_source": "date"
+   },
+   "copyright_information": "credits: Adapted from Giovanni B. Lanfranchi and Simo Parpola, The Correspondence of Sargon II, Part II: Letters from the Northern and Northeastern Provinces (State Archives of Assyria, 5), 1990. Lemmatised by Mikko Luukko, 2009-11, as part of the AHRC-funded research project “Mechanisms of Communication in an Ancient Empire: The Correspondence between the King of Assyria and his Magnates in the 8th Century BC” (AH/F016581/1; University College London) directed by Karen Radner. The annotated edition is released under the Creative Commons Attribution Share-Alike license 3.0. Please cite this page as http://oracc.org/saao/P314281/., saa_attribution: Adapted from Giovanni B. Lanfranchi and Simo Parpola, The Correspondence of Sargon II, Part II: Letters from the Northern and Northeastern Provinces (State Archives of Assyria, 5), 1990. Lemmatised by Mikko Luukko, 2009-11, as part of the AHRC-funded research project “Mechanisms of Communication in an Ancient Empire: The Correspondence between the King of Assyria and his Magnates in the 8th Century BC” (AH/F016581/1; University College London) directed by Karen Radner. The annotated edition is released under the Creative Commons Attribution Share-Alike license 3.0., please_cite: Please cite this page as http://oracc.org/saao/P314281/.",
+   "genre": "Administrative Letter"
+  },
+  "content": {
+   "english_translation": "I (wrote him): \"Where are the king's 120 logs?\" He returned and told me: \"I have brought in the third (installment of) logs, and l[ef]t it on the border of Quruba.\"\nThe U[kkean......]\nHe re[turned...] and said to the Ukkean: \"Why do you bring the king's troops to me? I will have them removed.\" When the troops departed, the Ukkean [said to m]e:\n\"[... yo]ur [......]\n[......] the logs (at) the pass [......]\n[......] to the messenger of Adâ [......]\n[......] of the town Paye the men [......]\n[......] the ci[ty......]",
+   "words": [
+    {
+     "frag": "⸢nu-uk\\td",
+     "ref": "P314281.3.1",
+     "inst": "nuk[saying]PRP",
+     "form": "nu-uk",
+     "lemma_form": "nuk",
+     "sense": "saying",
+     "norm": "nuk",
+     "raw_pos": "PRP",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "⸢nu-uk⸣",
+      "break_percentage": 0.5,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "nu",
+        "breakage": "damaged",
+        "optional_delim": "-",
+        "unicode_version": "𒉡"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "uk",
+        "breakage": "damaged",
+        "optional_delim": "",
+        "unicode_version": "𒊌"
+       }
+      ]
+     },
+     "line": 3,
+     "normalized_pos": {
+      "meaning": "Preposition",
+      "normalized_pos": "PRP",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "01",
+     "ref": "P314281.3.2",
+     "inst": "n",
+     "form": "01",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "n",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "⸢01⸣",
+      "break_percentage": 0.5,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "01",
+        "breakage": "damaged",
+        "optional_delim": "",
+        "unicode_version": "𒁹"
+       }
+      ]
+     },
+     "line": 3,
+     "normalized_pos": {
+      "meaning": "Number",
+      "normalized_pos": "NUM",
+      "to_mask": false,
+      "mask_as": "NUM"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "me",
+     "ref": "P314281.3.3",
+     "inst": "mē[hundred]NU",
+     "form": "me",
+     "lemma_form": "meʾatu",
+     "sense": "(one) hundred",
+     "norm": "mē",
+     "raw_pos": "NU",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "⸢me⸣",
+      "break_percentage": 0.5,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "me",
+        "breakage": "damaged",
+        "optional_delim": "",
+        "unicode_version": "𒈨"
+       }
+      ]
+     },
+     "line": 3,
+     "normalized_pos": {
+      "meaning": "Number",
+      "normalized_pos": "NUM",
+      "to_mask": false,
+      "mask_as": "NUM"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "20",
+     "ref": "P314281.3.4",
+     "inst": "n",
+     "form": "20",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "n",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "⸢20⸣",
+      "break_percentage": 0.5,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "20",
+        "breakage": "damaged",
+        "optional_delim": "",
+        "unicode_version": "𒎙"
+       }
+      ]
+     },
+     "line": 3,
+     "normalized_pos": {
+      "meaning": "Number",
+      "normalized_pos": "NUM",
+      "to_mask": false,
+      "mask_as": "NUM"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "{giš}UR₃⸣-MEŠ\\m",
+     "ref": "P314281.3.5",
+     "inst": "gušūrī[log]N",
+     "form": "{GIŠ}UR₃-MEŠ",
+     "lemma_form": "gušūru",
+     "sense": "log",
+     "norm": "gušūrī",
+     "raw_pos": "N",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "{⸢GIŠ⸣}⸢UR₃⸣-MEŠ",
+      "break_percentage": 0.33,
+      "signs": [
+       {
+        "role": "DETERMINATIVE",
+        "meaning": "GIŠ",
+        "breakage": "damaged",
+        "optional_delim": "",
+        "unicode_version": "𒄑"
+       },
+       {
+        "role": "LOGOGRAMIC",
+        "meaning": "UR₃",
+        "breakage": "damaged",
+        "optional_delim": "-",
+        "unicode_version": "𒃡"
+       },
+       {
+        "role": "LOGOGRAMIC",
+        "meaning": "MEŠ",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒎌"
+       }
+      ]
+     },
+     "line": 3,
+     "normalized_pos": {
+      "meaning": "Noun",
+      "normalized_pos": "N",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "ša\\ydm",
+     "ref": "P314281.4.1",
+     "inst": "ša[of]DET",
+     "form": "ša",
+     "lemma_form": "ša",
+     "sense": "of",
+     "norm": "ša",
+     "raw_pos": "DET",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "ša",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "ša",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒊭"
+       }
+      ]
+     },
+     "line": 4,
+     "normalized_pos": {
+      "meaning": "Determinative Pronoun",
+      "normalized_pos": "DET",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "LUGAL",
+     "ref": "P314281.4.2",
+     "inst": "šarri[king]N",
+     "form": "LUGAL",
+     "lemma_form": "šarru",
+     "sense": "king",
+     "norm": "šarri",
+     "raw_pos": "N",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "LUGAL",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "LOGOGRAMIC",
+        "meaning": "LUGAL",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒈗"
+       }
+      ]
+     },
+     "line": 4,
+     "normalized_pos": {
+      "meaning": "Noun",
+      "normalized_pos": "N",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "a-le\\tt-e",
+     "ref": "P314281.4.3",
+     "inst": "alê[where?]QP",
+     "form": "a-le-e",
+     "lemma_form": "ali",
+     "sense": "where?",
+     "norm": "alê",
+     "raw_pos": "QP",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "a-le-e",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "a",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒀀"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "le",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒇷"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "e",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒂊"
+       }
+      ]
+     },
+     "line": 4,
+     "normalized_pos": {
+      "meaning": "Question Pronoun",
+      "normalized_pos": "QP",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "šu-u₂\\m",
+     "ref": "P314281.5.1",
+     "inst": "šû[he]IP",
+     "form": "šu-u₂",
+     "lemma_form": "šū",
+     "sense": "he",
+     "norm": "šû",
+     "raw_pos": "IP",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "šu-u₂",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "šu",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒋗"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "u₂",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒌑"
+       }
+      ]
+     },
+     "line": 5,
+     "normalized_pos": {
+      "meaning": "Independent Pronoun",
+      "normalized_pos": "IP",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "i-su\\t-hur",
+     "ref": "P314281.5.2",
+     "inst": "sahāru[go around//return]V$issuhur",
+     "form": "i-su-hur",
+     "lemma_form": "sahāru",
+     "sense": "return",
+     "norm": "issuhur",
+     "raw_pos": "V",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "i-su-hur",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "i",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒄿"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "su",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒋢"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "hur",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒄯"
+       }
+      ]
+     },
+     "line": 5,
+     "normalized_pos": {
+      "meaning": "Verb",
+      "normalized_pos": "V",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "iq-ṭi-bi-a",
+     "ref": "P314281.5.3",
+     "inst": "iqṭibia[say]V",
+     "form": "iq-ṭi-bi-a",
+     "lemma_form": "qabû",
+     "sense": "say",
+     "norm": "iqṭibia",
+     "raw_pos": "V",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "iq-ṭi-bi-a",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "iq",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒅅"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "ṭi",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒁲"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "bi",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒁉"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "a",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒀀"
+       }
+      ]
+     },
+     "line": 5,
+     "normalized_pos": {
+      "meaning": "Verb",
+      "normalized_pos": "V",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "ma-a",
+     "ref": "P314281.6.1",
+     "inst": "mā[saying]PRP",
+     "form": "ma-a",
+     "lemma_form": "mā",
+     "sense": "saying",
+     "norm": "mā",
+     "raw_pos": "PRP",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "ma-a",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "ma",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒈠"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "a",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒀀"
+       }
+      ]
+     },
+     "line": 6,
+     "normalized_pos": {
+      "meaning": "Preposition",
+      "normalized_pos": "PRP",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "{giš}UR₃-MEŠ\\m",
+     "ref": "P314281.6.2",
+     "inst": "gušūrī[log]N",
+     "form": "{GIŠ}UR₃-MEŠ",
+     "lemma_form": "gušūru",
+     "sense": "log",
+     "norm": "gušūrī",
+     "raw_pos": "N",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "{GIŠ}UR₃-MEŠ",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "DETERMINATIVE",
+        "meaning": "GIŠ",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒄑"
+       },
+       {
+        "role": "LOGOGRAMIC",
+        "meaning": "UR₃",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒃡"
+       },
+       {
+        "role": "LOGOGRAMIC",
+        "meaning": "MEŠ",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒎌"
+       }
+      ]
+     },
+     "line": 6,
+     "normalized_pos": {
+      "meaning": "Noun",
+      "normalized_pos": "N",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "šal-ši-u-te",
+     "ref": "P314281.6.3",
+     "inst": "šalšu[third]NU$šalšiūte",
+     "form": "šal-ši-u-te",
+     "lemma_form": "šalšu",
+     "sense": "third",
+     "norm": "šalšiūte",
+     "raw_pos": "NU",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "šal-ši-u-te",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "šal",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒊩"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "ši",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒅆"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "u",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒌋"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "te",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒋼"
+       }
+      ]
+     },
+     "line": 6,
+     "normalized_pos": {
+      "meaning": "Number",
+      "normalized_pos": "NUM",
+      "to_mask": false,
+      "mask_as": "NUM"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "u₂\\m-se-ri-ba\\t",
+     "ref": "P314281.7.1",
+     "inst": "erēbu[enter//bring in]V$ussēriba",
+     "form": "u₂-se-ri-ba",
+     "lemma_form": "erēbu",
+     "sense": "bring in",
+     "norm": "ussēriba",
+     "raw_pos": "V",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "u₂-se-ri-ba",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "u₂",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒌑"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "se",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒋛"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "ri",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒊑"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "ba",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒁀"
+       }
+      ]
+     },
+     "line": 7,
+     "normalized_pos": {
+      "meaning": "Verb",
+      "normalized_pos": "V",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "ina",
+     "ref": "P314281.7.2",
+     "inst": "ina[in//on]PRP$",
+     "form": "ina",
+     "lemma_form": "ina",
+     "sense": "on",
+     "norm": "ina",
+     "raw_pos": "PRP",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "ina",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "ina",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒀸"
+       }
+      ]
+     },
+     "line": 7,
+     "normalized_pos": {
+      "meaning": "Preposition",
+      "normalized_pos": "PRP",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "ta-hu-me",
+     "ref": "P314281.7.3",
+     "inst": "tahūme[border]N",
+     "form": "ta-hu-me",
+     "lemma_form": "tahūmu",
+     "sense": "border",
+     "norm": "tahūme",
+     "raw_pos": "N",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "ta-hu-me",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "ta",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒋫"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "hu",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒄷"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "me",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒈨"
+       }
+      ]
+     },
+     "line": 7,
+     "normalized_pos": {
+      "meaning": "Noun",
+      "normalized_pos": "N",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "ša\\ydm",
+     "ref": "P314281.8.1",
+     "inst": "ša[of]DET",
+     "form": "ša",
+     "lemma_form": "ša",
+     "sense": "of",
+     "norm": "ša",
+     "raw_pos": "DET",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "ša",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "ša",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒊭"
+       }
+      ]
+     },
+     "line": 8,
+     "normalized_pos": {
+      "meaning": "Determinative Pronoun",
+      "normalized_pos": "DET",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "{kur}qu-ru-ba",
+     "ref": "P314281.8.2",
+     "inst": "Quruba[1]GN",
+     "form": "{KUR}qu-ru-ba",
+     "lemma_form": "Quruba",
+     "sense": "1",
+     "norm": "Quruba",
+     "raw_pos": "GN",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "{KUR}qu-ru-ba",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "DETERMINATIVE",
+        "meaning": "KUR",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒆳"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "qu",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒄣"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "ru",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒊒"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "ba",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒁀"
+       }
+      ]
+     },
+     "line": 8,
+     "normalized_pos": {
+      "meaning": "Geographical Name",
+      "normalized_pos": "GN",
+      "to_mask": false,
+      "mask_as": "GN"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "⸢ur-ta⸣-me",
+     "ref": "P314281.8.3",
+     "inst": "ramû[slacken//leave]V$urtamme",
+     "form": "ur-ta-me",
+     "lemma_form": "ramû",
+     "sense": "leave",
+     "norm": "urtamme",
+     "raw_pos": "V",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "⸢ur-ta⸣-me",
+      "break_percentage": 0.33,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "ur",
+        "breakage": "damaged",
+        "optional_delim": "-",
+        "unicode_version": "𒌨"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "ta",
+        "breakage": "damaged",
+        "optional_delim": "-",
+        "unicode_version": "𒋫"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "me",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒈨"
+       }
+      ]
+     },
+     "line": 8,
+     "normalized_pos": {
+      "meaning": "Verb",
+      "normalized_pos": "V",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "{kur}⸢u₂⸣-[x",
+     "ref": "P314281.9.1",
+     "inst": "u",
+     "form": "{KUR}u₂-x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "{KUR}⸢u₂⸣-[x]",
+      "break_percentage": 0.5,
+      "signs": [
+       {
+        "role": "DETERMINATIVE",
+        "meaning": "KUR",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒆳"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "u₂",
+        "breakage": "damaged",
+        "optional_delim": "-",
+        "unicode_version": "𒌑"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 9,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.9.2",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 9,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.9.3",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 9,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.9.4",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 9,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.9.5",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 9,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x]",
+     "ref": "P314281.9.6",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 9,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "⸢x⸣+[x",
+     "ref": "P314281.13.1",
+     "inst": "u",
+     "form": "x+x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "⸢x⸣+[x]",
+      "break_percentage": 0.75,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "damaged",
+        "optional_delim": "+",
+        "unicode_version": "x"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 13,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.13.2",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 13,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.13.3",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 13,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.13.4",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 13,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.13.5",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 13,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.13.6",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 13,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.13.7",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 13,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.13.8",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 13,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x]",
+     "ref": "P314281.13.9",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 13,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "i-⸢su\\t⸣-[x",
+     "ref": "P314281.14.1",
+     "inst": "u",
+     "form": "i-su-x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "i-⸢su⸣-[x]",
+      "break_percentage": 0.5,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "i",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒄿"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "su",
+        "breakage": "damaged",
+        "optional_delim": "-",
+        "unicode_version": "𒋢"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 14,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x]",
+     "ref": "P314281.14.2",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 14,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "⸢x⸣+[x",
+     "ref": "P314281.14.3",
+     "inst": "u",
+     "form": "x+x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "⸢x⸣+[x]",
+      "break_percentage": 0.75,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "damaged",
+        "optional_delim": "+",
+        "unicode_version": "x"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 14,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.14.4",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 14,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.14.5",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 14,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.14.6",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 14,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x]",
+     "ref": "P314281.14.7",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 14,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "a-na\\t",
+     "ref": "P314281.15.1",
+     "inst": "ana[to]PRP",
+     "form": "a-na",
+     "lemma_form": "ana",
+     "sense": "to",
+     "norm": "ana",
+     "raw_pos": "PRP",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "a-na",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "a",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒀀"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "na",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒈾"
+       }
+      ]
+     },
+     "line": 15,
+     "normalized_pos": {
+      "meaning": "Preposition",
+      "normalized_pos": "PRP",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "{kur}u₂\\m-ka-a.a",
+     "ref": "P314281.15.2",
+     "inst": "Ukkaya[of Ukku]EN",
+     "form": "{KUR}u₂-ka-a.a",
+     "lemma_form": "Ukkaya",
+     "sense": "of Ukku",
+     "norm": "Ukkaya",
+     "raw_pos": "EN",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "{KUR}u₂-ka-a.a",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "DETERMINATIVE",
+        "meaning": "KUR",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒆳"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "u₂",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒌑"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "ka",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒅗"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "a",
+        "breakage": "complete",
+        "optional_delim": ".",
+        "unicode_version": "𒀀"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "a",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒀀"
+       }
+      ]
+     },
+     "line": 15,
+     "normalized_pos": {
+      "meaning": "Ethnic Name",
+      "normalized_pos": "EN",
+      "to_mask": false,
+      "mask_as": "PN"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "iq-ṭi₂-⸢bi⸣",
+     "ref": "P314281.15.3",
+     "inst": "iqṭibi[say]V",
+     "form": "iq-ṭi₂-bi",
+     "lemma_form": "qabû",
+     "sense": "say",
+     "norm": "iqṭibi",
+     "raw_pos": "V",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "iq-ṭi₂-⸢bi⸣",
+      "break_percentage": 0.17,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "iq",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒅅"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "ṭi₂",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒎗"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "bi",
+        "breakage": "damaged",
+        "optional_delim": "",
+        "unicode_version": "𒁉"
+       }
+      ]
+     },
+     "line": 15,
+     "normalized_pos": {
+      "meaning": "Verb",
+      "normalized_pos": "V",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "ma-a",
+     "ref": "P314281.16.1",
+     "inst": "mā[saying]PRP",
+     "form": "ma-a",
+     "lemma_form": "mā",
+     "sense": "saying",
+     "norm": "mā",
+     "raw_pos": "PRP",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "ma-a",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "ma",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒈠"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "a",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒀀"
+       }
+      ]
+     },
+     "line": 16,
+     "normalized_pos": {
+      "meaning": "Preposition",
+      "normalized_pos": "PRP",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "e-mu-qi",
+     "ref": "P314281.16.2",
+     "inst": "emūqē[troops]N",
+     "form": "e-mu-qi",
+     "lemma_form": "emūqu",
+     "sense": "troops",
+     "norm": "emūqē",
+     "raw_pos": "N",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "e-mu-qi",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "e",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒂊"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "mu",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒈬"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "qi",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒆥"
+       }
+      ]
+     },
+     "line": 16,
+     "normalized_pos": {
+      "meaning": "Noun",
+      "normalized_pos": "N",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "ša\\d",
+     "ref": "P314281.16.3",
+     "inst": "ša[of]DET",
+     "form": "ša",
+     "lemma_form": "ša",
+     "sense": "of",
+     "norm": "ša",
+     "raw_pos": "DET",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "ša",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "ša",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒊭"
+       }
+      ]
+     },
+     "line": 16,
+     "normalized_pos": {
+      "meaning": "Determinative Pronoun",
+      "normalized_pos": "DET",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "LUGAL",
+     "ref": "P314281.16.4",
+     "inst": "šarri[king]N",
+     "form": "LUGAL",
+     "lemma_form": "šarru",
+     "sense": "king",
+     "norm": "šarri",
+     "raw_pos": "N",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "LUGAL",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "LOGOGRAMIC",
+        "meaning": "LUGAL",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒈗"
+       }
+      ]
+     },
+     "line": 16,
+     "normalized_pos": {
+      "meaning": "Noun",
+      "normalized_pos": "N",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "a-na",
+     "ref": "P314281.16.5",
+     "inst": "ana[to+=why?]PRP$",
+     "form": "a-na",
+     "lemma_form": "ana",
+     "sense": "to",
+     "norm": "ana",
+     "raw_pos": "PRP",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "a-na",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "a",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒀀"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "na",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒈾"
+       }
+      ]
+     },
+     "line": 16,
+     "normalized_pos": {
+      "meaning": "Preposition",
+      "normalized_pos": "PRP",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "mi₃-ni\\d",
+     "ref": "P314281.16.6",
+     "inst": "mīnu[what?]QP$mīni",
+     "form": "mi₃-ni",
+     "lemma_form": "mīnu",
+     "sense": "what?",
+     "norm": "mīni",
+     "raw_pos": "QP",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "mi₃-ni",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "mi₃",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒈨"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "ni",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒉌"
+       }
+      ]
+     },
+     "line": 16,
+     "normalized_pos": {
+      "meaning": "Question Pronoun",
+      "normalized_pos": "QP",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "ina",
+     "ref": "P314281.17.1",
+     "inst": "ina[in+=to]PRP",
+     "form": "ina",
+     "lemma_form": "ina",
+     "sense": "in",
+     "norm": "ina",
+     "raw_pos": "PRP",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "ina",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "ina",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒀸"
+       }
+      ]
+     },
+     "line": 17,
+     "normalized_pos": {
+      "meaning": "Preposition",
+      "normalized_pos": "PRP",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "UGU-hi-ia",
+     "ref": "P314281.17.2",
+     "inst": "muhhīya[skull]N",
+     "form": "UGU-hi-ia",
+     "lemma_form": "muhhu",
+     "sense": "skull",
+     "norm": "muhhīya",
+     "raw_pos": "N",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "UGU-hi-ia",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "LOGOGRAMIC",
+        "meaning": "UGU",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒌋𒅗"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "hi",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒄭"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "ia",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒅀"
+       }
+      ]
+     },
+     "line": 17,
+     "normalized_pos": {
+      "meaning": "Noun",
+      "normalized_pos": "N",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "tu₂-ba\\t-⸢la⸣",
+     "ref": "P314281.17.3",
+     "inst": "wabālu[bring]V$tubbala",
+     "form": "tu₂-ba-la",
+     "lemma_form": "wabālu",
+     "sense": "bring",
+     "norm": "tubbala",
+     "raw_pos": "V",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "tu₂-ba-⸢la⸣",
+      "break_percentage": 0.17,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "tu₂",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒌓"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "ba",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒁀"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "la",
+        "breakage": "damaged",
+        "optional_delim": "",
+        "unicode_version": "𒆷"
+       }
+      ]
+     },
+     "line": 17,
+     "normalized_pos": {
+      "meaning": "Verb",
+      "normalized_pos": "V",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "a-na\\t-ku\\y-ma",
+     "ref": "P314281.18.1",
+     "inst": "anākūma[I]IP",
+     "form": "a-na-ku-ma",
+     "lemma_form": "anāku",
+     "sense": "I",
+     "norm": "anākūma",
+     "raw_pos": "IP",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "a-na-ku-ma",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "a",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒀀"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "na",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒈾"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "ku",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒆪"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "ma",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒈠"
+       }
+      ]
+     },
+     "line": 18,
+     "normalized_pos": {
+      "meaning": "Independent Pronoun",
+      "normalized_pos": "IP",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "a-ba\\t-ak",
+     "ref": "P314281.18.2",
+     "inst": "abāku[lead away]V$abbak",
+     "form": "a-ba-ak",
+     "lemma_form": "abāku",
+     "sense": "lead away",
+     "norm": "abbak",
+     "raw_pos": "V",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "a-ba-ak",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "a",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒀀"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "ba",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒁀"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "ak",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒀝"
+       }
+      ]
+     },
+     "line": 18,
+     "normalized_pos": {
+      "meaning": "Verb",
+      "normalized_pos": "V",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "ki-i",
+     "ref": "P314281.19.1",
+     "inst": "kī[like//when]PRP'SBJ$kî",
+     "form": "ki-i",
+     "lemma_form": "kī",
+     "sense": "when",
+     "norm": "kî",
+     "raw_pos": "PRP",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "ki-i",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "ki",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒆠"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "i",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒄿"
+       }
+      ]
+     },
+     "line": 19,
+     "normalized_pos": {
+      "meaning": "Preposition",
+      "normalized_pos": "PRP",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "e-mu-qi\\m",
+     "ref": "P314281.19.2",
+     "inst": "emūqē[troops]N",
+     "form": "e-mu-qi",
+     "lemma_form": "emūqu",
+     "sense": "troops",
+     "norm": "emūqē",
+     "raw_pos": "N",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "e-mu-qi",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "e",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒂊"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "mu",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒈬"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "qi",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒆥"
+       }
+      ]
+     },
+     "line": 19,
+     "normalized_pos": {
+      "meaning": "Noun",
+      "normalized_pos": "N",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "u₂\\m-na\\t-me-ša₂-ni\\d",
+     "ref": "P314281.19.3",
+     "inst": "namāšu[set (o.s.) in motion//set out]V$unammišāni",
+     "form": "u₂-na-me-ša₂-ni",
+     "lemma_form": "namāšu",
+     "sense": "set out",
+     "norm": "unammišāni",
+     "raw_pos": "V",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "u₂-na-me-ša₂-ni",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "u₂",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒌑"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "na",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒈾"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "me",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒈨"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "ša₂",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒃻"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "ni",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒉌"
+       }
+      ]
+     },
+     "line": 19,
+     "normalized_pos": {
+      "meaning": "Verb",
+      "normalized_pos": "V",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "{kur}u₂\\m-ka-a.a",
+     "ref": "P314281.20.1",
+     "inst": "Ukkaya[of Ukku]EN",
+     "form": "{KUR}u₂-ka-a.a",
+     "lemma_form": "Ukkaya",
+     "sense": "of Ukku",
+     "norm": "Ukkaya",
+     "raw_pos": "EN",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "{KUR}u₂-ka-a.a",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "DETERMINATIVE",
+        "meaning": "KUR",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒆳"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "u₂",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒌑"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "ka",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒅗"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "a",
+        "breakage": "complete",
+        "optional_delim": ".",
+        "unicode_version": "𒀀"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "a",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒀀"
+       }
+      ]
+     },
+     "line": 20,
+     "normalized_pos": {
+      "meaning": "Ethnic Name",
+      "normalized_pos": "EN",
+      "to_mask": false,
+      "mask_as": "PN"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "[iq-ṭi]-⸢bi⸣-a",
+     "ref": "P314281.20.2",
+     "inst": "iqṭibia[say]V",
+     "form": "iq-ṭi-bi-a",
+     "lemma_form": "qabû",
+     "sense": "say",
+     "norm": "iqṭibia",
+     "raw_pos": "V",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[iq-ṭi]-⸢bi⸣-a",
+      "break_percentage": 0.62,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "iq",
+        "breakage": "missing",
+        "optional_delim": "-",
+        "unicode_version": "𒅅"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "ṭi",
+        "breakage": "missing",
+        "optional_delim": "-",
+        "unicode_version": "𒁲"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "bi",
+        "breakage": "damaged",
+        "optional_delim": "-",
+        "unicode_version": "𒁉"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "a",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒀀"
+       }
+      ]
+     },
+     "line": 20,
+     "normalized_pos": {
+      "meaning": "Verb",
+      "normalized_pos": "V",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "[ma-a",
+     "ref": "P314281.21.1",
+     "inst": "mā[saying]PRP",
+     "form": "ma-a",
+     "lemma_form": "mā",
+     "sense": "saying",
+     "norm": "mā",
+     "raw_pos": "PRP",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[ma-a]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "ma",
+        "breakage": "missing",
+        "optional_delim": "-",
+        "unicode_version": "𒈠"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "a",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "𒀀"
+       }
+      ]
+     },
+     "line": 21,
+     "normalized_pos": {
+      "meaning": "Preposition",
+      "normalized_pos": "PRP",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.21.2",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 21,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.21.3",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 21,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.21.4",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 21,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.21.5",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 21,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.21.6",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 21,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x]-⸢x-ka⸣",
+     "ref": "P314281.21.7",
+     "inst": "u",
+     "form": "x-x-ka",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]-⸢x-ka⸣",
+      "break_percentage": 0.67,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "-",
+        "unicode_version": "x"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "damaged",
+        "optional_delim": "-",
+        "unicode_version": "x"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "ka",
+        "breakage": "damaged",
+        "optional_delim": "",
+        "unicode_version": "𒅗"
+       }
+      ]
+     },
+     "line": 21,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "[x",
+     "ref": "P314281.24.1",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 24,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.24.2",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 24,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x]+⸢x⸣",
+     "ref": "P314281.24.3",
+     "inst": "u",
+     "form": "x+x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]+⸢x⸣",
+      "break_percentage": 0.75,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "+",
+        "unicode_version": "x"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "damaged",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 24,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "{giš}UR₃-MEŠ\\m",
+     "ref": "P314281.24.4",
+     "inst": "gušūrī[log]N",
+     "form": "{GIŠ}UR₃-MEŠ",
+     "lemma_form": "gušūru",
+     "sense": "log",
+     "norm": "gušūrī",
+     "raw_pos": "N",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "{GIŠ}UR₃-MEŠ",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "DETERMINATIVE",
+        "meaning": "GIŠ",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒄑"
+       },
+       {
+        "role": "LOGOGRAMIC",
+        "meaning": "UR₃",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒃡"
+       },
+       {
+        "role": "LOGOGRAMIC",
+        "meaning": "MEŠ",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒎌"
+       }
+      ]
+     },
+     "line": 24,
+     "normalized_pos": {
+      "meaning": "Noun",
+      "normalized_pos": "N",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "{kur}ne₂-ru-bu",
+     "ref": "P314281.24.5",
+     "inst": "nērebu[entrance//pass]N$nērubu",
+     "form": "{KUR}ne₂-ru-bu",
+     "lemma_form": "nērebu",
+     "sense": "pass",
+     "norm": "nērubu",
+     "raw_pos": "N",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "{KUR}ne₂-ru-bu",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "DETERMINATIVE",
+        "meaning": "KUR",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒆳"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "ne₂",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒉌"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "ru",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒊒"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "bu",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒁍"
+       }
+      ]
+     },
+     "line": 24,
+     "normalized_pos": {
+      "meaning": "Noun",
+      "normalized_pos": "N",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "⸢x⸣+[x",
+     "ref": "P314281.24.6",
+     "inst": "u",
+     "form": "x+x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "⸢x⸣+[x]",
+      "break_percentage": 0.75,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "damaged",
+        "optional_delim": "+",
+        "unicode_version": "x"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 24,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.24.7",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 24,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.24.8",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 24,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x]",
+     "ref": "P314281.24.9",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 24,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "[x",
+     "ref": "P314281.25.1",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 25,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.25.2",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 25,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x]",
+     "ref": "P314281.25.3",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 25,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "a-na\\t",
+     "ref": "P314281.25.4",
+     "inst": "ana[to]PRP",
+     "form": "a-na",
+     "lemma_form": "ana",
+     "sense": "to",
+     "norm": "ana",
+     "raw_pos": "PRP",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "a-na",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "a",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒀀"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "na",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒈾"
+       }
+      ]
+     },
+     "line": 25,
+     "normalized_pos": {
+      "meaning": "Preposition",
+      "normalized_pos": "PRP",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "{lu₂v}A—KIN",
+     "ref": "P314281.25.5",
+     "inst": "māru[son]N$mār&šipru[sending]N$šipri",
+     "form": "{LU₂}A-KIN",
+     "lemma_form": "māru",
+     "sense": "son",
+     "norm": "mār",
+     "raw_pos": "N",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "{LU₂~v}A-KIN",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "DETERMINATIVE",
+        "meaning": "LU₂~v",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": ""
+       },
+       {
+        "role": "LOGOGRAMIC",
+        "meaning": "A",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒀀"
+       },
+       {
+        "role": "LOGOGRAMIC",
+        "meaning": "KIN",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒆥"
+       }
+      ]
+     },
+     "line": 25,
+     "normalized_pos": {
+      "meaning": "Noun",
+      "normalized_pos": "N",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "{lu₂v}A—KIN",
+     "ref": "P314281.25.5",
+     "inst": "māru[son]N$mār&šipru[sending]N$šipri",
+     "form": "{LU₂}A-KIN",
+     "lemma_form": "šipru",
+     "sense": "sending",
+     "norm": "šipri",
+     "raw_pos": "N",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "{LU₂~v}A-KIN",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "DETERMINATIVE",
+        "meaning": "LU₂~v",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": ""
+       },
+       {
+        "role": "LOGOGRAMIC",
+        "meaning": "A",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒀀"
+       },
+       {
+        "role": "LOGOGRAMIC",
+        "meaning": "KIN",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒆥"
+       }
+      ]
+     },
+     "line": 25,
+     "normalized_pos": {
+      "meaning": "Noun",
+      "normalized_pos": "N",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "ša\\ydm",
+     "ref": "P314281.25.6",
+     "inst": "ša[of]DET",
+     "form": "ša",
+     "lemma_form": "ša",
+     "sense": "of",
+     "norm": "ša",
+     "raw_pos": "DET",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "ša",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "ša",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒊭"
+       }
+      ]
+     },
+     "line": 25,
+     "normalized_pos": {
+      "meaning": "Determinative Pronoun",
+      "normalized_pos": "DET",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "{1}a-da-⸢a⸣",
+     "ref": "P314281.25.7",
+     "inst": "Ada[]PN$",
+     "form": "{1}a-da-a",
+     "lemma_form": "Ada",
+     "sense": "1",
+     "norm": "Ada",
+     "raw_pos": "PN",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "{1}a-da-⸢a⸣",
+      "break_percentage": 0.12,
+      "signs": [
+       {
+        "role": "DETERMINATIVE",
+        "meaning": "1",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒁹"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "a",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒀀"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "da",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒁕"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "a",
+        "breakage": "damaged",
+        "optional_delim": "",
+        "unicode_version": "𒀀"
+       }
+      ]
+     },
+     "line": 25,
+     "normalized_pos": {
+      "meaning": "Personal Name",
+      "normalized_pos": "PN",
+      "to_mask": false,
+      "mask_as": "PN"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "[x",
+     "ref": "P314281.25.8",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 25,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.25.9",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 25,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.25.10",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 25,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x]",
+     "ref": "P314281.25.11",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 25,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "[x",
+     "ref": "P314281.26.1",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 26,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.26.2",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 26,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x]",
+     "ref": "P314281.26.3",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 26,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "⸢KUR⸣",
+     "ref": "P314281.26.4",
+     "inst": "māti[land]N",
+     "form": "KUR",
+     "lemma_form": "mātu",
+     "sense": "land",
+     "norm": "māti",
+     "raw_pos": "N",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "⸢KUR⸣",
+      "break_percentage": 0.5,
+      "signs": [
+       {
+        "role": "LOGOGRAMIC",
+        "meaning": "KUR",
+        "breakage": "damaged",
+        "optional_delim": "",
+        "unicode_version": "𒆳"
+       }
+      ]
+     },
+     "line": 26,
+     "normalized_pos": {
+      "meaning": "Noun",
+      "normalized_pos": "N",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "{uru}pa-ie-e",
+     "ref": "P314281.26.5",
+     "inst": "Paie[1]SN",
+     "form": "{URU}pa-ie-e",
+     "lemma_form": "Paie",
+     "sense": "1",
+     "norm": "Paie",
+     "raw_pos": "SN",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "{URU}pa-ie-e",
+      "break_percentage": 0.0,
+      "signs": [
+       {
+        "role": "DETERMINATIVE",
+        "meaning": "URU",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒌷"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "pa",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒉺"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "ie",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒅀"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "e",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": "𒂊"
+       }
+      ]
+     },
+     "line": 26,
+     "normalized_pos": {
+      "meaning": "State Name (city name)",
+      "normalized_pos": "SN",
+      "to_mask": false,
+      "mask_as": "GN"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "{lu₂v}ERIM-⸢MEŠ⸣",
+     "ref": "P314281.26.6",
+     "inst": "ṣābāni[troops]N",
+     "form": "{LU₂}ERIM-MEŠ",
+     "lemma_form": "ṣābu",
+     "sense": "troops",
+     "norm": "ṣābāni",
+     "raw_pos": "N",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "{LU₂~v}ERIM-⸢MEŠ⸣",
+      "break_percentage": 0.17,
+      "signs": [
+       {
+        "role": "DETERMINATIVE",
+        "meaning": "LU₂~v",
+        "breakage": "complete",
+        "optional_delim": "",
+        "unicode_version": ""
+       },
+       {
+        "role": "LOGOGRAMIC",
+        "meaning": "ERIM",
+        "breakage": "complete",
+        "optional_delim": "-",
+        "unicode_version": "𒂟"
+       },
+       {
+        "role": "LOGOGRAMIC",
+        "meaning": "MEŠ",
+        "breakage": "damaged",
+        "optional_delim": "",
+        "unicode_version": "𒎌"
+       }
+      ]
+     },
+     "line": 26,
+     "normalized_pos": {
+      "meaning": "Noun",
+      "normalized_pos": "N",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "[x",
+     "ref": "P314281.26.7",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 26,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.26.8",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 26,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.26.9",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 26,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x]",
+     "ref": "P314281.26.10",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 26,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "[x",
+     "ref": "P314281.27.1",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 27,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.27.2",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 27,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x]",
+     "ref": "P314281.27.3",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 27,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "{⸢uru⸣}[x",
+     "ref": "P314281.27.4",
+     "inst": "+x[116]SN$",
+     "form": "{URU}x",
+     "lemma_form": "x",
+     "sense": "116",
+     "norm": "x",
+     "raw_pos": "SN",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "{⸢URU⸣}[x]",
+      "break_percentage": 0.75,
+      "signs": [
+       {
+        "role": "DETERMINATIVE",
+        "meaning": "URU",
+        "breakage": "damaged",
+        "optional_delim": "",
+        "unicode_version": "𒌷"
+       },
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 27,
+     "normalized_pos": {
+      "meaning": "State Name (city name)",
+      "normalized_pos": "SN",
+      "to_mask": false,
+      "mask_as": "GN"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.27.5",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 27,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x",
+     "ref": "P314281.27.6",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 27,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    },
+    {
+     "frag": "x]",
+     "ref": "P314281.27.7",
+     "inst": "u",
+     "form": "x",
+     "lemma_form": "",
+     "sense": "",
+     "norm": "",
+     "raw_pos": "u",
+     "lang": "akk-x-neoass",
+     "sign_dictionaries": {
+      "reading": "[x]",
+      "break_percentage": 1.0,
+      "signs": [
+       {
+        "role": "PHONETIC",
+        "meaning": "x",
+        "breakage": "missing",
+        "optional_delim": "",
+        "unicode_version": "x"
+       }
+      ]
+     },
+     "line": 27,
+     "normalized_pos": {
+      "meaning": "Unknown",
+      "normalized_pos": "U",
+      "to_mask": false,
+      "mask_as": "nan"
+     },
+     "normalized_language": {
+      "is_cuneiform": true,
+      "normalized_language": "Akkadian"
+     }
+    }
+   ],
+   "unicode_str_representation": {
+    "text": "𒉡𒊌 𒁹 𒈨 𒎙 𒄑𒃡𒎌\n𒊭 𒈗 𒀀𒇷𒂊\n𒋗𒌑 𒄿𒋢𒄯 𒅅𒁲𒁉𒀀\n𒈠𒀀 𒄑𒃡𒎌 𒊩𒅆𒌋𒋼\n𒌑𒋛𒊑𒁀 𒀸 𒋫𒄷𒈨\n𒊭 𒆳𒄣𒊒𒁀 𒌨𒋫𒈨\n𒆳𒌑x x x x x x\nx x x x x x x x x\n𒄿𒋢x x x x x x x\n𒀀𒈾 𒆳𒌑𒅗𒀀𒀀 𒅅𒎗𒁉\n𒈠𒀀 𒂊𒈬𒆥 𒊭 𒈗 𒀀𒈾 𒈨𒉌\n𒀸 𒌋𒅗𒄭𒅀 𒌓𒁀𒆷\n𒀀𒈾𒆪𒈠 𒀀𒁀𒀝\n𒆠𒄿 𒂊𒈬𒆥 𒌑𒈾𒈨𒃻𒉌\n𒆳𒌑𒅗𒀀𒀀 𒅅𒁲𒁉𒀀\n𒈠𒀀 x x x x x x𒅗\nx x x 𒄑𒃡𒎌 𒆳𒉌𒊒𒁍 x x x x\nx x x 𒀀𒈾 𒀀𒆥 𒀀𒆥 𒊭 𒁹𒀀𒁕𒀀 x x x x\nx x x 𒆳 𒌷𒉺𒅀𒂊 𒂟𒎌 x x x x\nx x x 𒌷x x x x",
+    "dropped_missing_signs": false,
+    "dropped_damaged_signs": false,
+    "keep_word_segmentation": true,
+    "total_chars": 198,
+    "included_chars": 194
+   },
+   "transliterated_str_representation": {
+    "text": "⸢nu-uk\\td 01 me 20 {giš}UR₃⸣-MEŠ\\m\nša\\ydm LUGAL a-le\\tt-e\nšu-u₂\\m i-su\\t-hur iq-ṭi-bi-a\nma-a {giš}UR₃-MEŠ\\m šal-ši-u-te\nu₂\\m-se-ri-ba\\t ina ta-hu-me\nša\\ydm {kur}qu-ru-ba ⸢ur-ta⸣-me\n{kur}⸢u₂⸣-[x x x x x x]\n⸢x⸣+[x x x x x x x x x]\ni-⸢su\\t⸣-[x x] ⸢x⸣+[x x x x x]\na-na\\t {kur}u₂\\m-ka-a.a iq-ṭi₂-⸢bi⸣\nma-a e-mu-qi ša\\d LUGAL a-na mi₃-ni\\d\nina UGU-hi-ia tu₂-ba\\t-⸢la⸣\na-na\\t-ku\\y-ma a-ba\\t-ak\nki-i e-mu-qi\\m u₂\\m-na\\t-me-ša₂-ni\\d\n{kur}u₂\\m-ka-a.a [iq-ṭi]-⸢bi⸣-a\n[ma-a x x x x x x]-⸢x-ka⸣\n[x x x]+⸢x⸣ {giš}UR₃-MEŠ\\m {kur}ne₂-ru-bu ⸢x⸣+[x x x x]\n[x x x] a-na\\t {lu₂v}A—KIN ša\\ydm {1}a-da-⸢a⸣ [x x x x]\n[x x x] ⸢KUR⸣ {uru}pa-ie-e {lu₂v}ERIM-⸢MEŠ⸣ [x x x x]\n[x x x] {⸢uru⸣}[x x x x]",
+    "pos_tags_with_mask": [],
+    "max_break_fraction_used": 1.0,
+    "total_tokens": 105,
+    "tokens_without_broken": 74
+   },
+   "lemmatized_str_representation": {
+    "text": "nuk UNK meʾatu UNK gušūru\nša šarru ali\nšū sahāru qabû\nmā gušūru šalšu\nerēbu ina tahūmu\nša Quruba ramû\nUNK UNK UNK UNK UNK UNK\nUNK UNK UNK UNK UNK UNK UNK UNK UNK\nUNK UNK UNK UNK UNK UNK UNK\nana Ukkaya qabû\nmā emūqu ša šarru ana mīnu\nina muhhu wabālu\nanāku abāku\nkī emūqu namāšu\nUkkaya qabû\nmā UNK UNK UNK UNK UNK UNK\nUNK UNK UNK gušūru nērebu UNK UNK UNK UNK\nUNK UNK UNK ana māru šipru ša Ada UNK UNK UNK UNK\nUNK UNK UNK mātu Paie ṣābu UNK UNK UNK UNK\nUNK UNK UNK x UNK UNK UNK",
+    "pos_tags_with_mask": [],
+    "max_break_fraction_used": 1.0,
+    "total_tokens": 106,
+    "tokens_without_broken": 48
+   },
+   "normalized_str_representation": {
+    "text": "nuk UNK mē UNK gušūrī\nša šarri alê\nšû issuhur iqṭibia\nmā gušūrī šalšiūte\nussēriba ina tahūme\nša Quruba urtamme\nUNK UNK UNK UNK UNK UNK\nUNK UNK UNK UNK UNK UNK UNK UNK UNK\nUNK UNK UNK UNK UNK UNK UNK\nana Ukkaya iqṭibi\nmā emūqē ša šarri ana mīni\nina muhhīya tubbala\nanākūma abbak\nkî emūqē unammišāni\nUkkaya iqṭibia\nmā UNK UNK UNK UNK UNK UNK\nUNK UNK UNK gušūrī nērubu UNK UNK UNK UNK\nUNK UNK UNK ana mār šipri ša Ada UNK UNK UNK UNK\nUNK UNK UNK māti Paie ṣābāni UNK UNK UNK UNK\nUNK UNK UNK x UNK UNK UNK",
+    "pos_tags_with_mask": [],
+    "max_break_fraction_used": 1.0,
+    "total_tokens": 106,
+    "tokens_without_broken": 48
+   }
+  }
+ }
+}

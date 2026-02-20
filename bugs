@@ -1,0 +1,3 @@
+- the cache dir from the notebooks is different to the general cache. i would like all data stuff to be saved in data - downloads, cache, etc.
+
+there is no requirements.txt file

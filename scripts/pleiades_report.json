@@ -1,0 +1,553 @@
+{
+  "total": 263,
+  "in_zip": 244,
+  "missing_from_zip": [
+    {
+      "pleiades_id": "787747618",
+      "city": "Adab",
+      "raw": "Adab"
+    },
+    {
+      "pleiades_id": "35475912",
+      "city": "Arzawa",
+      "raw": "Arzawa"
+    },
+    {
+      "pleiades_id": "771224406",
+      "city": "Bad-Tibira",
+      "raw": "Bad-Tibira"
+    },
+    {
+      "pleiades_id": "903002",
+      "city": "Bisutun",
+      "raw": "Bisutun"
+    },
+    {
+      "pleiades_id": "124319309",
+      "city": "Bost",
+      "raw": "Bost"
+    },
+    {
+      "pleiades_id": "903021",
+      "city": "Ecbatana",
+      "raw": "Ecbatana"
+    },
+    {
+      "pleiades_id": "776181",
+      "city": "El-Khargeh",
+      "raw": "El-Khargeh"
+    },
+    {
+      "pleiades_id": "903032",
+      "city": "Elvend",
+      "raw": "Elvend"
+    },
+    {
+      "pleiades_id": "727194",
+      "city": "Faqous",
+      "raw": "Faqous"
+    },
+    {
+      "pleiades_id": "207133",
+      "city": "Gherla",
+      "raw": "Gherla (Romania)"
+    },
+    {
+      "pleiades_id": "223856812",
+      "city": "Gleieh",
+      "raw": "Gleieh"
+    },
+    {
+      "pleiades_id": "189103682",
+      "city": "Kibbutz Hamaʿapil",
+      "raw": "Kibbutz Hama-apil"
+    },
+    {
+      "pleiades_id": "189103682",
+      "city": "Kibbutz Hamaʿapil",
+      "raw": "Kibbutz Hamaʿapil"
+    },
+    {
+      "pleiades_id": "922693",
+      "city": "Pasargadae",
+      "raw": "Pasargadae"
+    },
+    {
+      "pleiades_id": "58291143",
+      "city": "Shir as-Sanam",
+      "raw": "Shir as-Sanam"
+    },
+    {
+      "pleiades_id": "727101",
+      "city": "Suez",
+      "raw": "Suez"
+    },
+    {
+      "pleiades_id": "741318296",
+      "city": "Tulul al-Lak",
+      "raw": "Tulul al-Lak"
+    },
+    {
+      "pleiades_id": "874771",
+      "city": "Tushpa",
+      "raw": "Tushpa"
+    },
+    {
+      "pleiades_id": "668262",
+      "city": "Ras Ibn Hani",
+      "raw": "uncertain (mod. Ras Ibn Hani)"
+    }
+  ],
+  "name_mismatches": [
+    {
+      "pleiades_id": "668200",
+      "city": "Tunip",
+      "raw": "Acharneh (Tunip)",
+      "pleiades_title": "Asharne"
+    },
+    {
+      "pleiades_id": "678010",
+      "city": "Akko",
+      "raw": "Akko",
+      "pleiades_title": "Ake/Ptolemais"
+    },
+    {
+      "pleiades_id": "309866128",
+      "city": "Alalakh",
+      "raw": "Alalakh",
+      "pleiades_title": "Alalaḫ"
+    },
+    {
+      "pleiades_id": "658381",
+      "city": "Antakya",
+      "raw": "Antakya",
+      "pleiades_title": "Antiochia/Theoupolis"
+    },
+    {
+      "pleiades_id": "893988",
+      "city": "Dur-Kurigalzu",
+      "raw": "Aqar Quf (Dur-Kurigalzu)",
+      "pleiades_title": "Dur-(Kuri)galzu"
+    },
+    {
+      "pleiades_id": "658399",
+      "city": "Arslan Tash",
+      "raw": "Arslan Tash",
+      "pleiades_title": "Ballatha"
+    },
+    {
+      "pleiades_id": "658399",
+      "city": "Arslan Tash",
+      "raw": "Arslan Tash (Ḫadatu)",
+      "pleiades_title": "Ballatha"
+    },
+    {
+      "pleiades_id": "629040",
+      "city": "Melid",
+      "raw": "Arslantepe (Melidu)",
+      "pleiades_title": "Melitene"
+    },
+    {
+      "pleiades_id": "687843",
+      "city": "Ashdod",
+      "raw": "Ashdod (Asdūdu)",
+      "pleiades_title": "Azotos Paralios"
+    },
+    {
+      "pleiades_id": "687839",
+      "city": "Ashkelon",
+      "raw": "Ashkelon",
+      "pleiades_title": "Ashqelon/Ascalon"
+    },
+    {
+      "pleiades_id": "893945",
+      "city": "Assur",
+      "raw": "Ashur",
+      "pleiades_title": "Ashur/‘Lamban’?/‘Liba(nai)’?"
+    },
+    {
+      "pleiades_id": "893945",
+      "city": "Assur",
+      "raw": "Assur",
+      "pleiades_title": "Ashur/‘Lamban’?/‘Liba(nai)’?"
+    },
+    {
+      "pleiades_id": "893945",
+      "city": "Assur",
+      "raw": "Assur (mod. Qalat Sherqat)",
+      "pleiades_title": "Ashur/‘Lamban’?/‘Liba(nai)’?"
+    },
+    {
+      "pleiades_id": "893945",
+      "city": "Assur",
+      "raw": "Aššur (mod. Qalʿat Sherqat)",
+      "pleiades_title": "Ashur/‘Lamban’?/‘Liba(nai)’?"
+    },
+    {
+      "pleiades_id": "421715028",
+      "city": "Beisan",
+      "raw": "Beisan",
+      "pleiades_title": "Baysān"
+    },
+    {
+      "pleiades_id": "893988",
+      "city": "Dur-Kurigalzu",
+      "raw": "Dur-Kurigalzu",
+      "pleiades_title": "Dur-(Kuri)galzu"
+    },
+    {
+      "pleiades_id": "889522884",
+      "city": "Gath",
+      "raw": "Gath",
+      "pleiades_title": "Gimtu"
+    },
+    {
+      "pleiades_id": "687904",
+      "city": "Gezer",
+      "raw": "Gezer",
+      "pleiades_title": "Gazara"
+    },
+    {
+      "pleiades_id": "718809993",
+      "city": "Ginti-Kirmil",
+      "raw": "Ginti-Kirmil",
+      "pleiades_title": "Tel Jatt"
+    },
+    {
+      "pleiades_id": "238779461",
+      "city": "Hazi",
+      "raw": "Hazi",
+      "pleiades_title": "Hazī"
+    },
+    {
+      "pleiades_id": "687928",
+      "city": "Jerusalem",
+      "raw": "Jerusalem",
+      "pleiades_title": "Ierusalem/Hierosolyma/Col. Aelia Capitolina"
+    },
+    {
+      "pleiades_id": "471828778",
+      "city": "Judi Dagh",
+      "raw": "Judi Dagh",
+      "pleiades_title": "Mount Judi"
+    },
+    {
+      "pleiades_id": "658474",
+      "city": "Marqasu",
+      "raw": "Kahramanmaraş  (Marqasu)",
+      "pleiades_title": "Germanikeia"
+    },
+    {
+      "pleiades_id": "842949950",
+      "city": "Kenk Boǧazı",
+      "raw": "Kenk Boǧazı",
+      "pleiades_title": "Kenk Boğazı"
+    },
+    {
+      "pleiades_id": "912953",
+      "city": "Kissik",
+      "raw": "Kissik",
+      "pleiades_title": "Tell al-Lahm"
+    },
+    {
+      "pleiades_id": "193878353",
+      "city": "Kizkapanlı",
+      "raw": "Kizkapanlı",
+      "pleiades_title": "Kizkapanli"
+    },
+    {
+      "pleiades_id": "874318",
+      "city": "Kulišhinaš",
+      "raw": "Kulišhinaš (mod. (mod. Amuda?)",
+      "pleiades_title": "Ammodios/Amouda"
+    },
+    {
+      "pleiades_id": "874418",
+      "city": "Kurkh",
+      "raw": "Kurkh",
+      "pleiades_title": "Charcha/‘Arcaiapis’/Karcharoman"
+    },
+    {
+      "pleiades_id": "893977",
+      "city": "Kutha",
+      "raw": "Kutha",
+      "pleiades_title": "Cutha"
+    },
+    {
+      "pleiades_id": "893977",
+      "city": "Kutha",
+      "raw": "Kutha (mod. Tell Ibrahim)",
+      "pleiades_title": "Cutha"
+    },
+    {
+      "pleiades_id": "58129442",
+      "city": "Kanesh",
+      "raw": "Kültepe (Kanesh)",
+      "pleiades_title": "Kaneš"
+    },
+    {
+      "pleiades_id": "874588",
+      "city": "Mardin",
+      "raw": "Mardin",
+      "pleiades_title": "Marde/Margdis"
+    },
+    {
+      "pleiades_id": "286681704",
+      "city": "Mari",
+      "raw": "Mari",
+      "pleiades_title": "Māri"
+    },
+    {
+      "pleiades_id": "894042",
+      "city": "Me-Turran",
+      "raw": "Me-Turran",
+      "pleiades_title": "Me-Turnat"
+    },
+    {
+      "pleiades_id": "26356565",
+      "city": "Megiddo",
+      "raw": "Megiddo",
+      "pleiades_title": "Magidû"
+    },
+    {
+      "pleiades_id": "894042",
+      "city": "Me-Turran",
+      "raw": "Mê-Turran",
+      "pleiades_title": "Me-Turnat"
+    },
+    {
+      "pleiades_id": "2970016",
+      "city": "Nahr el-Kelb",
+      "raw": "Nahr el-Kelb",
+      "pleiades_title": "Nahr al-Kalb monuments"
+    },
+    {
+      "pleiades_id": "914118847",
+      "city": "Pāra",
+      "raw": "Pāra",
+      "pleiades_title": "Bara"
+    },
+    {
+      "pleiades_id": "668291",
+      "city": "Qadesh",
+      "raw": "Qadesh",
+      "pleiades_title": "Laodicea ad Libanum"
+    },
+    {
+      "pleiades_id": "893945",
+      "city": "Assur",
+      "raw": "Qalat Sherqat (Assur)",
+      "pleiades_title": "Ashur/‘Lamban’?/‘Liba(nai)’?"
+    },
+    {
+      "pleiades_id": "858969850",
+      "city": "Qalʾeh-i Imam",
+      "raw": "Qalʾeh-i Imam",
+      "pleiades_title": "Qal’eh-i Imam"
+    },
+    {
+      "pleiades_id": "412342122",
+      "city": "Qaṭna",
+      "raw": "Qaṭna",
+      "pleiades_title": "Qatna"
+    },
+    {
+      "pleiades_id": "356369838",
+      "city": "Tell Rimah",
+      "raw": "Qaṭṭara (mod. Tell Rimah)",
+      "pleiades_title": "Qattara?/Karana?"
+    },
+    {
+      "pleiades_id": "528477900",
+      "city": "Sabaʾa",
+      "raw": "Sabaʾa",
+      "pleiades_title": "Al-Sabaa wa Arbain"
+    },
+    {
+      "pleiades_id": "678301",
+      "city": "Shechem",
+      "raw": "Shechem",
+      "pleiades_title": "Neapolis"
+    },
+    {
+      "pleiades_id": "678418",
+      "city": "Taanach",
+      "raw": "Taanach",
+      "pleiades_title": "Tha'anach"
+    },
+    {
+      "pleiades_id": "30774368",
+      "city": "Tarbisu",
+      "raw": "Tarbisu",
+      "pleiades_title": "Tarbiṣu"
+    },
+    {
+      "pleiades_id": "814739",
+      "city": "Tayma",
+      "raw": "Tayma",
+      "pleiades_title": "Thaima"
+    },
+    {
+      "pleiades_id": "111343632",
+      "city": "Tell Abta",
+      "raw": "Tell Abta (Dūr-Bēl-Ḫarrān-bēlī-uṣur)",
+      "pleiades_title": "Dur-Bel-Harran-belu-uṣur"
+    },
+    {
+      "pleiades_id": "658410",
+      "city": "Til Barsip",
+      "raw": "Tell Ahmar (Til Barsip)",
+      "pleiades_title": "Bersiba"
+    },
+    {
+      "pleiades_id": "874688",
+      "city": "Tell Ajaja",
+      "raw": "Tell Ajaja (Šaddikanni)",
+      "pleiades_title": "Shadikanni/Ar(a)ban/(H)Oraba?/*Castellum Arabum"
+    },
+    {
+      "pleiades_id": "237391811",
+      "city": "Tell Billa",
+      "raw": "Tell Billa (Šibaniba)",
+      "pleiades_title": "Šibaniba"
+    },
+    {
+      "pleiades_id": "572048102",
+      "city": "Tell Fakhariyah",
+      "raw": "Tell Fakhariyah (Sikāni)",
+      "pleiades_title": "Sikani"
+    },
+    {
+      "pleiades_id": "894042",
+      "city": "Me-Turran",
+      "raw": "Tell Haddad (Me-Turan)",
+      "pleiades_title": "Me-Turnat"
+    },
+    {
+      "pleiades_id": "286681704",
+      "city": "Mari",
+      "raw": "Tell Hariri (Mari)",
+      "pleiades_title": "Māri"
+    },
+    {
+      "pleiades_id": "894008",
+      "city": "Tell Satu Qala",
+      "raw": "Tell Satu Qala (Idu)",
+      "pleiades_title": "Idu/Diacira/Hit"
+    },
+    {
+      "pleiades_id": "30774368",
+      "city": "Tarbisu",
+      "raw": "Tell Sherif Khan (Tarbisu)",
+      "pleiades_title": "Tarbiṣu"
+    },
+    {
+      "pleiades_id": "180354033",
+      "city": "Tell Yokneam",
+      "raw": "Tell Yokneam",
+      "pleiades_title": "Tel Yokneam"
+    },
+    {
+      "pleiades_id": "356369838",
+      "city": "Tell Rimah",
+      "raw": "Tell al Rimah (Qatara)",
+      "pleiades_title": "Qattara?/Karana?"
+    },
+    {
+      "pleiades_id": "912953",
+      "city": "Kissik",
+      "raw": "Tell al-Lahm",
+      "pleiades_title": "Tell al-Lahm"
+    },
+    {
+      "pleiades_id": "894099",
+      "city": "Tikrit",
+      "raw": "Tikrit",
+      "pleiades_title": "Takrit/Birta"
+    },
+    {
+      "pleiades_id": "658410",
+      "city": "Til Barsip",
+      "raw": "Til-Barsip",
+      "pleiades_title": "Bersiba"
+    },
+    {
+      "pleiades_id": "668200",
+      "city": "Tunip",
+      "raw": "Tunip",
+      "pleiades_title": "Asharne"
+    },
+    {
+      "pleiades_id": "678437",
+      "city": "Tyre",
+      "raw": "Tyre",
+      "pleiades_title": "Tyrus/Col. Septimia Severa"
+    },
+    {
+      "pleiades_id": "668295",
+      "city": "Ugarit",
+      "raw": "Ugarit",
+      "pleiades_title": "Leukos Limen"
+    },
+    {
+      "pleiades_id": "668295",
+      "city": "Ugarit",
+      "raw": "Ugarit (mod. Ras Shamra)",
+      "pleiades_title": "Leukos Limen"
+    },
+    {
+      "pleiades_id": "708232007",
+      "city": "Yoncali",
+      "raw": "Yoncali",
+      "pleiades_title": "Yoncalı"
+    },
+    {
+      "pleiades_id": "420860522",
+      "city": "Zalu-Ab",
+      "raw": "Zalu-Ab",
+      "pleiades_title": "Zalu Ab"
+    },
+    {
+      "pleiades_id": "767486703",
+      "city": "Zawiyeh",
+      "raw": "Zawiyeh",
+      "pleiades_title": "Zawiyah"
+    },
+    {
+      "pleiades_id": "192555966",
+      "city": "Zincirli",
+      "raw": "Zincirli",
+      "pleiades_title": "Sam'al"
+    },
+    {
+      "pleiades_id": "192555966",
+      "city": "Zincirli",
+      "raw": "Zinčirli (Samal)",
+      "pleiades_title": "Sam'al"
+    },
+    {
+      "pleiades_id": "986129162",
+      "city": "Tušhan",
+      "raw": "Ziyaret Tepe (Tušhan)",
+      "pleiades_title": "Ziyaret Tepe"
+    },
+    {
+      "pleiades_id": "413309735",
+      "city": "el-Ghab",
+      "raw": "el-Ghab",
+      "pleiades_title": "Al-Ghab"
+    },
+    {
+      "pleiades_id": "678437",
+      "city": "Šūru",
+      "raw": "Šūru (mod. Savur?)",
+      "pleiades_title": "Tyrus/Col. Septimia Severa"
+    },
+    {
+      "pleiades_id": "677382294",
+      "city": "Tell Chuera",
+      "raw": "Ḫarbe (mod. Tell Chuera)",
+      "pleiades_title": "Tell Chuēra/Harbe"
+    }
+  ]
+}

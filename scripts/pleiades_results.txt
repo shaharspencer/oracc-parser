@@ -1,0 +1,350 @@
+﻿Rows with a numeric pleiades_id: 263
+Pleiades entries in ZIP: 153
+
+======================================================================
+OK  (ID exists in Pleiades ZIP):  244
+MISSING (not in Pleiades ZIP):    19
+
+IDs not found in our Pleiades ZIP (may need re-scraping):
+  pleiades:   787747618  city=Adab  raw='Adab'
+  pleiades:    35475912  city=Arzawa  raw='Arzawa'
+  pleiades:   771224406  city=Bad-Tibira  raw='Bad-Tibira'
+  pleiades:      903002  city=Bisutun  raw='Bisutun'
+  pleiades:   124319309  city=Bost  raw='Bost'
+  pleiades:      903021  city=Ecbatana  raw='Ecbatana'
+  pleiades:      776181  city=El-Khargeh  raw='El-Khargeh'
+  pleiades:      903032  city=Elvend  raw='Elvend'
+  pleiades:      727194  city=Faqous  raw='Faqous'
+  pleiades:      207133  city=Gherla  raw='Gherla (Romania)'
+  pleiades:   223856812  city=Gleieh  raw='Gleieh'
+  pleiades:   189103682  city=Kibbutz Hama╩┐apil  raw='Kibbutz Hama-apil'
+  pleiades:   189103682  city=Kibbutz Hama╩┐apil  raw='Kibbutz Hama╩┐apil'
+  pleiades:      922693  city=Pasargadae  raw='Pasargadae'
+  pleiades:    58291143  city=Shir as-Sanam  raw='Shir as-Sanam'
+  pleiades:      727101  city=Suez  raw='Suez'
+  pleiades:   741318296  city=Tulul al-Lak  raw='Tulul al-Lak'
+  pleiades:      874771  city=Tushpa  raw='Tushpa'
+  pleiades:      668262  city=Ras Ibn Hani  raw='uncertain (mod. Ras Ibn Hani)'
+
+Potential name mismatches (75) ΓÇö our city name not in Pleiades title:
+  pleiades:      668200  our='Tunip'                              pleiades='Asharne'
+  pleiades:      678010  our='Akko'                               pleiades='Ake/Ptolemais'
+  pleiades:   309866128  our='Alalakh'                            pleiades='Alalaß╕½'
+  pleiades:      658381  our='Antakya'                            pleiades='Antiochia/Theoupolis'
+  pleiades:      893988  our='Dur-Kurigalzu'                      pleiades='Dur-(Kuri)galzu'
+  pleiades:      658399  our='Arslan Tash'                        pleiades='Ballatha'
+  pleiades:      658399  our='Arslan Tash'                        pleiades='Ballatha'
+  pleiades:      629040  our='Melid'                              pleiades='Melitene'
+  pleiades:      687843  our='Ashdod'                             pleiades='Azotos Paralios'
+  pleiades:      687839  our='Ashkelon'                           pleiades='Ashqelon/Ascalon'
+  pleiades:      893945  our='Assur'                              pleiades='Ashur/ΓÇÿLambanΓÇÖ?/ΓÇÿLiba(nai)ΓÇÖ?'
+  pleiades:      893945  our='Assur'                              pleiades='Ashur/ΓÇÿLambanΓÇÖ?/ΓÇÿLiba(nai)ΓÇÖ?'
+  pleiades:      893945  our='Assur'                              pleiades='Ashur/ΓÇÿLambanΓÇÖ?/ΓÇÿLiba(nai)ΓÇÖ?'
+  pleiades:      893945  our='Assur'                              pleiades='Ashur/ΓÇÿLambanΓÇÖ?/ΓÇÿLiba(nai)ΓÇÖ?'
+  pleiades:   421715028  our='Beisan'                             pleiades='Bays─ün'
+  pleiades:      893988  our='Dur-Kurigalzu'                      pleiades='Dur-(Kuri)galzu'
+  pleiades:   889522884  our='Gath'                               pleiades='Gimtu'
+  pleiades:      687904  our='Gezer'                              pleiades='Gazara'
+  pleiades:   718809993  our='Ginti-Kirmil'                       pleiades='Tel Jatt'
+  pleiades:   238779461  our='Hazi'                               pleiades='Haz─½'
+  pleiades:      687928  our='Jerusalem'                          pleiades='Ierusalem/Hierosolyma/Col. Aelia Capitolina'
+  pleiades:   471828778  our='Judi Dagh'                          pleiades='Mount Judi'
+  pleiades:      658474  our='Marqasu'                            pleiades='Germanikeia'
+  pleiades:   842949950  our='Kenk Bo╟ºaz─▒'                        pleiades='Kenk Bo─ƒaz─▒'
+  pleiades:      912953  our='Kissik'                             pleiades='Tell al-Lahm'
+  pleiades:   193878353  our='Kizkapanl─▒'                         pleiades='Kizkapanli'
+  pleiades:      874318  our='Kuli┼íhina┼í'                         pleiades='Ammodios/Amouda'
+  pleiades:      874418  our='Kurkh'                              pleiades='Charcha/ΓÇÿArcaiapisΓÇÖ/Karcharoman'
+  pleiades:      893977  our='Kutha'                              pleiades='Cutha'
+  pleiades:      893977  our='Kutha'                              pleiades='Cutha'
+  pleiades:    58129442  our='Kanesh'                             pleiades='Kane┼í'
+  pleiades:      874588  our='Mardin'                             pleiades='Marde/Margdis'
+  pleiades:   286681704  our='Mari'                               pleiades='Ma╠äri'
+  pleiades:      894042  our='Me-Turran'                          pleiades='Me-Turnat'
+  pleiades:    26356565  our='Megiddo'                            pleiades='Magid├╗'
+  pleiades:      894042  our='Me-Turran'                          pleiades='Me-Turnat'
+  pleiades:     2970016  our='Nahr el-Kelb'                       pleiades='Nahr al-Kalb monuments'
+  pleiades:   914118847  our='P─üra'                               pleiades='Bara'
+  pleiades:      668291  our='Qadesh'                             pleiades='Laodicea ad Libanum'
+  pleiades:      893945  our='Assur'                              pleiades='Ashur/ΓÇÿLambanΓÇÖ?/ΓÇÿLiba(nai)ΓÇÖ?'
+  pleiades:   858969850  our='Qal╩╛eh-i Imam'                      pleiades='QalΓÇÖeh-i Imam'
+  pleiades:   412342122  our='Qaß╣¡na'                              pleiades='Qatna'
+  pleiades:   356369838  our='Tell Rimah'                         pleiades='Qattara?/Karana?'
+  pleiades:   528477900  our='Saba╩╛a'                             pleiades='Al-Sabaa wa Arbain'
+  pleiades:      678301  our='Shechem'                            pleiades='Neapolis'
+  pleiades:      678418  our='Taanach'                            pleiades="Tha'anach"
+  pleiades:    30774368  our='Tarbisu'                            pleiades='Tarbiß╣úu'
+  pleiades:      814739  our='Tayma'                              pleiades='Thaima'
+  pleiades:   111343632  our='Tell Abta'                          pleiades='Dur-Bel-Harran-belu-uß╣úur'
+  pleiades:      658410  our='Til Barsip'                         pleiades='Bersiba'
+  pleiades:      874688  our='Tell Ajaja'                         pleiades='Shadikanni/Ar(a)ban/(H)Oraba?/*Castellum Arabum'
+  pleiades:   237391811  our='Tell Billa'                         pleiades='┼áibaniba'
+  pleiades:   572048102  our='Tell Fakhariyah'                    pleiades='Sikani'
+  pleiades:      894042  our='Me-Turran'                          pleiades='Me-Turnat'
+  pleiades:   286681704  our='Mari'                               pleiades='Ma╠äri'
+  pleiades:      894008  our='Tell Satu Qala'                     pleiades='Idu/Diacira/Hit'
+  pleiades:    30774368  our='Tarbisu'                            pleiades='Tarbiß╣úu'
+  pleiades:   180354033  our='Tell Yokneam'                       pleiades='Tel Yokneam'
+  pleiades:   356369838  our='Tell Rimah'                         pleiades='Qattara?/Karana?'
+  pleiades:      912953  our='Kissik'                             pleiades='Tell al-Lahm'
+  pleiades:      894099  our='Tikrit'                             pleiades='Takrit/Birta'
+  pleiades:      658410  our='Til Barsip'                         pleiades='Bersiba'
+  pleiades:      668200  our='Tunip'                              pleiades='Asharne'
+  pleiades:      678437  our='Tyre'                               pleiades='Tyrus/Col. Septimia Severa'
+  pleiades:      668295  our='Ugarit'                             pleiades='Leukos Limen'
+  pleiades:      668295  our='Ugarit'                             pleiades='Leukos Limen'
+  pleiades:   708232007  our='Yoncali'                            pleiades='Yoncal─▒'
+  pleiades:   420860522  our='Zalu-Ab'                            pleiades='Zalu Ab'
+  pleiades:   767486703  our='Zawiyeh'                            pleiades='Zawiyah'
+  pleiades:   192555966  our='Zincirli'                           pleiades="Sam'al"
+  pleiades:   192555966  our='Zincirli'                           pleiades="Sam'al"
+  pleiades:   986129162  our='Tu┼íhan'                             pleiades='Ziyaret Tepe'
+  pleiades:   413309735  our='el-Ghab'                            pleiades='Al-Ghab'
+  pleiades:      678437  our='┼á┼½ru'                               pleiades='Tyrus/Col. Septimia Severa'
+  pleiades:   677382294  our='Tell Chuera'                        pleiades='Tell Chu─ôra/Harbe'
+
+All matched entries (pleiades_id | our normalized_city | Pleiades title):
+        668200  Tunip                                Asharne  *** NAME MISMATCH
+     149576487  el-Amarna                            Amarna
+     149576487  el-Amarna                            Amarna
+        678010  Akko                                 Ake/Ptolemais  *** NAME MISMATCH
+     309866128  Alalakh                              Alala?  *** NAME MISMATCH
+     149576487  el-Amarna                            Amarna
+        893936  Ana                                  Anatho
+        658381  Antakya                              Antiochia/Theoupolis  *** NAME MISMATCH
+        893988  Dur-Kurigalzu                        Dur-(Kuri)galzu  *** NAME MISMATCH
+        874341  Arbela                               Arbela/Arba-ilu
+        658399  Arslan Tash                          Ballatha  *** NAME MISMATCH
+        658399  Arslan Tash                          Ballatha  *** NAME MISMATCH
+        629040  Melid                                Melitene  *** NAME MISMATCH
+        894158  Terqa                                [Terqa]/Asicha?
+        687843  Ashdod                               Azotos Paralios  *** NAME MISMATCH
+        687839  Ashkelon                             Ashqelon/Ascalon  *** NAME MISMATCH
+        893945  Assur                                Ashur/?Lamban??/?Liba(nai)??  *** NAME MISMATCH
+        893945  Assur                                Ashur/?Lamban??/?Liba(nai)??  *** NAME MISMATCH
+        893945  Assur                                Ashur/?Lamban??/?Liba(nai)??  *** NAME MISMATCH
+     532748466  Tell 'Ali                            Tell 'Ali
+        893945  Assur                                Ashur/?Lamban??/?Liba(nai)??  *** NAME MISMATCH
+        893951  Babylon                              Babylon
+        893951  Babylon                              Babylon
+        893951  Babylon                              Babylon
+        893951  Babylon                              Babylon
+     924247288  Bal?w?t                              Bal?w?t
+        874398  Bavian                               Bavian/Khinnis
+        678060  Beirut                               Beirut
+     421715028  Beisan                               Bays?n  *** NAME MISMATCH
+     413309736  Ben Shemen                           Ben Shemen Forest
+     413309736  Ben Shemen                           Ben Shemen Forest
+        893964  Borsippa                             Borsippa/Burs
+     283602441  Hattusa                              Hattusa
+        893964  Borsippa                             Borsippa/Burs
+        893964  Borsippa                             Borsippa/Burs
+     809004346  Brissa                               Nebuchadnezzar II Inscriptions near Brissa
+        668216  Byblos                               Byblos
+        668216  Byblos                               Byblos
+        893951  Babylon                              Babylon
+        658465  Carchemish                           Carchemish
+     764638887  Kalm?karra                           Kalm?karrah Cave
+     764638887  Kalm?karra                           Kalm?karrah Cave
+        893977  Cutha                                Cutha
+        511225  Daskyleion                           Daskyleion
+     945906723  Dawali                               Dawali
+        893987  Dilbat                               Dilbat
+        893987  Dilbat                               Dilbat
+     955792756  Dohuk                                Dohuk
+     413537086  Tell Sabi Abyad                      Tell Sabi Abyad
+     293088342  Giricano                             Giricano
+        893988  Dur-Kurigalzu                        Dur-(Kuri)galzu  *** NAME MISMATCH
+        874458  Dur-Sharrukin                        Dur-Sharrukin
+        874458  Dur-Sharrukin                        Dur-Sharrukin
+        874458  Dur-Sharrukin                        Dur-Sharrukin
+        893991  Dur-Katlimmu                         [Dur-Katlimmu]/Magdalu
+     279984092  Emar                                 Emar
+     279984092  Emar                                 Emar
+     279984092  Emar                                 Emar
+        658465  Carchemish                           Carchemish
+     889522884  Gath                                 Gimtu  *** NAME MISMATCH
+        687904  Gezer                                Gazara  *** NAME MISMATCH
+     718809993  Ginti-Kirmil                         Tel Jatt  *** NAME MISMATCH
+        894003  Haradum                              Haradu
+        658427  Harran/Carrhae                       Harran/Carrhae
+        658427  Harran/Carrhae                       Harran/Carrhae
+     283602441  Hattusa                              Hattusa
+     283602441  Hattusa                              Hattusa
+     283602441  Hattusa                              Hattusa
+     238779461  Hazi                                 Haz?  *** NAME MISMATCH
+     779967430  Hazor                                Tel Hazor
+     249509021  Huzirina                             Huzirina
+     249509021  Huzirina                             Huzirina
+     249509021  Huzirina                             Huzirina
+        912868  Isin                                 Isin
+        687928  Jerusalem                            Ierusalem/Hierosolyma/Col. Aelia Capitolina  *** NAME MISMATCH
+      10280471  Jerwan                               Jerwan Aqueduct
+      10280471  Jerwan                               Jerwan Aqueduct
+     945906724  Judeideh                             Judeideh
+     471828778  Judi Dagh                            Mount Judi  *** NAME MISMATCH
+        874732  Tell Barri                           Tell Barri/[Kahat]
+        658474  Marqasu                              Germanikeia  *** NAME MISMATCH
+        894019  Nimrud                               Nimrud
+        894019  Nimrud                               Nimrud
+        894019  Nimrud                               Nimrud
+     842949950  Kenk Bo?az?                          Kenk Bo?az?  *** NAME MISMATCH
+        874458  Dur-Sharrukin                        Dur-Sharrukin
+        874458  Dur-Sharrukin                        Dur-Sharrukin
+        894027  Kilizu                               Kilizu
+        894027  Kilizu                               Kilizu
+        894028  Kish                                 Kish
+        894028  Kish                                 Kish
+        912953  Kissik                               Tell al-Lahm  *** NAME MISMATCH
+     193878353  Kizkapanl?                           Kizkapanli  *** NAME MISMATCH
+        894028  Kish                                 Kish
+        874318  Kuli?hina?                           Ammodios/Amouda  *** NAME MISMATCH
+        874418  Kurkh                                Charcha/?Arcaiapis?/Karcharoman  *** NAME MISMATCH
+        893977  Kutha                                Cutha  *** NAME MISMATCH
+        893977  Kutha                                Cutha  *** NAME MISMATCH
+        874621  Nineveh                              Nineveh/Ninos
+      58129442  Kanesh                               Kane?  *** NAME MISMATCH
+     430344980  K?r-Tukult?-Ninurta                  K?r-Tukult?-Ninurta
+        687951  Lachish                              Lachish
+        874631  Urmia                                Ormi/[Urmia]
+        707556  Larnaka                              Larnaka
+        912897  Larsa                                Larsa
+        912897  Larsa                                Larsa
+        912897  Larsa                                Larsa
+     223856813  Tell Leilan                          Tell Leilan
+     191400484  Luristan                             Luristan
+        912901  Marad                                Marad
+        874588  Mardin                               Marde/Margdis  *** NAME MISMATCH
+     286681704  Mari                                 Ma?ri  *** NAME MISMATCH
+        894042  Me-Turran                            Me-Turnat  *** NAME MISMATCH
+      26356565  Megiddo                              Magid?  *** NAME MISMATCH
+     279984092  Emar                                 Emar
+     649834357  Mila Mergi                           Mila Mergi
+     457651161  El-Qitar                             El-Qitar
+     532748467  Tell Bazmusian                       Tell Bazmusian
+        894042  Me-Turran                            Me-Turnat  *** NAME MISMATCH
+        874735  Tell Brak                            Tell Brak
+       2970016  Nahr el-Kelb                         Nahr al-Kalb monuments  *** NAME MISMATCH
+     811827554  Najafabad                            Najafabad
+        922685  Naqsh-I Rustam                       Naqsh-i Rustam
+     413309737  Negub Tunnel                         Negub tunnel
+     413309737  Negub Tunnel                         Negub tunnel
+        894019  Nimrud                               Nimrud
+        894019  Nimrud                               Nimrud
+        874621  Nineveh                              Nineveh/Ninos
+        874621  Nineveh                              Nineveh/Ninos
+        874621  Nineveh                              Nineveh/Ninos
+        912910  Nippur                               Nippur/Nufar/?Hippareni?
+        912910  Nippur                               Nippur/Nufar/?Hippareni?
+        912910  Nippur                               Nippur/Nufar/?Hippareni?
+        894054  Nuzi                                 [Nuzi]
+     982176368  Padakku                              Padakku/Fadak
+        922695  Persepolis                           Persepolis/Parsa/Persai/Sat Setun
+        922695  Persepolis                           Persepolis/Parsa/Persai/Sat Setun
+        912986  Uruk                                 Uruk/Orchoe/Erech/Orikut
+     914118847  P?ra                                 Bara  *** NAME MISMATCH
+        668291  Qadesh                               Laodicea ad Libanum  *** NAME MISMATCH
+        893945  Assur                                Ashur/?Lamban??/?Liba(nai)??  *** NAME MISMATCH
+     858969850  Qal?eh-i Imam                        Qal?eh-i Imam  *** NAME MISMATCH
+        894027  Kilizu                               Kilizu
+     412342122  Qa?na                                Qatna  *** NAME MISMATCH
+     356369838  Tell Rimah                           Qattara?/Karana?  *** NAME MISMATCH
+     528477900  Saba?a                               Al-Sabaa wa Arbain  *** NAME MISMATCH
+        678370  Samaria                              Samaria/Sebaste
+        894082  Samarra                              [Samarra]/?Sumere?
+      86623849  Sela?                                Sela
+        678301  Shechem                              Neapolis  *** NAME MISMATCH
+        678393  Sidon                                Sidon/Col. Aurelia Pia
+        894089  Sippar                               Sippar
+        894089  Sippar                               Sippar
+        894089  Sippar                               Sippar
+        894089  Sippar                               Sippar
+     249509021  Huzirina                             Huzirina
+     249509021  Huzirina                             Huzirina
+     413309738  Sur Jureh                            Sur Jureh
+        894082  Samarra                              [Samarra]/?Sumere?
+        912936  Susa                                 Susa/Seleucia ad Eulaeum
+        894082  Samarra                              [Samarra]/?Sumere?
+        912985  Ur                                   Ur(i)
+        912985  Ur                                   Ur(i)
+        912985  Ur                                   Ur(i)
+        912985  Ur                                   Ur(i)
+        912985  Ur                                   Ur(i)
+        912985  Ur                                   Ur(i)
+        912985  Ur                                   Ur(i)
+        912985  Ur                                   Ur(i)
+        912985  Ur                                   Ur(i)
+        912985  Ur                                   Ur(i)
+        912985  Ur                                   Ur(i)
+        912985  Ur                                   Ur(i)
+        912985  Ur                                   Ur(i)
+        912985  Ur                                   Ur(i)
+        912985  Ur                                   Ur(i)
+        912985  Ur                                   Ur(i)
+        912985  Ur                                   Ur(i)
+        912985  Ur                                   Ur(i)
+        912985  Ur                                   Ur(i)
+        912985  Ur                                   Ur(i)
+        678418  Taanach                              Tha'anach  *** NAME MISMATCH
+        894099  Takrit                               Takrit/Birta
+        893991  Dur-Katlimmu                         [Dur-Katlimmu]/Magdalu
+     155838204  Tang-i Var                           Tang-i Var Rock Relief
+      30774368  Tarbisu                              Tarbi?u  *** NAME MISMATCH
+        814739  Tayma                                Thaima  *** NAME MISMATCH
+     111343632  Tell Abta                            Dur-Bel-Harran-belu-u?ur  *** NAME MISMATCH
+        894089  Sippar                               Sippar
+        874723  Tell Abu Marya                       Tell Abu Marya/[Apqu]
+        874723  Tell Abu Marya                       Tell Abu Marya/[Apqu]
+        658410  Til Barsip                           Bersiba  *** NAME MISMATCH
+        874688  Tell Ajaja                           Shadikanni/Ar(a)ban/(H)Oraba?/*Castellum Arabum  *** NAME MISMATCH
+        903013  Der                                  Deru/Beth Daraya/[Badra]
+        894127  Tell Baradan                         Tell Baradan
+        874732  Tell Barri                           Tell Barri/[Kahat]
+     237391811  Tell Billa                           ?ibaniba  *** NAME MISMATCH
+     572048102  Tell Fakhariyah                      Sikani  *** NAME MISMATCH
+        894042  Me-Turran                            Me-Turnat  *** NAME MISMATCH
+        874739  Guzana                               Guzana (Tell Halaf)
+     286681704  Mari                                 Ma?ri  *** NAME MISMATCH
+        912985  Ur                                   Ur(i)
+        894008  Tell Satu Qala                       Idu/Diacira/Hit  *** NAME MISMATCH
+        893991  Dur-Katlimmu                         [Dur-Katlimmu]/Magdalu
+        893991  Dur-Katlimmu                         [Dur-Katlimmu]/Magdalu
+      30774368  Tarbisu                              Tarbi?u  *** NAME MISMATCH
+     193113381  Burmarina                            Burmarina
+     913163220  Tell Tayinat                         Kunulua/Tell Tayinat
+     913163220  Tell Tayinat                         Kunulua/Tell Tayinat
+     913163220  Tell Tayinat                         Kunulua/Tell Tayinat
+     180354033  Tell Yokneam                         Tel Yokneam  *** NAME MISMATCH
+     356369838  Tell Rimah                           Qattara?/Karana?  *** NAME MISMATCH
+        874728  Tell al-Hawa                         Tell al-Hawa
+        912953  Kissik                               Tell al-Lahm  *** NAME MISMATCH
+     914118846  Tigris Tunnel                         Tigris Tunnel Inscriptions
+        894099  Tikrit                               Takrit/Birta  *** NAME MISMATCH
+        658410  Til Barsip                           Bersiba  *** NAME MISMATCH
+     430344980  K?r-Tukult?-Ninurta                  K?r-Tukult?-Ninurta
+        668200  Tunip                                Asharne  *** NAME MISMATCH
+     201144661  Turlu H?y?k                          Turlu H?y?k
+        678437  Tyre                                 Tyrus/Col. Septimia Severa  *** NAME MISMATCH
+        668295  Ugarit                               Leukos Limen  *** NAME MISMATCH
+        668295  Ugarit                               Leukos Limen  *** NAME MISMATCH
+        912985  Ur                                   Ur(i)
+        912985  Ur                                   Ur(i)
+        912986  Uruk                                 Uruk/Orchoe/Erech/Orikut
+        912986  Uruk                                 Uruk/Orchoe/Erech/Orikut
+     359792984  Wadi Bastura Tunnel                  Wadi Bastura Tunnel Inscription
+        912986  Uruk                                 Uruk/Orchoe/Erech/Orikut
+     413537087  Tell Fekheriye                       Tell Fekheriye
+     708232007  Yoncali                              Yoncal?  *** NAME MISMATCH
+     420860522  Zalu-Ab                              Zalu Ab  *** NAME MISMATCH
+     767486703  Zawiyeh                              Zawiyah  *** NAME MISMATCH
+     192555966  Zincirli                             Sam'al  *** NAME MISMATCH
+     192555966  Zincirli                             Sam'al  *** NAME MISMATCH
+     986129162  Tu?han                               Ziyaret Tepe  *** NAME MISMATCH
+     413309735  el-Ghab                              Al-Ghab  *** NAME MISMATCH
+     720628458  Tell el-Hesi                         Tell el-Hesi
+     237391811  ?ibaniba                             ?ibaniba
+     237391811  ?ibaniba                             ?ibaniba
+        678437  ??ru                                 Tyrus/Col. Septimia Severa  *** NAME MISMATCH
+     677382294  Tell Chuera                          Tell Chu?ra/Harbe  *** NAME MISMATCH
+     283602441  Hattusa                              Hattusa
+        874754  Tell Taban                           Tell Taban/[Tabite]/Thebet(h)a?

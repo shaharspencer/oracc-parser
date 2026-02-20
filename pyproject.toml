@@ -1,0 +1,65 @@
+[project]
+name = "oracc-parser"
+version = "0.1.0"
+description = "Download and parse ORACC cuneiform text projects into ML-ready formats"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Shahar Spencer"},
+]
+keywords = ["oracc", "cuneiform", "akkadian", "nlp", "digital-humanities"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Text Processing :: Linguistic",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "requests>=2.31",
+    "pandas>=2.0",
+    "pydantic>=2.0",
+    "tqdm>=4.65",
+    "beautifulsoup4>=4.12",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "httpx>=0.24",
+]
+server = [
+    "fastapi>=0.100",
+    "uvicorn>=0.22",
+]
+notebooks = [
+    "jupyter",
+    "matplotlib",
+]
+
+[project.scripts]
+oracc-parser = "oracc_parser.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/shaharspencer/oracc-parser"
+Issues = "https://github.com/shaharspencer/oracc-parser/issues"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["oracc_parser*"]
+
+[tool.setuptools.package-data]
+"oracc_parser.data" = ["*.csv"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
