@@ -30,9 +30,14 @@ Thumbs.db
 oracc_cache/
 oracc_output/
 *.zip
+data/cache/
+oracc_parser/data/cache/
+add_config_hints.py
 
 # Test artifacts
 tests/test_output/
 
 # Jupyter
 .ipynb_checkpoints/
+
+enriched_data/

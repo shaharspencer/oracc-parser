@@ -100,7 +100,7 @@ def _get_sign_value(signobj: dict, ref_id: str, det: bool = False) -> dict:
     if uni in ("X", "XXX", "o", "") or not val:
         if br == "complete": 
              # If it was marked complete but we have no unicode, 
-             # it might be an x that wasn't caught
+ 
              if val == "x":
                  uni = "x"
                  br = "missing"

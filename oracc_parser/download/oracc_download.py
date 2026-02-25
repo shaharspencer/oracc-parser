@@ -33,7 +33,7 @@ def download_zip(project: str, output_dir: Path | None = None) -> Path | None:
     if output_dir is None:
         output_dir = get_zip_dir()
 
-    url = f"{ORACC_BASE_URL}/json/{project}.zip"
+    url = f"{ORACC_BASE_URL}/json/{project.strip('/')}.zip"
     filename = project.replace("/", "-") + ".zip"
     dest = output_dir / filename
 
@@ -145,7 +145,7 @@ def get_live_project_list() -> list[str]:
     """
     url = f"{ORACC_BASE_URL}/projects.json"
     try:
-        # verify=False because ORACC has SSL issues often
+
         resp = requests.get(url, verify=False, timeout=30)
         resp.raise_for_status()
         data = resp.json()
@@ -226,11 +226,10 @@ def get_live_projects_dataframe() -> "pd.DataFrame":
     for attempt in range(max_retries):
         try:
             logger.info(f"Fetching live project list (attempt {attempt + 1}/{max_retries})...")
-            # verify=False because ORACC has SSL issues often
+
             resp = requests.get(url, verify=False, timeout=timeout)
             
             # Fix known ORACC JSON bug where "projects" key is malformed/doubled
-            # Pattern: "projects": ["\n\t"projects": [{
             text = resp.text
             if '"projects": ["' in text and '"projects": [{' in text:
                 logger.warning("Detected malformed ORACC JSON, attempting regex fix...")
@@ -239,19 +238,13 @@ def get_live_projects_dataframe() -> "pd.DataFrame":
             try:
                 data = json.loads(text)
             except json.JSONDecodeError:
-                # Fallback: if regex didn't catch it, try one more aggressive fix or just fail gracefully
                 logger.warning("Standard JSON parse failed. Trying aggressive cleanup.")
-                # Remove the line `\t"projects": ["\n` if it exists exact match
                 text = text.replace('\t"projects": ["\n', "")
                 data = json.loads(text)
 
-            # 'projectlist.json' usually uses 'projects', 'projects.json' uses 'public'
             projects = data.get("public", data.get("projects", []))
-            
-            # Convert to DataFrame
             df = pd.DataFrame(projects)
             
-            # Rename 'pathname' to 'project' for consistency with our package
             if "pathname" in df.columns:
                 df.rename(columns={"pathname": "project"}, inplace=True)
                 
@@ -265,16 +258,11 @@ def get_live_projects_dataframe() -> "pd.DataFrame":
             else:
                 logger.error("All live fetch attempts failed.")
 
-    # FALLBACK to local CSV
     logger.warning("Falling back to local bundled project metadata.")
     try:
         df = get_projects_metadata()
-        # Rename 'Project_Name' to 'project' to match the live API structure roughly
-        # The local CSV has 'Project_Name', 'Languages', etc.
-        # We might want to standardize column names here if the user expects API format
         if "Project_Name" in df.columns:
             df["project"] = df["Project_Name"]
-            # Map other columns if needed, or just return what we have
         return df
     except Exception as e:
         logger.error(f"Failed to load local fallback metadata: {e}")

@@ -188,14 +188,19 @@ cells = [
 
     code([
         "pos = reference_data.get_pos_tags()\n",
-        "print(f\"POS tags ({len(pos)}):\")\n",
-        "display(pos)",
+        "print(f\"There are {len(pos)} POS tags in total. Here are the major ones used for masking:\")\n",
+        "major_masks = pos[pos['To mask'] == 'yes'][['POS-tag', 'Meaning', 'Mask as']].drop_duplicates()\n",
+        "for _, row in major_masks.head(10).iterrows():\n",
+        "    print(f\"  '{row['POS-tag']}' ({row['Meaning']}) -> masked as {row['Mask as']}\")\n",
+        "print(\"  ...\")"
     ]),
 
     code([
         "langs = reference_data.get_languages()\n",
-        "print(f\"Language codes ({len(langs)}):\")\n",
-        "display(langs)",
+        "print(f\"There are {len(langs)} language variants. The base languages are:\")\n",
+        "base_langs = langs['language_name'].dropna().unique()\n",
+        "for l in sorted(base_langs):\n",
+        "    print(f\"  - {l}\")"
     ]),
 
     # ── Footer ─────────────────────────────────────────────────────────────────

@@ -26,7 +26,6 @@ dependencies = [
     "pydantic>=2.0",
     "tqdm>=4.65",
     "beautifulsoup4>=4.12",
-    "python-dotenv>=1.0",
 ]
 
 [project.optional-dependencies]
@@ -59,7 +58,7 @@ build-backend = "setuptools.build_meta"
 include = ["oracc_parser*"]
 
 [tool.setuptools.package-data]
-"oracc_parser.data" = ["*.csv"]
+"oracc_parser.enriched_data" = ["*.csv"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

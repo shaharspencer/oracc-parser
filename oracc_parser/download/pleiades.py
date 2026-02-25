@@ -156,7 +156,7 @@ class PleiadesData:
     def get_id_by_city(city_name: str) -> str | None:
         """Return the Pleiades ID for a normalized city name.
 
-        Looks up ``oracc_parser/data/provenience.csv``.  Returns ``None`` if
+        Looks up ``oracc_parser/enriched_data/provenience.csv``.  Returns ``None`` if
         the city is not found or has no Pleiades ID.
         """
         return _ensure_city_map().get(city_name)

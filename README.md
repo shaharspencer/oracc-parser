@@ -7,16 +7,10 @@ A Python tool to download and parse [ORACC](http://oracc.museum.upenn.edu/) cune
 - **Download** — Fetch project ZIPs directly from ORACC or Zenodo
 - **Parse** — Convert raw ORACC JSON into structured data
 - **Export** — Save datasets as JSONL, CSV, or pandas DataFrames
-- **Configure** — Control handling of broken signs and POS masking via `.env`
-- **Reference Data** — Bundled provenance, sign lists, period mappings, and more
+- **Configure** — Control handling of broken signs and POS masking using `RunConfig`
 
 ## Installation
 
-```bash
-pip install oracc-parser
-```
-
-Or install from source:
 
 ```bash
 git clone https://github.com/shaharspencer/oracc-parser.git
@@ -52,18 +46,15 @@ df = get_full_flat_table(records)
 df.to_json("dataset.jsonl", orient="records", lines=True)
 ```
 
-## Setup (.env)
+## Configuration
 
-Copy the example file and set your preferences:
+You can customize the parsing process using `RunConfig`:
+- Limit the number of texts parsed
+- Drop broken/missing signs or keep them
+- Provide POS tags to mask (e.g., `["PN", "DN", "RN"]`)
+- Download only specific languages
 
-```bash
-cp .env.example .env
-```
-
-Key settings:
-- `ORACC_ZENODO_RECORD_URL` — Zenodo record for pre-downloaded data
-- `ORACC_DATA_DIR` — where downloaded data lives
-- `ORACC_LOG_LEVEL` — `DEBUG`, `INFO`, `WARNING`, or `ERROR`
+All reference data is bundled with the package, so you don't need to configure external paths unless you are customizing the `oracc_parser.settings`.
 
 ## CLI
 

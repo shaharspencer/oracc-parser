@@ -15,11 +15,9 @@ import zipfile
 from pathlib import Path
 
 import requests
-from dotenv import load_dotenv
 from tqdm import tqdm
 
 # Load token
-load_dotenv(Path(__file__).resolve().parent.parent.parent / ".env")
 TOKEN = os.getenv("ZENODO_ACCESS_TOKEN")
 
 if not TOKEN:

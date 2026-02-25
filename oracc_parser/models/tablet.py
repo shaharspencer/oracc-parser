@@ -137,6 +137,7 @@ class TabletMetadata(BaseModel):
     chronological_information: TabletChronologicalInformation = Field(
         default_factory=TabletChronologicalInformation
     )
+    archive: Optional[str] = ""
     copyright_information: str = ""
     genre: Optional[str] = ""
 

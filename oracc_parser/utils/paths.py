@@ -13,10 +13,10 @@ from pathlib import Path
 import pandas as pd
 
 # ---------------------------------------------------------------------------
-# Bundled reference data (inside oracc_parser/data/)
+# Bundled reference data (inside oracc_parser/enriched_data/)
 # ---------------------------------------------------------------------------
 
-_DATA_PKG = "oracc_parser.data"
+_DATA_PKG = "oracc_parser.enriched_data"
 
 
 def _data_file(filename: str) -> Path:
@@ -42,6 +42,10 @@ def get_languages() -> pd.DataFrame:
 def get_projects_metadata() -> pd.DataFrame:
     """Load ORACC project metadata (project names, languages, etc.)."""
     return pd.read_csv(_data_file("projects_metadata.csv"), dtype=str)
+
+def get_archives() -> pd.DataFrame:
+    """Load the raw to normalized archive mapping."""
+    return pd.read_csv(_data_file("raw_archive_values.csv"), dtype=str)
 
 
 def get_provenience(pleiades_only: bool = True) -> pd.DataFrame:

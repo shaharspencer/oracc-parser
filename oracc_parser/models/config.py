@@ -40,8 +40,10 @@ class RunConfig(BaseModel):
         default_factory=list,
         description=(
             "List of POS tags whose lemma forms should be replaced with a mask token. "
-            "Common choices: 'PN' (Personal Name), 'DN' (Divine Name), "
-            "'GN' (Geographical Name), 'RN' (Royal Name)."
+            "Valid tags include: 'PN' (Personal Name), 'DN' (Divine Name), "
+            "'GN' (Geographical Name), 'MN' (Month Name), "
+            "'SN' (State/City Name), 'N' (Noun), 'V' (Verb), 'AJ' (Adjective), "
+            "and others."
         ),
     )
 
@@ -69,6 +71,9 @@ class RunConfig(BaseModel):
         default_factory=lambda: ["Akkadian"],
         description=(
             "Languages to include when downloading projects. "
-            "Default: ['Akkadian']. Use ['all'] to download everything."
+            "Default: ['Akkadian']. Use ['all'] to download everything. "
+            "Valid languages include: 'Akkadian', 'Sumerian', 'Hittite', "
+            "'Elamite', 'Urartian', 'Old Persian', 'Ugaritic', 'Hurrian', "
+            "'Amorite', 'Aramaic', 'Eblaite', 'Greek', 'Egyptian'."
         ),
     )

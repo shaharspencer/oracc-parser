@@ -10,7 +10,7 @@ Priority order:
 
 **Default directory layout** (relative to the repo root):
 
-    data/
+    enriched_data/
       cache/         ← parsed tablet JSON cache
       jsonzip/       ← downloaded project ZIP files
     output/          ← exported CSVs, JSONL files
@@ -24,15 +24,6 @@ import os
 from functools import lru_cache
 from pathlib import Path
 
-# Try to load .env — python-dotenv is optional
-try:
-    from dotenv import load_dotenv, find_dotenv
-
-    _env_file = find_dotenv(usecwd=True)
-    if _env_file:
-        load_dotenv(_env_file)
-except ImportError:
-    pass  # dotenv not installed — rely on OS env vars
 
 
 def _find_repo_root() -> Path:
@@ -51,10 +42,10 @@ def get_settings() -> dict:
     """Return a dictionary of all settings, resolved from env / .env / defaults."""
     repo_root = _find_repo_root()
 
-    # Default data_dir is <repo_root>/data — everything data-related lives here
-    data_dir = os.getenv("ORACC_DATA_DIR", str(repo_root / "data"))
+    # Default data_dir is <repo_root>/enriched_data — everything data-related lives here
+    data_dir = os.getenv("ORACC_DATA_DIR", str(repo_root / "enriched_data"))
 
-    # output_dir for user-facing exports
+
     output_dir = os.getenv("ORACC_OUTPUT_DIR", str(repo_root / "output"))
 
     return {
@@ -78,7 +69,7 @@ def get_settings() -> dict:
 
 # Convenience accessors
 def data_dir() -> Path:
-    """Configured data directory (default: <repo_root>/data)."""
+    """Configured data directory (default: <repo_root>/enriched_data)."""
     return Path(get_settings()["data_dir"])
 
 

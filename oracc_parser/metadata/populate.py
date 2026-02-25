@@ -19,7 +19,7 @@ from oracc_parser.models.tablet import (
     TabletPeriod,
 )
 from oracc_parser.utils.logger import get_logger
-from oracc_parser.utils.paths import get_provenience, get_period_mapping
+from oracc_parser.utils.paths import get_provenience, get_period_mapping, get_archives
 
 logger = get_logger()
 
@@ -29,21 +29,40 @@ logger = get_logger()
 
 _provenience_df = None
 _period_df = None
+_archives_df = None
 _normalized_cities: dict[str, City] | None = None
-
+_normalized_archives: dict[str, str] | None = None
 
 def _ensure_loaded():
-    global _provenience_df, _period_df, _normalized_cities
+    global _provenience_df, _period_df, _normalized_cities, _archives_df, _normalized_archives
     try:
         if _provenience_df is None:
             _provenience_df = get_provenience(pleiades_only=False)
         if _period_df is None:
             _period_df = get_period_mapping()
+        if _archives_df is None:
+            _archives_df = get_archives()
         if _normalized_cities is None:
             _normalized_cities = _build_normalized_cities(_provenience_df)
+        if _normalized_archives is None:
+            _normalized_archives = _build_normalized_archives(_archives_df)
     except Exception as e:
         logger.error(f"error loading reference data: {e}")
 
+def _build_normalized_archives(df) -> dict[str, str]:
+    """Build raw archive -> normalized archive dict."""
+    result = {}
+    for _, row in df.iterrows():
+        try:
+            raw = str(row.get("Raw Archive Value", "")).strip()
+            # Depending on if 'Projects' column was inserted, norm value is at index 2 or 3
+            # We look for 'Normalized Archive Value' column
+            norm = str(row.get("Normalized Archive Value", "")).strip()
+            if raw and norm:
+                result[raw] = norm
+        except Exception as e:
+            pass
+    return result
 
 def _build_normalized_cities(df) -> dict[str, City]:
     """Build raw_provenience → City dict from the bundled provenience CSV.
@@ -101,12 +120,51 @@ def populate_metadata(
         md.copyright_information = _get_copyright(metadata_dict, project, text_id)
         md.geographical_information = _get_geography(metadata_dict, project, text_id)
         md.chronological_information = _get_chronology(metadata_dict, project, text_id)
+        md.archive = _get_archive(metadata_dict, project, text_id)
         md.genre = metadata_dict.get("genre", "")
     except Exception as e:
         logger.error(f"error in populate_metadata for {project}/{text_id}: {e}")
 
     return md
 
+# ---------------------------------------------------------------------------
+# Archive Mapping
+# ---------------------------------------------------------------------------
+
+def _get_archive(metadata_dict: dict, project: str, text_id: str) -> str:
+    """Extract and normalize the archive from an ORACC catalogue entry."""
+    try:
+        if not _normalized_archives:
+            return ""
+            
+        target_keys = ['archive', 'category_oracc', 'ch_num_name', 'provenience_remarks']
+        found_raws = []
+        
+        for k, v in metadata_dict.items():
+            sk = str(k).lower()
+            sv = str(v).lower()
+            
+            if sk in target_keys or 'archive' in sk:
+                if isinstance(v, str) and v.strip() != "":
+                    found_raws.append(v.strip())
+                    
+            if isinstance(v, str):
+                if 'archiv' in sv or 'librar' in sv:
+                    if sk not in ['text_comments', 'translation_comments', 'publication', 'author', 'credits', 'cite_as', 'bibliography', 'primary_publication', 'photo']:
+                        if "adapted from" not in sv and "lemmatised by" not in sv:
+                            found_raws.append(v.strip())
+                            
+        for raw in found_raws:
+            if raw in _normalized_archives:
+                return _normalized_archives[raw]
+
+            for mapping_k, mapping_v in _normalized_archives.items():
+                if mapping_k.lower() == raw.lower():
+                    return mapping_v
+                    
+    except Exception as e:
+        logger.error(f"error in _get_archive for {project}/{text_id}: {e}")
+    return ""
 
 # ---------------------------------------------------------------------------
 # Copyright  (from src/metadata_processing/get_tablet_copyright_information.py)
