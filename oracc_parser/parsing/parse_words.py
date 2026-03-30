@@ -55,6 +55,10 @@ def _load_lookups():
                 is_cuneiform = str(row.get("Is_cuneiform", "")).lower() == "yes"
                 lang_name = str(row.get("language_name", ""))
                 
+                dialect = str(row.get("dialect", ""))
+                if dialect == "nan":  # pandas empty string fallback
+                    dialect = ""
+                
                 # Check if this name is valid
                 # We can just try to instantiate. If it fails, we catch it.
                 # But we want to store None if invalid, not crash.
@@ -62,13 +66,15 @@ def _load_lookups():
                 try:
                     lang_obj = Language(
                         is_cuneiform=is_cuneiform,
-                        normalized_language=lang_name
+                        normalized_language=lang_name,
+                        dialect=dialect
                     )
                 except Exception:
                     # Fallback to None if the language name isn't in the allowed Literal
                     lang_obj = Language(
                         is_cuneiform=is_cuneiform,
-                        normalized_language=None
+                        normalized_language=None,
+                        dialect=dialect
                     )
                 
                 _language_dict[lang_code] = lang_obj

@@ -87,8 +87,8 @@ def get_zip_dir(base: str | None = None) -> Path:
     if base:
         p = Path(base)
     else:
-        from oracc_parser.settings import jsonzip_dir
-        p = jsonzip_dir()
+        from oracc_parser.settings import JSONZIP_DIR
+        p = JSONZIP_DIR
 
     p.mkdir(parents=True, exist_ok=True)
     return p
