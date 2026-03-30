@@ -35,7 +35,7 @@ logger = get_logger()
 # ---------------------------------------------------------------------------
 
 # These RunConfig fields affect the parsed output.
-# Everything else (use_cache, cache_dir, limit, languages) does NOT.
+# Everything else (USE_CACHE, CACHE_DIR, limit, languages) does NOT.
 _OUTPUT_AFFECTING_FIELDS = (
     "drop_missing",
     "drop_damaged",
@@ -73,8 +73,8 @@ def _resolve_cache_dir(cache_dir: str | None = None) -> Path:
     """Return the base cache directory."""
     if cache_dir:
         return Path(cache_dir)
-    from oracc_parser.settings import cache_dir as settings_cache_dir
-    return settings_cache_dir()
+    from oracc_parser.settings import CACHE_DIR as settings_CACHE_DIR
+    return settings_CACHE_DIR
 
 
 def _tablet_path(

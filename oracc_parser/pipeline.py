@@ -129,7 +129,7 @@ def parse_project(
         record = TabletRecord()
         record.content = parse_json_text(js, config)
         record.content.english_translation = get_translation(
-            project, text_id, cache_dir=config.cache_dir
+            project, text_id, cache_dir=config.CACHE_DIR
         )
         record.metadata = populate_metadata(metadata_dict, text_id, project)
         records.append(record)
@@ -172,7 +172,7 @@ def get_metadata_table(records: list[TabletRecord]) -> pd.DataFrame:
     """Extract a flat metadata table from parsed records.
 
     Returns a DataFrame with one row per tablet, containing:
-    ``id``, ``project``, ``text_id``, ``genre``, ``provenance``,
+    ``id``, ``project``, ``text_id``, ``genre``, ``archive``, ``provenance``,
     ``pleiades_id``, ``period``, ``start_year``, ``end_year``.
 
     Example::
@@ -189,6 +189,7 @@ def get_metadata_table(records: list[TabletRecord]) -> pd.DataFrame:
             "project": md.project,
             "text_id": md.id_text,
             "genre": md.genre or "",
+            "archive": md.archive or "",
             "provenance": md.geographical_information.city.city_name,
             "pleiades_id": md.geographical_information.city.city_plaides_id,
             "state_supergroup": md.geographical_information.state_supergroup,
@@ -300,7 +301,7 @@ def get_full_flat_table(records: list[TabletRecord]) -> pd.DataFrame:
     Combines metadata + all string representations into a single table.
     No nesting, no Pydantic objects — just clean columns.
 
-    Returns columns: ``id``, ``project``, ``text_id``, ``genre``,
+    Returns columns: ``id``, ``project``, ``text_id``, ``genre``, ``archive``,
     ``provenance``, ``period``, ``start_year``, ``end_year``,
     ``transliteration``, ``normalization``, ``lemmatization``,
     ``unicode``, ``translation``, ``total_tokens``, ``tokens_without_broken``.
@@ -325,6 +326,7 @@ def get_full_flat_table(records: list[TabletRecord]) -> pd.DataFrame:
             "project": md.project,
             "text_id": md.id_text,
             "genre": md.genre or "",
+            "archive": md.archive or "",
             "provenance": md.geographical_information.city.city_name,
             "period": (
                 md.chronological_information.tablet_period.period_name

@@ -1,50 +1,50 @@
-lang,language_name,Is_cuneiform,Notes,count,projects,projects_count
-sux,Sumerian,yes,,1263848,"asbp, blms, btto, cams, caspo, ccpo, cdli, ckst, cmawro, csik, dcclt, dccmt, dsst, edlex, eisl, etcsri, iraq, obabat, obel, obmc, obta, ribo, rimanum, rinap, tcma, urap",26
-akk,Akkadian,yes,,1224041,"adsd, aemw, ario, asbp, btto, cams, cdli, ckst, cmawro, contrib, dcclt, ecut, edlex, etcsri, iraq, obabat, obel, obmc, riao, ribo, rinap, saao, suhu, tcma, urap",25
-akk-x-neoass,Akkadian,yes,,496841,"atae, cams, csik, dcclt, eisl, obmc, rinap, saao, tcma",9
-akk-x-stdbab,Akkadian,yes,,404482,"asbp, balt, blms, cams, caspo, ccpo, cmawro, contrib, csik, dcclt, dccmt, dsst, ecut, eisl, glass, obel, obmc, ribo, rinap, saao, tcma",21
-akk-x-neobab,Akkadian,yes,,379814,"atae, babcity, balt, borsippa, cams, csik, obmc, saao",8
-akk-x-midass,Akkadian,yes,,167389,"aemw, akklove, balt, csik, dcclt, dsst, obmc, saao, tcma",9
-akk-x-mbperi,Akkadian,yes,,161285,"aemw, contrib, dcclt, obmc, tcma",5
-qpc,Proto-cuneiform,no,requires different sign list and different parsing,147822,"cdli, edlex",2
-akk-x-ltebab,Akkadian,yes,,130637,"cams, hbtin",2
-akk-x-oldbab,Akkadian,yes,,71438,"akklove, atae, blms, cams, caspo, cdli, csik, dcclt, dccmt, dsst, eisl, nere, obabat, obel, obmc, obta, rimanum, urap",18
-akk-949,Akkadian,yes,,54792,"btto, cmawro, dcclt, eisl, rinap",5
-uga-040,Ugaritic,no,,35221,"aemw, dcclt",2
-sux-x-emesal,Sumerian,yes,,25696,"blms, cams, ccpo, ckst, dcclt, dsst, eisl, obel, ribo, tcma",10
-xur,Urartian,no,,22620,ecut,1
-peo,Persian,no,,7758,ario,1
-xur-946,Urartian,no,,3994,ecut,1
-hit,Hittite,yes,,1936,"aemw, contrib, dcclt",3
-akk-x-midbab,Akkadian,yes,,1828,"akklove, csik, dcclt, dccmt, obel, tcma, urap",7
-arc,Aramaic,no,,1780,"atae, balt, rinap, saao",4
-arc-949,Aramaic,no,,,,
-elx,Elamite,no,,1383,"ario, dcclt",2
-akk-x-stdbab-949,Akkadian,yes,,1376,"csik, dcclt, eisl",3
-akk-x-earakk,Akkadian,yes,,1035,"dcclt, edlex",2
-akk-x-oldass,Akkadian,yes,,1025,"dccmt, tcma",2
-uga,Ugaritic,yes,Ugaritic loanwords in Akkadian,724,"aemw, contrib, dcclt",3
-xhu,Hurrian,yes,,688,"aemw, dcclt",2
-hit-946,Hittite,yes,,345,"aemw, contrib, dcclt",3
-akk-936,Akkadian,yes,,270,dcclt,1
-xur-944,Urartian,yes,,202,ecut,1
-qca,Canaanite,yes,Canaanite loanwords in Akkadian,200,"aemw, contrib",2
-qeb,Numbers,yes,Mathematical texts,99,dccmt,1
-akk-x-mbperi-949,Akkadian,yes,,98,dcclt,1
-akk-x-oldakk,Akkadian,yes,,90,akklove,1
-qcu,Unclear,yes,one broken text,68,cmawro,1
-qpe,Proto-Elamite,no,,56,cdli,1
-grc,Greek,no,,47,dcclt,1
-qur,Urartian,no,,40,ecut,1
-akk-935,Akkadian,yes,,32,dcclt,1
-xhu-040,Hurrian,no,Hurrian loandwords in Ugaritic,28,aemw,1
-akk-x-neoass-949,Akkadian,yes,,27,atae,1
-xhu-946,Hurrian,yes,Hurrian loanwords in Akkadian,23,"aemw, contrib, dcclt",3
-sux-947,Sumerian,yes,,20,dsst,1
-egy-020,Egyptian,yes,Egyptian loandwords in Akkadian,16,"aemw, contrib",2
-sux-x-gloss,Sumerian,yes,,15,dcclt,1
-hlu,Urartian,no,,11,ecut,1
-akk-x-neobab-949,Akkadian,yes,,10,borsippa,1
-sux-x-syll,Sumerian,yes,,10,dcclt,1
-hit-040,Hittite,no,Hittite loanwords in Ugaritic,7,aemw,1
-akk-x-oldbab-949,Akkadian,yes,,5,dcclt,1
+lang,language_name,dialect,Is_cuneiform,Notes,count,projects,projects_count
+sux,Sumerian,,yes,,1263848.0,"asbp, blms, btto, cams, caspo, ccpo, cdli, ckst, cmawro, csik, dcclt, dccmt, dsst, edlex, eisl, etcsri, iraq, obabat, obel, obmc, obta, ribo, rimanum, rinap, tcma, urap",26.0
+akk,Akkadian,,yes,,1224041.0,"adsd, aemw, ario, asbp, btto, cams, cdli, ckst, cmawro, contrib, dcclt, ecut, edlex, etcsri, iraq, obabat, obel, obmc, riao, ribo, rinap, saao, suhu, tcma, urap",25.0
+akk-x-neoass,Akkadian,neoass,yes,,496841.0,"atae, cams, csik, dcclt, eisl, obmc, rinap, saao, tcma",9.0
+akk-x-stdbab,Akkadian,stdbab,yes,,404482.0,"asbp, balt, blms, cams, caspo, ccpo, cmawro, contrib, csik, dcclt, dccmt, dsst, ecut, eisl, glass, obel, obmc, ribo, rinap, saao, tcma",21.0
+akk-x-neobab,Akkadian,neobab,yes,,379814.0,"atae, babcity, balt, borsippa, cams, csik, obmc, saao",8.0
+akk-x-midass,Akkadian,midass,yes,,167389.0,"aemw, akklove, balt, csik, dcclt, dsst, obmc, saao, tcma",9.0
+akk-x-mbperi,Akkadian,mbperi,yes,,161285.0,"aemw, contrib, dcclt, obmc, tcma",5.0
+qpc,Proto-cuneiform,,no,requires different sign list and different parsing,147822.0,"cdli, edlex",2.0
+akk-x-ltebab,Akkadian,ltebab,yes,,130637.0,"cams, hbtin",2.0
+akk-x-oldbab,Akkadian,oldbab,yes,,71438.0,"akklove, atae, blms, cams, caspo, cdli, csik, dcclt, dccmt, dsst, eisl, nere, obabat, obel, obmc, obta, rimanum, urap",18.0
+akk-949,Akkadian,,yes,,54792.0,"btto, cmawro, dcclt, eisl, rinap",5.0
+uga-040,Ugaritic,,no,,35221.0,"aemw, dcclt",2.0
+sux-x-emesal,Sumerian,emesal,yes,,25696.0,"blms, cams, ccpo, ckst, dcclt, dsst, eisl, obel, ribo, tcma",10.0
+xur,Urartian,,no,,22620.0,ecut,1.0
+peo,Persian,,no,,7758.0,ario,1.0
+xur-946,Urartian,,no,,3994.0,ecut,1.0
+hit,Hittite,,yes,,1936.0,"aemw, contrib, dcclt",3.0
+akk-x-midbab,Akkadian,midbab,yes,,1828.0,"akklove, csik, dcclt, dccmt, obel, tcma, urap",7.0
+arc,Aramaic,,no,,1780.0,"atae, balt, rinap, saao",4.0
+arc-949,Aramaic,,no,,,,
+elx,Elamite,,no,,1383.0,"ario, dcclt",2.0
+akk-x-stdbab-949,Akkadian,stdbab,yes,,1376.0,"csik, dcclt, eisl",3.0
+akk-x-earakk,Akkadian,earakk,yes,,1035.0,"dcclt, edlex",2.0
+akk-x-oldass,Akkadian,oldass,yes,,1025.0,"dccmt, tcma",2.0
+uga,Ugaritic,,yes,Ugaritic loanwords in Akkadian,724.0,"aemw, contrib, dcclt",3.0
+xhu,Hurrian,,yes,,688.0,"aemw, dcclt",2.0
+hit-946,Hittite,,yes,,345.0,"aemw, contrib, dcclt",3.0
+akk-936,Akkadian,,yes,,270.0,dcclt,1.0
+xur-944,Urartian,,yes,,202.0,ecut,1.0
+qca,Canaanite,,yes,Canaanite loanwords in Akkadian,200.0,"aemw, contrib",2.0
+qeb,Numbers,,yes,Mathematical texts,99.0,dccmt,1.0
+akk-x-mbperi-949,Akkadian,mbperi,yes,,98.0,dcclt,1.0
+akk-x-oldakk,Akkadian,oldakk,yes,,90.0,akklove,1.0
+qcu,Unclear,,yes,one broken text,68.0,cmawro,1.0
+qpe,Proto-Elamite,,no,,56.0,cdli,1.0
+grc,Greek,,no,,47.0,dcclt,1.0
+qur,Urartian,,no,,40.0,ecut,1.0
+akk-935,Akkadian,,yes,,32.0,dcclt,1.0
+xhu-040,Hurrian,,no,Hurrian loandwords in Ugaritic,28.0,aemw,1.0
+akk-x-neoass-949,Akkadian,neoass,yes,,27.0,atae,1.0
+xhu-946,Hurrian,,yes,Hurrian loanwords in Akkadian,23.0,"aemw, contrib, dcclt",3.0
+sux-947,Sumerian,,yes,,20.0,dsst,1.0
+egy-020,Egyptian,,yes,Egyptian loandwords in Akkadian,16.0,"aemw, contrib",2.0
+sux-x-gloss,Sumerian,gloss,yes,,15.0,dcclt,1.0
+hlu,Urartian,,no,,11.0,ecut,1.0
+akk-x-neobab-949,Akkadian,neobab,yes,,10.0,borsippa,1.0
+sux-x-syll,Sumerian,syll,yes,,10.0,dcclt,1.0
+hit-040,Hittite,,no,Hittite loanwords in Ugaritic,7.0,aemw,1.0
+akk-x-oldbab-949,Akkadian,oldbab,yes,,5.0,dcclt,1.0
