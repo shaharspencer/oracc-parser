@@ -21,18 +21,39 @@ class RunConfig(BaseModel):
         )
     """
 
-    # --- Sign handling ---
+    # --- Sign handling (Unicode cuneiform representation only) ---
     drop_missing: bool = Field(
         default=False,
-        description="Drop entirely missing cuneiform signs ([x]) from unicode text.",
+        description=(
+            "Drop entirely missing cuneiform signs ([x]) from the Unicode cuneiform output. "
+            "Operates sign-by-sign. Does NOT affect transliteration, normalization, or lemmatization."
+        ),
     )
     drop_damaged: bool = Field(
         default=False,
-        description="Drop damaged cuneiform signs (⸢x⸣) from unicode text.",
+        description=(
+            "Drop damaged cuneiform signs (⸢x⸣) from the Unicode cuneiform output. "
+            "Operates sign-by-sign. Does NOT affect transliteration, normalization, or lemmatization."
+        ),
     )
     keep_word_segmentation: bool = Field(
         default=True,
         description="Preserve word boundaries in cuneiform unicode output.",
+    )
+
+    # --- Word-level break filtering (transliteration / normalization / lemmatization) ---
+    max_break_fraction: float = Field(
+        default=1.0,
+        ge=0.0,
+        le=1.0,
+        description=(
+            "Maximum fraction of a word's signs that may be broken/missing before the entire "
+            "word is replaced with 'X' in the transliteration, normalization, and lemmatization "
+            "outputs. A value of 0.0 excludes any word with even one broken sign; 1.0 (default) "
+            "keeps all words regardless of damage. "
+            "This operates at the word level and does NOT affect the Unicode cuneiform output "
+            "(use drop_missing / drop_damaged for that)."
+        ),
     )
 
     # --- POS masking ---

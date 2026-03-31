@@ -6,10 +6,10 @@ tqdm>=4.65
 beautifulsoup4>=4.12
 
 # Development extras (install with: pip install -e ".[dev]")
-# pytest>=7.0
-# pytest-cov>=4.0
-# httpx>=0.24
+pytest>=7.0
+pytest-cov>=4.0
+httpx>=0.24
 
 # Notebook extras (install with: pip install -e ".[notebooks]")
-# jupyter
-# matplotlib
+jupyter
+matplotlib

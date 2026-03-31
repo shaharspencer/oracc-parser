@@ -42,7 +42,9 @@ def parse_json_text(js: dict, config: RunConfig | None = None) -> TabletContent:
         result.words = [parse_word(node) for node in l_nodes]
 
         # 2. Build word-level string representations
-        result = _add_word_level_representations(result, config.mask_pos)
+        result = _add_word_level_representations(
+            result, config.mask_pos, config.max_break_fraction
+        )
 
         # 3. Build sign-level (Unicode) string representation
         result = _add_unicode_representation(
@@ -77,9 +79,15 @@ def _get_l_nodes(js: dict) -> list[dict]:
 
 
 def _add_word_level_representations(
-    result: TabletContent, mask_pos: list[str]
+    result: TabletContent, mask_pos: list[str], max_break_fraction: float = 1.0
 ) -> TabletContent:
-    """Add transliterated, lemmatized, and normalized string representations."""
+    """Add transliterated, lemmatized, and normalized string representations.
+
+    Words whose break percentage exceeds ``max_break_fraction`` are replaced
+    with ``'X'`` in all three text outputs.  This operates at the word level
+    and is independent of the sign-level ``drop_missing`` / ``drop_damaged``
+    flags which only affect the Unicode cuneiform output.
+    """
     if not result.words:
         return result
 
@@ -91,7 +99,10 @@ def _add_word_level_representations(
         ("norm", "normalized_str_representation"),
     ]:
         text, total, without_broken = words_to_text(
-            df=word_df, column=column, pos_tags_to_mask=mask_pos
+            df=word_df,
+            column=column,
+            pos_tags_to_mask=mask_pos,
+            max_break_fraction=max_break_fraction,
         )
         setattr(
             result,
@@ -99,7 +110,7 @@ def _add_word_level_representations(
             TextStringRepresentation(
                 text=text,
                 pos_tags_with_mask=mask_pos,
-                max_break_fraction_used=1,
+                max_break_fraction_used=max_break_fraction,
                 total_tokens=total,
                 tokens_without_broken=without_broken,
             ),

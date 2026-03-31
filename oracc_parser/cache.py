@@ -41,6 +41,7 @@ _OUTPUT_AFFECTING_FIELDS = (
     "drop_damaged",
     "keep_word_segmentation",
     "mask_pos",
+    "max_break_fraction",
 )
 
 
@@ -151,7 +152,7 @@ def load_cached_tablet(
 
         # Config changed → rebuild string representations from cached words
         record.content = _add_word_level_representations(
-            record.content, config.mask_pos
+            record.content, config.mask_pos, config.max_break_fraction
         )
         record.content = _add_unicode_representation(
             record.content,

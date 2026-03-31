@@ -1,9 +1,29 @@
 """
 Convert parsed Word/Sign data into final string representations.
 
-Two levels of text building:
-  1. Word-level: transliteration, lemmatization, normalization strings
-  2. Sign-level: Unicode cuneiform string
+Two levels of text building
+----------------------------
+1. **Word-level** — ``words_to_text()``
+   Produces transliteration, normalization, and lemmatization strings.
+   Break filtering here is *word-granularity*: each word has a
+   ``break_perc`` that represents the fraction of its signs that are
+   missing or damaged.  Words whose ``break_perc`` exceeds
+   ``max_break_fraction`` are replaced wholesale with ``'X'``.
+   Controlled via ``RunConfig.max_break_fraction``.
+
+2. **Sign-level** — ``signs_to_unicode()``
+   Produces the Unicode cuneiform string.
+   Break filtering here is *sign-granularity*: individual signs are
+   dropped (or kept) based on their breakage state (``"missing"`` /
+   ``"damaged"``).  Controlled via ``RunConfig.drop_missing`` and
+   ``RunConfig.drop_damaged``.
+
+.. note::
+   Because the two levels use different granularities and different
+   inclusion rules, **the text versions and the Unicode version are not
+   necessarily aligned**.  A word kept intact in the transliteration
+   (because its average break fraction is below the threshold) may still
+   have individual signs dropped from the Unicode output, and vice-versa.
 """
 
 from typing import Any

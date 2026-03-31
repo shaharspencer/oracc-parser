@@ -73,6 +73,11 @@ def main(argv: list[str] | None = None):
     ps.add_argument("--no-cache", action="store_true", help="Disable caching")
     ps.add_argument("--no-download", action="store_true", help="Skip download step")
 
+    # --------------- fetch-data ---------------
+    fd = subparsers.add_parser("fetch-data", help="Download pre-processed data from Zenodo")
+    fd.add_argument("--url", "-u", default=None, help="Zenodo record URL")
+    fd.add_argument("--output", "-o", default=None, help="Destination directory")
+
     # --------------- info ---------------
     subparsers.add_parser("info", help="Show bundled reference data summary")
 
@@ -87,6 +92,8 @@ def main(argv: list[str] | None = None):
 
     if args.command == "download":
         _cmd_download(args)
+    elif args.command == "fetch-data":
+        _cmd_fetch_data(args)
     elif args.command == "parse":
         _cmd_parse(args)
     elif args.command == "info":
@@ -96,6 +103,17 @@ def main(argv: list[str] | None = None):
     else:
         parser.print_help()
         sys.exit(1)
+
+
+def _cmd_fetch_data(args):
+    """Handle the fetch-data command."""
+    from pathlib import Path
+    from oracc_parser.download.fetch_data import fetch_data
+
+    fetch_data(
+        url=args.url,
+        dest=Path(args.output) if args.output else None,
+    )
 
 
 def _cmd_download(args):

@@ -1,5 +1,5 @@
 id,project,text_id,genre,provenance,period,start_year,end_year,transliteration,normalization,lemmatization,unicode,translation,total_tokens,tokens_without_broken
-saao/saa01_P314227,saao/saa01,P314227,Administrative Letter,Nineveh,Neo-Assyrian,-911,-612,"[a-na LUGAL be-li₂]-ia₂
+saao/saa01_P314227,saao/saa01,P314227,Administrative Letter,Nineveh,Neo-Assyrian,-721,-705,"[a-na LUGAL be-li₂]-ia₂
 [ARAD-ka {1}ki-ṣir—aš-šur lu] DI-mu a-⸢na⸣
 [LUGAL be-li₂-ia₂ ša LUGAL] ⸢be⸣-li₂ iš-⸢pur-an-ni⸣
 [ma-a x x x x]-ia ina IGI
@@ -76,7 +76,7 @@ As to what the king] my lord wrote to me:
 [......] of the Inner City [...] their
 [...... of] Arbela and [...]
 [......] tiller",107,62
-saao/saa01_P313458,saao/saa01,P313458,Administrative Letter,Nineveh,Neo-Assyrian,-911,-612,"[a-na LUGAL] EN-⸢ia⸣ ARAD-⸢ka⸣ {1}hu-un-ni-i]
+saao/saa01_P313458,saao/saa01,P313458,Administrative Letter,Nineveh,Neo-Assyrian,-721,-705,"[a-na LUGAL] EN-⸢ia⸣ ARAD-⸢ka⸣ {1}hu-un-ni-i]
 [lu-u] ⸢šul⸣-mu a-na ⸢LUGAL EN⸣-ia₂ {d}AG\d u {⸢d⸣}[AMAR.UTU a-na LUGAL EN-ia₂]
 [lik-ru-bu] UD-MEŠ SUD-MEŠ ⸢ṭu⸣-ub ŠA₃-bi ṭu-ub [UZU-MEŠ ši-bu-tu₂ lit-tu₂-tu]
 {[giš]}⸢TUKUL⸣ dan-nu BALA GID₂.DA MU.AN.NA-MEŠ am—mar ⸢ša\p⸣ [x x x x x]
@@ -172,7 +172,7 @@ Within four days,... the time (for the ritual). He (said): ""(It is) time"".
 We shall arrive (in the Inner City) on the 1st; the... is on the 14th; we shall spend the night in the temple on the 15th.
 Now, [......] whenever the king orders.
 As to the Washing-of-the-Mouth (ceremony) [......",179,167
-saao/saa01_P334317,saao/saa01,P334317,Administrative Letter,Nineveh,Neo-Assyrian,-911,-612,"13 KUŠ₃ mu-lu-u 04 KUŠ₃ DAGAL E₂—dan-ni
+saao/saa01_P334317,saao/saa01,P334317,Administrative Letter,Nineveh,Neo-Assyrian,-721,-705,"13 KUŠ₃ mu-lu-u 04 KUŠ₃ DAGAL E₂—dan-ni
 [x KUŠ₃] mu-lu-u 04 KUŠ₃ DAGAL E₂ qal₃\dp-lu
 [x KUŠ₃] mu-lu-u 03 KUŠ₃ ru-ṭu DAGAL 04-šu₂ ta-ʾu-ma-te
 [x KUŠ₃] ru-ṭu mu-lu-u 03 KUŠ₃ DAGAL 02-šu₂ KI.MIN
@@ -218,7 +218,7 @@ Heig[ht x cubits],  (width) three cubits and a span: one single (door);
 [Height x cubits], width three cubits: 15...;
 [In all 28] single doors.
 [Total 36] doors.",67,67
-saao/saa01_P314232,saao/saa01,P314232,Administrative Letter,Nineveh,Neo-Assyrian,-911,-612,"[a]-⸢na⸣ EN.⸢NUN-ku-nu la ta⸣-[ši-ṭa EN.NUN-ku-nu]
+saao/saa01_P314232,saao/saa01,P314232,Administrative Letter,Nineveh,Neo-Assyrian,-707,-707,"[a]-⸢na⸣ EN.⸢NUN-ku-nu la ta⸣-[ši-ṭa EN.NUN-ku-nu]
 lu dan-na-at la-aš₂-šu ma-[x x x x]
 ni-kit-ta-ku-nu TA@v\m pa-ni-šu [lu la-aš₂-šu]
 dul-la-ku-nu ep-ša₂ {lu₂v}um\y-ma-[ni te-re-e-ti]
@@ -372,7 +372,7 @@ Aššur-reš-iši the royal bodyguard [has met with the dignitaries] of Bit-Barr
 ......] until [I come]. Now [......] and [send them] to me.
 [I am writing to you] right [now]: write me [...... of Aš]pabara [...... o]f enthroning [......, and...... when] you have concluded [a treaty] with them. And afterwards [......
 As to what you wrote to me: ""[We piled up for them] 600 (homers) of barley with a seah measure"" — did you pile it up for them with a seah of 9 litres? [......] the barley so that the barley at their disposal will be [...].",297,161
-saao/saa01_P224487,saao/saa01,P224487,Administrative Letter,Nimrud,Neo-Assyrian,-911,-612,"[a-na LUGAL] EN-⸢ia⸣
+saao/saa01_P224487,saao/saa01,P224487,Administrative Letter,Nimrud,Neo-Assyrian,-717,-706,"[a-na LUGAL] EN-⸢ia⸣
 [ARAD-ka {1}{⸢d}MES⸣—rem₂-[a-ni]
 [lu DI-mu a]-na LUGAL EN-[ia]
 [i-sin]-⸢nu⸣ e-pi-[iš]

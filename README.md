@@ -49,12 +49,47 @@ df.to_json("dataset.jsonl", orient="records", lines=True)
 ## Configuration
 
 You can customize the parsing process using `RunConfig`:
-- Limit the number of texts parsed
-- Drop broken/missing signs or keep them
-- Provide POS tags to mask (e.g., `["PN", "DN", "RN"]`)
-- Download only specific languages
 
-All reference data is bundled with the package, so you don't need to configure external paths unless you are customizing the `oracc_parser.settings`.
+```python
+from oracc_parser import parse_project, RunConfig
+
+records = parse_project("saao/saa01", config=RunConfig(
+    limit=10,
+    max_break_fraction=0.5,   # word-level: drop words that are >50% broken
+    drop_missing=True,        # sign-level: drop [x] signs from Unicode output
+    drop_damaged=False,       # sign-level: keep ⸢x⸣ signs in Unicode output
+    mask_pos=["PN", "DN"],    # replace personal/divine names with tag
+))
+```
+
+### Two independent levels of break filtering
+
+`RunConfig` provides two distinct ways to handle damaged or missing text,
+operating at different granularities and affecting different outputs:
+
+| Parameter | Level | Affects | How it works |
+|---|---|---|---|
+| `max_break_fraction` | **Word** | Transliteration, normalization, lemmatization | Each word has a `break_perc` (fraction of its signs that are broken). Words exceeding this threshold are replaced with `X`. Default `1.0` keeps all words. |
+| `drop_missing` | **Sign** | Unicode cuneiform only | Drops individual signs marked `[x]` (completely lost). |
+| `drop_damaged` | **Sign** | Unicode cuneiform only | Drops individual signs marked `⸢x⸣` (partially legible). |
+
+> **Note:** Because word-level and sign-level filtering use different thresholds
+> and different granularities, **the text outputs and the Unicode cuneiform output
+> are not necessarily aligned**. A word kept in the transliteration (because its
+> average damage is below `max_break_fraction`) may still have individual signs
+> dropped from the Unicode output if `drop_missing` / `drop_damaged` are enabled.
+
+### Other options
+
+| Parameter | Default | Description |
+|---|---|---|
+| `limit` | `None` | Only parse the first N texts (useful for testing) |
+| `keep_word_segmentation` | `True` | Preserve word boundaries in Unicode cuneiform output |
+| `mask_pos` | `[]` | Replace words of certain POS tags with the tag name |
+| `languages` | `["Akkadian"]` | Which languages to include when downloading projects |
+| `use_cache` | `True` | Use cached results if available |
+
+All reference data is bundled with the package, so you don't need to configure external paths unless you are customizing `oracc_parser.settings`.
 
 ## CLI
 
