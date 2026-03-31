@@ -1,109 +1,85 @@
 """
-Application settings loaded from environment variables and .env file.
+Application settings and directory paths.
 
-This centralizes all configuration so users can set values in one place.
+This centralizes configuration. To change where your data is stored or where 
+the parser outputs files, simply override these variables at runtime or edit this file directly.
 
-Priority order:
-  1. Environment variables (highest)
-  2. .env file (found by walking up from cwd)
-  3. Defaults defined here (lowest)
+Example in a notebook:
+    import oracc_parser.settings as settings
+    from pathlib import Path
+    settings.DATA_DIR = Path("D:/my_custom_oracc_data")
 
 **Default directory layout** (relative to the repo root):
 
-    enriched_data/
-      cache/         ← parsed tablet JSON cache
-      jsonzip/       ← downloaded project ZIP files
-    output/          ← exported CSVs, JSONL files
-
-The repo root is determined by locating the nearest `pyproject.toml`
-when running from inside the repo (including from notebooks/).
-If no `pyproject.toml` is found, cwd is used as fallback.
+    enriched_data/   <-- DATA_DIR
+      cache/         <-- CACHE_DIR (parsed tablet JSON cache)
+      jsonzip/       <-- JSONZIP_DIR (downloaded project ZIP files)
+      output/        <-- OUTPUT_DIR (exported CSVs, JSONL files)
 """
 
-import os
-from functools import lru_cache
 from pathlib import Path
 
 
-
 def _find_repo_root() -> Path:
-    """Return the package root (the directory that contains oracc_parser/).
-
-    Anchored to *this file's location* so paths are stable regardless of
-    where Python / Jupyter is launched from.  settings.py lives at
-    ``<repo_root>/oracc_parser/settings.py``, so two .parent calls give us
-    ``<repo_root>``.
-    """
+    """Return the package root (the directory that contains oracc_parser/)."""
     return Path(__file__).resolve().parent.parent
 
+# --- Global Configuration Variables ---
 
-@lru_cache(maxsize=1)
-def get_settings() -> dict:
-    """Return a dictionary of all settings, resolved from env / .env / defaults."""
-    repo_root = _find_repo_root()
+# Base directories
+REPO_ROOT: Path = _find_repo_root()
+DATA_DIR: Path = REPO_ROOT / "enriched_data"
+OUTPUT_DIR: Path = DATA_DIR / "output"
 
-    # Default data_dir is <repo_root>/enriched_data — everything data-related lives here
-    data_dir = os.getenv("ORACC_DATA_DIR", str(repo_root / "enriched_data"))
+# Specific data subdirectories
+CACHE_DIR: Path = DATA_DIR / "cache"
+JSONZIP_DIR: Path = DATA_DIR / "jsonzip"
 
+# URL for downloading reference data (Zenodo)
+ZENODO_RECORD_URL: str = "https://zenodo.org/records/18643122"
 
-    output_dir = os.getenv("ORACC_OUTPUT_DIR", str(repo_root / "output"))
+# Should the parser use cached output?
+USE_CACHE: bool = True
 
-    return {
-        # Zenodo
-        "zenodo_record_url": os.getenv(
-            "ORACC_ZENODO_RECORD_URL", "https://zenodo.org/records/18643122"
-        ),
-        # Directories — all data-related paths are under data_dir by default
-        "data_dir": data_dir,
-        "output_dir": output_dir,
-        "cache_dir": os.getenv("ORACC_CACHE_DIR", str(Path(data_dir) / "cache")),
-        "jsonzip_dir": os.getenv("ORACC_JSONZIP_DIR", str(Path(data_dir) / "jsonzip")),
-        # Cache
-        "use_cache": os.getenv("ORACC_USE_CACHE", "true").lower() == "true",
-        # Pleiades
-        "pleiades_zip": os.getenv("ORACC_PLEIADES_ZIP", ""),
-        # Logging
-        "log_level": os.getenv("ORACC_LOG_LEVEL", "INFO"),
-    }
+# Logging
+LOG_LEVEL: str = "INFO"
+
+# Optional Zip for Pleiades (if manually downloaded)
+PLEIADES_ZIP: Path | None = None
 
 
-# Convenience accessors
+# --- Convenience Accessors for Backwards Compatibility ---
+# These functions dynamically return the current value of the global variables above,
+# ensuring that runtime overrides (like settings.DATA_DIR = ...) take effect everywhere.
+
 def data_dir() -> Path:
-    """Configured data directory (default: <repo_root>/enriched_data)."""
-    return Path(get_settings()["data_dir"])
-
+    global DATA_DIR
+    return DATA_DIR
 
 def output_dir() -> Path:
-    """Configured output directory (default: <repo_root>/output)."""
-    return Path(get_settings()["output_dir"])
-
+    global OUTPUT_DIR
+    return OUTPUT_DIR
 
 def cache_dir() -> Path:
-    """Configured cache directory (default: <repo_root>/data/cache)."""
-    return Path(get_settings()["cache_dir"])
-
+    global CACHE_DIR
+    return CACHE_DIR
 
 def jsonzip_dir() -> Path:
-    """Configured directory for project ZIP files (default: <repo_root>/data/jsonzip)."""
-    return Path(get_settings()["jsonzip_dir"])
-
+    global JSONZIP_DIR
+    return JSONZIP_DIR
 
 def zenodo_url() -> str:
-    """Zenodo record URL for pre-downloaded data."""
-    return get_settings()["zenodo_record_url"]
-
+    global ZENODO_RECORD_URL
+    return ZENODO_RECORD_URL
 
 def use_cache() -> bool:
-    """Whether to prefer cached data."""
-    return get_settings()["use_cache"]
-
+    global USE_CACHE
+    return USE_CACHE
 
 def log_level() -> str:
-    """Configured log level."""
-    return get_settings()["log_level"]
-
+    global LOG_LEVEL
+    return LOG_LEVEL
 
 def pleiades_zip_path() -> Path | None:
-    """Path to pre-downloaded Pleiades ZIP, or None."""
-    p = get_settings()["pleiades_zip"]
-    return Path(p) if p else None
+    global PLEIADES_ZIP
+    return PLEIADES_ZIP

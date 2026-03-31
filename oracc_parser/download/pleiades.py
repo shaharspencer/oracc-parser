@@ -28,7 +28,7 @@ from typing import Any
 
 import requests
 
-from oracc_parser.settings import data_dir
+from oracc_parser.settings import DATA_DIR
 from oracc_parser.utils.logger import get_logger
 from oracc_parser.utils.paths import get_provenience
 
@@ -44,12 +44,11 @@ def _pleiades_zip_path() -> Path:
     First checks ``ORACC_PLEIADES_ZIP`` env / .env setting; falls back to
     ``<data_dir>/pleiades_scraped_data.zip``.
     """
-    from oracc_parser.settings import pleiades_zip_path
+    from oracc_parser.settings import PLEIADES_ZIP
 
-    configured = pleiades_zip_path()
-    if configured:
-        return configured
-    return data_dir() / "pleiades_scraped_data.zip"
+    if PLEIADES_ZIP:
+        return PLEIADES_ZIP
+    return DATA_DIR / "pleiades_scraped_data.zip"
 
 
 # ---------------------------------------------------------------------------

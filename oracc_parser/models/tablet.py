@@ -53,6 +53,7 @@ class Language(BaseModel):
         "Greek",
         "Egyptian",
     ] = None
+    dialect: str = ""
 
 
 # ---------------------------------------------------------------------------

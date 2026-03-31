@@ -11,7 +11,7 @@ import requests
 from bs4 import BeautifulSoup
 
 from oracc_parser.utils.logger import get_logger
-from oracc_parser.settings import cache_dir as _settings_cache_dir
+from oracc_parser.settings import CACHE_DIR as _settings_CACHE_DIR
 
 logger = get_logger()
 
@@ -32,7 +32,7 @@ def get_translation(project: str, text_id: str, cache_dir: str | None = None) ->
     Returns:
         Multi-line translation string, or empty string on failure.
     """
-    cache = Path(cache_dir) if cache_dir else _settings_cache_dir() / "html"
+    cache = Path(cache_dir) if CACHE_DIR else _settings_CACHE_DIR / "html"
     cache.mkdir(parents=True, exist_ok=True)
 
     project_path = project.replace("-", "/")
