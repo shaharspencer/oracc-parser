@@ -68,6 +68,16 @@ class RunConfig(BaseModel):
         ),
     )
 
+    # --- Translation ---
+    fetch_translations: bool = Field(
+        default=True,
+        description=(
+            "Fetch English translations from the ORACC website. "
+            "Set to False to skip translation fetching entirely (faster, "
+            "no network requests). Translations are not included in word CSVs."
+        ),
+    )
+
     # --- Caching ---
     use_cache: bool = Field(
         default=True,

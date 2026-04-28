@@ -32,7 +32,7 @@ def get_translation(project: str, text_id: str, cache_dir: str | None = None) ->
     Returns:
         Multi-line translation string, or empty string on failure.
     """
-    cache = Path(cache_dir) if CACHE_DIR else _settings_CACHE_DIR / "html"
+    cache = Path(cache_dir) if cache_dir else _settings_CACHE_DIR / "html"
     cache.mkdir(parents=True, exist_ok=True)
 
     project_path = project.replace("-", "/")

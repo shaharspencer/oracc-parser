@@ -34,9 +34,11 @@ OUTPUT_DIR: Path = DATA_DIR / "output"
 # Specific data subdirectories
 CACHE_DIR: Path = DATA_DIR / "cache"
 JSONZIP_DIR: Path = DATA_DIR / "jsonzip"
+WORD_CSV_DIR: Path = DATA_DIR / "oracc_csvs"
+CATALOGUE_DIR: Path = DATA_DIR / "catalogues"
 
 # URL for downloading reference data (Zenodo)
-ZENODO_RECORD_URL: str = "https://zenodo.org/records/18643122"
+ZENODO_RECORD_URL: str = "https://zenodo.org/records/19834993"
 
 # Should the parser use cached output?
 USE_CACHE: bool = True
@@ -67,6 +69,14 @@ def cache_dir() -> Path:
 def jsonzip_dir() -> Path:
     global JSONZIP_DIR
     return JSONZIP_DIR
+
+def word_csv_dir() -> Path:
+    global WORD_CSV_DIR
+    return WORD_CSV_DIR
+
+def catalogue_dir() -> Path:
+    global CATALOGUE_DIR
+    return CATALOGUE_DIR
 
 def zenodo_url() -> str:
     global ZENODO_RECORD_URL

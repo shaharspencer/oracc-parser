@@ -9,6 +9,10 @@ from oracc_parser.pipeline import (  # noqa: F401
     export_to_csv,
     export_to_jsonl,
     parse_project,
+    parse_project_from_word_csvs,
+    records_to_word_dataframes,
+    save_project_catalogue,
+    load_project_catalogue,
     reference_data,
     get_metadata_table,
     get_transliterations,
@@ -17,6 +21,11 @@ from oracc_parser.pipeline import (  # noqa: F401
     get_unicode_texts,
     get_translations,
     get_full_flat_table,
+)
+from oracc_parser.io.word_csv import (  # noqa: F401
+    load_word_csvs_from_dir,
+    load_word_csvs_from_zenodo,
+    save_word_csv,
 )
 from oracc_parser.models.config import RunConfig  # noqa: F401
 from oracc_parser.download.pleiades import PleiadesData  # noqa: F401
