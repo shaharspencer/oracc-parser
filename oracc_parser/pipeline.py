@@ -129,7 +129,7 @@ def parse_project(
         record = TabletRecord()
         record.content = parse_json_text(js, config)
         record.content.english_translation = get_translation(
-            project, text_id, cache_dir=config.CACHE_DIR
+            project, text_id, cache_dir=config.cache_dir
         )
         record.metadata = populate_metadata(metadata_dict, text_id, project)
         records.append(record)
