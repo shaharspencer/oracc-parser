@@ -1,6 +1,7 @@
 """
 oracc-parser: Download and parse ORACC cuneiform text projects.
 """
+from __future__ import annotations
 
 __version__ = "0.1.0"
 
@@ -28,5 +29,6 @@ from oracc_parser.io.word_csv import (  # noqa: F401
     save_word_csv,
 )
 from oracc_parser.models.config import RunConfig  # noqa: F401
+from oracc_parser.metadata.populate import enrich_catalogue_df  # noqa: F401
 from oracc_parser.download.pleiades import PleiadesData  # noqa: F401
 

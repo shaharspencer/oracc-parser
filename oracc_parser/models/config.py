@@ -4,6 +4,9 @@ Configuration for parsing runs.
 Controls how broken/damaged signs are handled, which POS tags to mask,
 caching behavior, and sample-mode limits.
 """
+from __future__ import annotations
+
+from typing import Optional
 
 from pydantic import BaseModel, Field
 
@@ -70,11 +73,12 @@ class RunConfig(BaseModel):
 
     # --- Translation ---
     fetch_translations: bool = Field(
-        default=True,
+        default=False,
         description=(
             "Fetch English translations from the ORACC website. "
-            "Set to False to skip translation fetching entirely (faster, "
-            "no network requests). Translations are not included in word CSVs."
+            "Set to True to include translations in parsed output — requires either "
+            "the Zenodo translation cache or live network access to ORACC. "
+            "Translations are not included in word CSVs."
         ),
     )
 
@@ -83,7 +87,7 @@ class RunConfig(BaseModel):
         default=True,
         description="Use cached parsed results if available.",
     )
-    cache_dir: str | None = Field(
+    cache_dir: Optional[str] = Field(
         default=None,
         description=(
             "Directory for cached parsed results. "
@@ -92,7 +96,7 @@ class RunConfig(BaseModel):
     )
 
     # --- Sample / limit mode ---
-    limit: int | None = Field(
+    limit: Optional[int] = Field(
         default=None,
         description="Process only the first N texts. None = process all.",
     )

@@ -1,57 +1,50 @@
-POS-tag,Meaning,Update to,To mask,Mask as
-MN,Month Name,MN,yes,MN
-n,Number,NUM,yes,NUM
-u,Unknown,U,no,
-N,Noun,N,no,
-CN,Constellation Name,CN,yes,CN
-AJ,Adjective,AJ,no,
-PRP,Preposition,PRP,no,
-V,Verb,V,no,
-IP,Independent Pronoun,IP,no,
-PN,Personal Name,PN,yes,PN
-MOD,Modal particle,MOD,no,
-RN,Royal Name,RN,yes,RN
-GN,Geographical Name,GN,yes,GN
-REL,Relative Pronoun,REL,no,
-AV,Adverb,AV,no,
-SN,State Name (city name),SN,yes,GN
-CNJ,Conjunction,CNJ,no,
-DN,Divine Name,DN,yes,DN
-X,Broken,X,no,
-TN,Temple Name,TN,yes,GN
-SBJ,Subjunctive,SBJ,no,
-NU,Number,NUM,yes,NUM
-WN,Water Name,WN,yes,GN
-EN,Ethnic Name,EN,yes,PN
-XP,Indefinite Pronoun,XP,no,
-DP,Demonstrative Pronoun,DP,no,
-DET,Determinative Pronoun,DET,no,
-QP,Question Pronoun,QP,no,
-NINDA,typo in adsd-adart3 change to N,N,no,
-YN,typo in adsd-adart5 change to RN?,RN,yes,RN
-ZA,typo in adsd-adart5 change to X?,X,no,
-J,Injunction?,J,no,
-PP,Possessive Pronoun,PP,no,
-RP,Reflexive Pronoun,RP,no,
-V/i,Verb (Sumerian),V,no,
-V/t,Verb (Sumerian),V,no,
-MA,Modal Adverb (Sumerian),MA,no,
-U,Unknown,U,no,
-QN,(City) Quarter Name,QN,yes,GN
-LN,Lineage Name (ancestral name),LN,yes,PN
-ON,Geographical Name,ON,yes,GN
-M,Sumerian? only 15 examples mainly from CCP,,no,
-S,Sumerian (only 2 examples CCP and ePSD),,no,
-KN,King Name,RN,yes,RN
-AN,Sumerian no idea,AN,no,
-O,(Sumerian) Particle,O,no,
-L,Lexical (various POS),L,no,
-Y,no idea 7 words in one lexical list dsst/Q000771,Y,no,
-PSP,(Sumerian) Postposition,PSP,no,
-FN,Sumerian no idea only in ePSD,FN,no,
-ZX,Sumerian one text in ePSD,ZX,no,
-NP,Sumerian one text in ePSD,NP,no,
-NN,Noun,N,no,
-A,Sumerian something,A,no,
-P,Sumerian something,P,no,
-Z,Sumerian something,Z,no,
+POS-tag,Meaning,Update to,To mask,Mask as,count_2026_06
+,No tag,,no,,1469288
+N,Noun,N,no,,723178
+u,Unknown,U,no,,453623
+V,Verb,V,no,,193607
+PRP,Preposition,PRP,no,,176529
+n,Number,NUM,yes,NUM,135705
+PN,Personal Name,PN,yes,PN,105465
+AJ,Adjective,AJ,no,,74225
+DET,Determinative Pronoun,DET,no,,63660
+DN,Divine Name,DN,yes,DN,40016
+CNJ,Conjunction,CNJ,no,,37880
+MOD,Modal particle,MOD,no,,29895
+X,Broken,X,no,,26057
+REL,Relative Pronoun,REL,no,,25404
+SN,State Name (city name),SN,yes,GN,24187
+CN,Constellation Name,CN,yes,CN,22862
+GN,Geographical Name,GN,yes,GN,21381
+AV,Adverb,AV,no,,18230
+IP,Independent Pronoun,IP,no,,17193
+RN,Royal Name,RN,yes,RN,16981
+MN,Month Name,MN,yes,MN,16753
+NU,Number,NUM,yes,NUM,11701
+LN,Lineage Name (ancestral name),LN,yes,PN,10115
+EN,Ethnic Name,EN,yes,PN,6116
+TN,Temple Name,TN,yes,GN,5940
+DP,Demonstrative Pronoun,DP,no,,5455
+V/i,Verb (Sumerian),V,no,,3887
+V/t,Verb (Sumerian),V,no,,3480
+XP,Indefinite Pronoun,XP,no,,3046
+QP,Question Pronoun,QP,no,,2712
+J,Injunction?,J,no,,1721
+SBJ,Subjunctive,SBJ,no,,1657
+WN,Water Name,WN,yes,GN,1384
+ON,Geographical Name,ON,yes,GN,958
+PP,Possessive Pronoun,PP,no,,365
+QN,(City) Quarter Name,QN,yes,GN,333
+RP,Reflexive Pronoun,RP,no,,234
+L,Lexical (various POS),L,no,,29
+MA,Modal Adverb (Sumerian),MA,no,,21
+M,? (Sumerian),,no,,20
+U,Unknown,U,no,,10
+O,(Sumerian) Particle,O,no,,5
+NINDA,typo in adsd-adart3 change to N,N,no,,2
+ZA,typo in adsd-adart5 change to X?,X,no,,2
+AN,? (Sumerian),AN,no,,2
+YN,typo in adsd-adart5 change to RN?,RN,yes,RN,1
+S,? (Sumerian),,no,,1
+KN,King Name,RN,yes,RN,1
+FN,? (Sumerian),FN,no,,1

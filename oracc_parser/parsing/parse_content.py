@@ -4,6 +4,7 @@ Parse a single ORACC JSON text into a TabletContent object.
 Orchestrates CDL tree traversal, word parsing, and text building
 (transliteration, lemmatization, normalization, unicode).
 """
+from __future__ import annotations
 
 import pandas as pd
 

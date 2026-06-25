@@ -20,6 +20,7 @@ Usage::
 
 Ported from ``src/data_acquisition_and_saving/get_plaides_data.py``.
 """
+from __future__ import annotations
 
 import json
 import zipfile

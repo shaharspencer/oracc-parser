@@ -4,6 +4,7 @@ Parse word-level information from ORACC JSON ``l`` (lemma) nodes.
 Extracts transliteration, normalization, lemma, POS, language, and
 sign-level details for each word.
 """
+from __future__ import annotations
 
 from oracc_parser.models.tablet import Word, WordPOSInfo, WordSigns, Language
 from oracc_parser.parsing.parse_signs import get_signs

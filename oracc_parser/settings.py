@@ -16,6 +16,7 @@ Example in a notebook:
       jsonzip/       <-- JSONZIP_DIR (downloaded project ZIP files)
       output/        <-- OUTPUT_DIR (exported CSVs, JSONL files)
 """
+from __future__ import annotations
 
 from pathlib import Path
 
@@ -38,7 +39,7 @@ WORD_CSV_DIR: Path = DATA_DIR / "oracc_csvs"
 CATALOGUE_DIR: Path = DATA_DIR / "catalogues"
 
 # URL for downloading reference data (Zenodo)
-ZENODO_RECORD_URL: str = "https://zenodo.org/records/19834993"
+ZENODO_RECORD_URL: str = "https://zenodo.org/records/20625379"
 
 # Should the parser use cached output?
 USE_CACHE: bool = True

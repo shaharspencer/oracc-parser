@@ -1,6 +1,7 @@
 """
 Export parsed tablet data to JSONL and CSV formats.
 """
+from __future__ import annotations
 
 import csv
 import json

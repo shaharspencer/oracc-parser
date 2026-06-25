@@ -4,6 +4,7 @@ Convert transliteration sign readings to Unicode cuneiform characters.
 Uses the bundled sign_readings.csv lookup table. Handles accented vowels,
 numeric subscripts, and various ORACC notation conventions.
 """
+from __future__ import annotations
 
 import re
 

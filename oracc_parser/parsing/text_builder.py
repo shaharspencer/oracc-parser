@@ -25,6 +25,7 @@ Two levels of text building
    below the threshold) may still have individual signs replaced with
    ``X`` in the Unicode output, and vice-versa.
 """
+from __future__ import annotations
 
 from typing import Any
 

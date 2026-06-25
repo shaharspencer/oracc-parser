@@ -4,6 +4,7 @@ Parse sign-level information from ORACC GDL (Grapheme Description Language) node
 Handles sign value extraction, unicode conversion, break-state classification,
 and role assignment (phonetic, logographic, determinative).
 """
+from __future__ import annotations
 
 from collections import Counter
 

@@ -4,6 +4,7 @@ Standardized sentinel values and warning messages used across oracc-parser.
 All "unknown" / "not found" / "unmapped" states are centralized here
 so the user sees consistent, informative messages rather than ad-hoc strings.
 """
+from __future__ import annotations
 
 # ---------------------------------------------------------------------------
 # Sentinel values — used as field defaults when real data is unavailable

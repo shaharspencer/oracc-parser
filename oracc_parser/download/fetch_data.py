@@ -1,16 +1,19 @@
 """
 Download and extract pre-processed ORACC data from Zenodo.
 
-By default only the word CSVs and project catalogues are downloaded — the
-minimum needed to run all notebooks.  Pass ``include_json_zips=True`` to also
-fetch the raw ORACC JSON ZIPs (needed only if you want to re-run the full
-JSON processing pipeline via ``parse_project()``).
+Project word CSVs are downloaded lazily — only when first accessed — from
+per-umbrella zip files on Zenodo (e.g. ``saao.zip`` covers all saao/* projects).
+Catalogues and HTML translations are downloaded eagerly on the first call to
+``fetch_data()``.  Pass ``include_json_zips=True`` to also fetch the raw ORACC
+JSON ZIPs (needed only if you want to re-run the full JSON processing pipeline
+via ``parse_project()``).
 
 Can be called as:
     oracc-parser fetch-data
     python -m oracc_parser.download.fetch_data
     from oracc_parser.download.fetch_data import fetch_data
 """
+from __future__ import annotations
 
 import sys
 import zipfile
@@ -77,7 +80,7 @@ def extract_jsonzip_archive(archive_path: Path, dest_dir: Path) -> None:
 
 
 def extract_data_archive(archive_path: Path, dest_dir: Path, label: str) -> None:
-    """Extract a flat CSV archive (oracc_csvs.zip or catalogues.zip) into dest_dir.
+    """Extract a flat CSV archive (catalogues.zip) into dest_dir.
 
     Handles both archive layouts:
     - Contents directly at the root (``saao-saa01/P123456.csv``)
@@ -114,29 +117,29 @@ def extract_data_archive(archive_path: Path, dest_dir: Path, label: str) -> None
 
 def extract_project_csvs(
     project: str,
-    zip_path: Path | None = None,
     dest_dir: Path | None = None,
 ) -> Path:
-    """Extract one project's word CSVs from ``oracc_csvs.zip`` on demand.
+    """Download and extract word CSVs for a project from Zenodo on demand.
 
-    Skips extraction if the project directory already exists and contains CSV
-    files (i.e. the project was already extracted in a previous call).
+    Downloads the umbrella zip for the project's corpus group (e.g. ``saao.zip``
+    for any ``saao/*`` project), extracts all sub-projects it contains, then
+    deletes the temporary zip.  Subsequent calls for any project in the same
+    umbrella group are instant because the files are already on disk.
 
     Args:
         project:  ORACC project path, e.g. ``"saao/saa01"``.
-        zip_path: Path to ``oracc_csvs.zip``. Defaults to ``data_dir() / "oracc_csvs.zip"``.
-        dest_dir: Root directory where project folders are extracted.
+        dest_dir: Root directory where project folders are written.
                   Defaults to ``word_csv_dir()``.
 
     Returns:
         Path to the extracted project directory.
 
     Raises:
-        FileNotFoundError: If ``oracc_csvs.zip`` cannot be found.
-        ValueError: If no CSV files for the project exist in the archive.
+        FileNotFoundError: If the umbrella zip cannot be downloaded from Zenodo.
+        ValueError: If no CSV files for the project exist in the downloaded archive.
     """
-    zip_path = zip_path or (data_dir() / "oracc_csvs.zip")
     dest_dir = dest_dir or word_csv_dir()
+    dest_dir.mkdir(parents=True, exist_ok=True)
 
     project_slug = project.replace("/", "-")
     project_dir = dest_dir / project_slug
@@ -144,60 +147,66 @@ def extract_project_csvs(
     if project_dir.exists() and any(project_dir.glob("*.csv")):
         return project_dir
 
-    if not zip_path.exists():
+    umbrella = project_slug.split("-")[0]
+    record_id = zenodo_url().rstrip("/").split("/")[-1]
+    file_url = f"https://zenodo.org/records/{record_id}/files/{umbrella}.zip"
+    tmp_zip = dest_dir / f"_tmp_{umbrella}.zip"
+
+    print(f"Downloading {umbrella}.zip from Zenodo...")
+    try:
+        download_file(file_url, tmp_zip, desc=f"{umbrella}.zip")
+    except Exception as e:
+        if tmp_zip.exists():
+            tmp_zip.unlink()
         raise FileNotFoundError(
-            f"oracc_csvs.zip not found at {zip_path}. Run fetch_data() first."
-        )
+            f"Could not download {umbrella}.zip from Zenodo: {e}"
+        ) from e
 
-    print(f"Extracting {project} from {zip_path.name}...")
-    project_dir.mkdir(parents=True, exist_ok=True)
-
-    with zipfile.ZipFile(zip_path, "r") as z:
-        names = z.namelist()
-
-        # Detect and strip a single top-level prefix (same logic as extract_data_archive)
-        top_dirs = {n.split("/")[0] for n in names if "/" in n}
-        prefix = ""
-        if len(top_dirs) == 1:
-            candidate = top_dirs.pop() + "/"
-            if all(n.startswith(candidate) or n == candidate.rstrip("/") for n in names):
-                prefix = candidate
-
-        project_prefix = f"{prefix}{project_slug}/"
-        members = [n for n in names if n.startswith(project_prefix) and not n.endswith("/")]
-
-        if not members:
-            raise ValueError(f"No CSVs found for '{project}' in {zip_path.name}")
-
-        for member in members:
-            rel_path = member[len(project_prefix):]
-            target = project_dir / rel_path
+    with zipfile.ZipFile(tmp_zip, "r") as z:
+        files = [n for n in z.namelist() if not n.endswith("/")]
+        for member in files:
+            target = dest_dir / member
+            if target.exists():
+                continue
             target.parent.mkdir(parents=True, exist_ok=True)
             with z.open(member) as src, open(target, "wb") as dst:
                 dst.write(src.read())
 
-    print(f"  -> Extracted {len(members)} CSVs for {project}")
+    tmp_zip.unlink()
+
+    if not project_dir.exists() or not any(project_dir.glob("*.csv")):
+        raise ValueError(f"No CSVs found for '{project}' in {umbrella}.zip")
+
+    print(f"  -> Extracted {umbrella} projects to {dest_dir}")
     return project_dir
 
 
 def fetch_data(
     url: str | None = None,
     dest: Path | None = None,
+    include_translations: bool = False,
     include_json_zips: bool = False,
 ) -> None:
     """Download pre-processed ORACC data from Zenodo and extract it.
 
-    By default downloads only ``oracc_csvs.zip`` and ``catalogues.zip`` —
-    the files needed for all standard notebook workflows.  Set
-    ``include_json_zips=True`` to also fetch ``oracc_jsonzip_all.zip`` (raw
+    By default downloads only ``catalogues.zip`` — the minimum needed for all
+    standard notebook workflows.  Word CSVs are downloaded lazily per-project
+    on first access via ``extract_project_csvs()``.
+
+    Set ``include_translations=True`` to also fetch
+    ``oracc_html_translations.zip`` (130 MB — needed if you want English
+    translations in parsed output without live web requests).
+
+    Set ``include_json_zips=True`` to also fetch ``oracc_jsonzip_all.zip`` (raw
     ORACC JSON, needed only for ``parse_project()``).
 
     All transport ZIPs are deleted after extraction.
 
     Args:
-        url:               Zenodo record URL. Defaults to ``ZENODO_RECORD_URL``.
-        dest:              Directory for temporary download files. Defaults to ``data_dir()``.
-        include_json_zips: Also download and extract the raw ORACC JSON ZIPs.
+        url:                   Zenodo record URL. Defaults to ``ZENODO_RECORD_URL``.
+        dest:                  Directory for temporary download files. Defaults to ``data_dir()``.
+        include_translations:  Also download and extract the HTML translation cache.
+        include_json_zips:     Also download and extract the raw ORACC JSON ZIPs.
     """
     url = url or zenodo_url()
     dest = dest or data_dir()
@@ -207,8 +216,9 @@ def fetch_data(
         print("Set ORACC_ZENODO_RECORD_URL in your .env or pass --url explicitly.")
         sys.exit(1)
 
-    # Files to fetch by default; json zips are opt-in
-    wanted = {"oracc_csvs.zip", "catalogues.zip", "oracc_html_translations.zip"}
+    wanted = {"catalogues.zip"}
+    if include_translations:
+        wanted.add("oracc_html_translations.zip")
     if include_json_zips:
         wanted.add("oracc_jsonzip_all.zip")
 
@@ -223,8 +233,6 @@ def fetch_data(
         print("No files found in this Zenodo record.")
         sys.exit(1)
 
-    # For each file, check whether its extracted output already exists on disk
-    # so we don't re-download and re-extract on subsequent calls.
     def _already_extracted(filename: str) -> bool:
         if filename == "oracc_html_translations.zip":
             return any((cache_dir() / "html").rglob("*.html"))
@@ -232,21 +240,15 @@ def fetch_data(
             return catalogue_dir().exists() and any(catalogue_dir().glob("*.csv"))
         if filename == "oracc_jsonzip_all.zip":
             return jsonzip_dir().exists() and any(jsonzip_dir().glob("*.zip"))
-        if filename == "oracc_csvs.zip":
-            return (dest / "oracc_csvs.zip").exists()
         return False
 
     files = [f for f in all_files if f["filename"] in wanted]
-    skipped = [f["filename"] for f in all_files if f["filename"] not in wanted]
 
     print(f"Downloading {len(files)} file(s):")
     for f in files:
         print(f"  {f['filename']} ({f['size'] / (1024 * 1024):.1f} MB)")
-    if skipped:
-        print(f"Skipping: {', '.join(skipped)}")
 
     dest.mkdir(parents=True, exist_ok=True)
-    print(f"\nDownloading to {dest}...")
     for f in files:
         dest_path = dest / f["filename"]
         if _already_extracted(f["filename"]):
@@ -257,33 +259,23 @@ def fetch_data(
         else:
             download_file(f["url"], dest_path, desc=f["filename"])
 
-    # Extract and delete each transport ZIP
     combined_zip = dest / "oracc_jsonzip_all.zip"
     if combined_zip.exists():
         extract_jsonzip_archive(combined_zip, jsonzip_dir())
         combined_zip.unlink()
-        print(f"🗑️  Deleted {combined_zip.name}")
 
-    # HTML translations — extract into the translation cache, then delete
     translations_zip = dest / "oracc_html_translations.zip"
     if translations_zip.exists():
         extract_data_archive(translations_zip, cache_dir() / "html", "HTML translations")
         translations_zip.unlink()
-        print(f"🗑️  Deleted {translations_zip.name}")
+        (cache_dir() / "html" / ".translations_complete").touch()
 
-    # oracc_csvs.zip is kept on disk for lazy per-project extraction
-    if (dest / "oracc_csvs.zip").exists():
-        print(f"  ✓ oracc_csvs.zip ready (projects will be extracted on demand)")
-
-    # Catalogues are small — extract all at once and delete the transport zip
     catalogues_zip = dest / "catalogues.zip"
     if catalogues_zip.exists():
         extract_data_archive(catalogues_zip, catalogue_dir(), "catalogues")
         catalogues_zip.unlink()
-        print(f"🗑️  Deleted {catalogues_zip.name}")
 
-    print(f"\n✓ Done. Data is in {dest}")
-    print("You can now use oracc-parser with this data.")
+    print(f"\n✓ Done. Data is ready in {dest}")
 
 
 if __name__ == "__main__":

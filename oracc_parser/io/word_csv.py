@@ -22,6 +22,7 @@ Signs (derived from Word.sign_dictionaries):
     break_info       — breakage state per sign, joined with "; "
                        e.g. "complete; missing; complete"
 """
+from __future__ import annotations
 
 import io
 import json
@@ -259,15 +260,13 @@ def load_word_csvs_from_dir(
     """Load all per-word CSVs from a local directory.
 
     If the directory does not exist (or is empty) and ``project`` is given,
-    the project's CSVs are extracted on demand from ``oracc_csvs.zip`` before
-    loading.  Subsequent calls for the same project are instant because the
-    extracted files are cached on disk.
+    the project's CSVs are downloaded from Zenodo on demand and cached on disk.
+    Subsequent calls for the same project are instant.
 
     Args:
         directory: Directory containing ``{text_id}.csv`` files.
         project:   ORACC project path (e.g. ``"saao/saa01"``). Required for
-                   automatic extraction from ``oracc_csvs.zip`` when the
-                   directory is missing.
+                   automatic download from Zenodo when the directory is missing.
 
     Returns:
         Dict mapping text_id to DataFrame.
@@ -278,7 +277,7 @@ def load_word_csvs_from_dir(
         if project is None:
             raise FileNotFoundError(
                 f"Directory {base} not found. Pass project= to enable automatic "
-                "extraction from oracc_csvs.zip."
+                "download from Zenodo."
             )
         from oracc_parser.download.fetch_data import extract_project_csvs
         base = extract_project_csvs(project, dest_dir=base.parent)
@@ -329,8 +328,13 @@ def save_catalogue_csv(df: pd.DataFrame, path: str | Path | None = None) -> Path
         Path to the written file.
     """
     if path is None:
+        if df.empty:
+            raise ValueError(
+                "Cannot auto-name catalogue CSV: DataFrame is empty. "
+                "Pass an explicit path or ensure the project has catalogue data."
+            )
         from oracc_parser.settings import CATALOGUE_DIR
-        project = str(df["project"].iloc[0]) if not df.empty else "unknown"
+        project = str(df["project"].iloc[0])
         project_slug = project.replace("/", "-")
         path = CATALOGUE_DIR / f"{project_slug}.csv"
 
