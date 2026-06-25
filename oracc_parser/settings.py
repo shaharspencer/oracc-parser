@@ -14,7 +14,7 @@ Example in a notebook:
     enriched_data/   <-- DATA_DIR
       cache/         <-- CACHE_DIR (parsed tablet JSON cache)
       jsonzip/       <-- JSONZIP_DIR (downloaded project ZIP files)
-      output/        <-- OUTPUT_DIR (exported CSVs, JSONL files)
+    output/          <-- OUTPUT_DIR (exported CSVs, JSONL files, at repo root)
 """
 from __future__ import annotations
 
@@ -30,7 +30,7 @@ def _find_repo_root() -> Path:
 # Base directories
 REPO_ROOT: Path = _find_repo_root()
 DATA_DIR: Path = REPO_ROOT / "enriched_data"
-OUTPUT_DIR: Path = DATA_DIR / "output"
+OUTPUT_DIR: Path = REPO_ROOT / "output"
 
 # Specific data subdirectories
 CACHE_DIR: Path = DATA_DIR / "cache"
