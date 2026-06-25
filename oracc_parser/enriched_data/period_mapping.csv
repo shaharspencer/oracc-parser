@@ -1,22 +1,26 @@
 period_name,start_year,end_year
-hellenistic,-323,-30
-achaemenid,-550,-330
-Neo-Babylonian,-626,-539
-Neo-Assyrian,-911,-612
-Parthian,-247,224
-Middle Babylonian,-1595,-1155
-Middle Assyrian,-1363,-912
-Old Babylonian,-1894,-1595
-Old Akkadian,-2334,-2154
-Early Old Babylonian,-1894,-1595
-First Millennium,-1000,-1
-Seleucid,-312,-64
-Standard Babylonian,-1595,-1155
-Middle Hittite,-1400,-1200
-Neo/Late Babylonian,-626,-539
-Late Babylonian,-600,-501
-Ur III,-2112,-2004
-Old Assyrian,-2025,-1750
-Late Middle Assyrian or early Neo-Assyrian,-1200,-900
+Old Akkadian,-2340,-2200
+Ur III,-2100,-2000
+Early Old Babylonian,-2000,-1900
+Old Assyrian,-1950,-1850
+Old Babylonian,-1900,-1600
+Standard Babylonian,-1000,-1
 Mitanni,-1550,-1260
+Middle Hittite,-1500,-1100
+Middle Babylonian,-1400,-1100
+Middle Assyrian,-1400,-1000
+Late Middle Assyrian or early Neo-Assyrian,-1200,-900
+First Millennium,-1000,-1
+Neo-Assyrian,-911,-612
 Neo Assyrian,-911,-612
+Neo-Babylonian,-626,-539
+Neo/Late Babylonian,-626,-1
+Neo Babylonian,-626,-539
+Late Babylonian,-539,-1
+achaemenid,-547,-331
+hellenistic,-323,-63
+Seleucid,-312,-63
+Parthian,-247,224
+Uncertain,,
+Unknown,,
+uncertain,,

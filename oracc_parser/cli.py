@@ -9,6 +9,7 @@ Usage:
     oracc-parser clear-cache                    # clear all cached tablets
     oracc-parser clear-cache --project saao     # clear one project's cache
 """
+from __future__ import annotations
 
 import argparse
 import sys

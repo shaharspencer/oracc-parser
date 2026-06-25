@@ -4,6 +4,7 @@ Pydantic data models for ORACC tablet records.
 This module contains all the structured data models used throughout
 oracc-parser, from individual signs up to complete tablet records.
 """
+from __future__ import annotations
 
 from enum import Enum
 from typing import Literal, Optional

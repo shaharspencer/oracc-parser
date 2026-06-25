@@ -1,9 +1,50 @@
 """
 Archive cleaning and normalizing logic for ORACC metadata.
-"""
 
-# A comprehensive manual mapping based on the raw values and their associated projects.
-manual_mapping = {
+The mapping from raw → normalized archive names is stored in
+``oracc_parser/enriched_data/raw_archive_values.csv`` and loaded lazily at
+runtime.  Use ``update_archive_mapping()`` in ``oracc_parser.utils.paths`` to
+scan the corpus for unmapped raw values.
+"""
+from __future__ import annotations
+
+# ---------------------------------------------------------------------------
+# Lazy-loaded archive mapping (from raw_archive_values.csv)
+# ---------------------------------------------------------------------------
+
+_archive_mapping_cache: dict[str, str] | None = None
+
+
+def _get_archive_mapping() -> dict[str, str]:
+    """Return {raw_value: normalized_name} loaded from raw_archive_values.csv.
+
+    Keys are quote-normalized so they match what clean_archive() passes after
+    calling _normalize_quotes().
+    """
+    global _archive_mapping_cache
+    if _archive_mapping_cache is not None:
+        return _archive_mapping_cache
+    from oracc_parser.utils.paths import get_archives
+    df = get_archives()
+    mapping: dict[str, str] = {}
+    for _, row in df.iterrows():
+        raw = str(row.get("Raw Archive Value", "")).strip()
+        norm = str(row.get("Normalized Archive Value", "")).strip()
+        if raw and norm and norm.lower() != "nan":
+            # Normalize quotes on keys so lookups match what clean_archive() passes
+            mapping[_normalize_quotes(raw)] = norm
+            mapping[_normalize_quotes(raw).lower()] = norm
+    _archive_mapping_cache = mapping
+    return mapping
+
+
+# ---------------------------------------------------------------------------
+# The values below were the old hardcoded mapping dict.
+# They now live in raw_archive_values.csv and are loaded via _get_archive_mapping().
+# This dict is kept as dead code so the git diff shows what moved.
+# ---------------------------------------------------------------------------
+
+_REMOVED = {
     # The Governor's Palace Archive (Nimrud/Kalhu)
     "01 (The Governor’s Palace Archive)": "Governor's Palace Archive",
     "The Governor’s Palace Archive": "Governor's Palace Archive",
@@ -290,18 +331,20 @@ def clean_archive(raw):
     """Convert a raw ORACC archive string into a normalized archive name."""
     if not isinstance(raw, str):
         return ""
-        
+
     # Normalize all Unicode apostrophe/quote variants to ASCII apostrophe
     # before doing any lookup. ORACC JSON values use several different forms.
     raw_s = _normalize_quotes(raw.strip())
-    # If in manual mapping, return
-    if raw_s in manual_mapping:
-        return manual_mapping[raw_s]
+    mapping = _get_archive_mapping()
+
+    norm = mapping.get(raw_s)
+    if norm:
+        return norm
 
     raw_lower = raw_s.lower()
-
-    if raw_lower in manual_mapping:
-        return manual_mapping[raw_lower]
+    norm = mapping.get(raw_lower)
+    if norm:
+        return norm
 
     # Catch all lengthy publication credits
     if len(raw_s) > 100:

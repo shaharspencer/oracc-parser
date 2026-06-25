@@ -20,6 +20,7 @@ Each file is a JSON wrapper::
 
     {"config_fingerprint": "a1b2c3d4", "record": { ... TabletRecord ... }}
 """
+from __future__ import annotations
 
 import hashlib
 import json

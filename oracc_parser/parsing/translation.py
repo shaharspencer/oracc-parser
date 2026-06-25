@@ -4,6 +4,7 @@ Fetch English translations of ORACC tablets from the ORACC web interface.
 Downloads and caches HTML pages, then extracts translation text
 using BeautifulSoup selectors.
 """
+from __future__ import annotations
 
 from pathlib import Path
 

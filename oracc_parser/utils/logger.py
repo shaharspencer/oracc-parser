@@ -1,12 +1,14 @@
 """
 Logging configuration for oracc-parser.
 """
+from __future__ import annotations
 
 import logging
 import sys
+from typing import Optional
 
 _LOGGER_NAME = "oracc_parser"
-_logger: logging.Logger | None = None
+_logger: Optional[logging.Logger] = None
 
 
 def get_logger() -> logging.Logger:

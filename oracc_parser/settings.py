@@ -16,6 +16,7 @@ Example in a notebook:
       jsonzip/       <-- JSONZIP_DIR (downloaded project ZIP files)
     output/          <-- OUTPUT_DIR (exported CSVs, JSONL files, at repo root)
 """
+from __future__ import annotations
 
 from pathlib import Path
 
@@ -34,9 +35,11 @@ OUTPUT_DIR: Path = REPO_ROOT / "output"
 # Specific data subdirectories
 CACHE_DIR: Path = DATA_DIR / "cache"
 JSONZIP_DIR: Path = DATA_DIR / "jsonzip"
+WORD_CSV_DIR: Path = DATA_DIR / "oracc_csvs"
+CATALOGUE_DIR: Path = DATA_DIR / "catalogues"
 
 # URL for downloading reference data (Zenodo)
-ZENODO_RECORD_URL: str = "https://zenodo.org/records/18643122"
+ZENODO_RECORD_URL: str = "https://zenodo.org/records/20625379"
 
 # Should the parser use cached output?
 USE_CACHE: bool = True
@@ -67,6 +70,14 @@ def cache_dir() -> Path:
 def jsonzip_dir() -> Path:
     global JSONZIP_DIR
     return JSONZIP_DIR
+
+def word_csv_dir() -> Path:
+    global WORD_CSV_DIR
+    return WORD_CSV_DIR
+
+def catalogue_dir() -> Path:
+    global CATALOGUE_DIR
+    return CATALOGUE_DIR
 
 def zenodo_url() -> str:
     global ZENODO_RECORD_URL

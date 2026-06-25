@@ -11,6 +11,7 @@ granular helpers:
 
     from oracc_parser.pipeline import get_metadata_table, get_transliterations
 """
+from __future__ import annotations
 
 from pathlib import Path
 
@@ -25,6 +26,15 @@ from oracc_parser.cache import (
 from oracc_parser.download.extract_jsons import extract_from_zip
 from oracc_parser.download.oracc_download import download_projects, download_zip, get_live_projects_dataframe
 from oracc_parser.export.to_jsonl import to_csv, to_jsonl
+from oracc_parser.io.word_csv import (
+    catalogue_to_dataframe,
+    load_catalogue_csv,
+    load_word_csvs_from_dir,
+    load_word_csvs_from_zenodo,
+    record_to_word_dataframe,
+    save_catalogue_csv,
+    word_dataframe_to_record,
+)
 from oracc_parser.metadata.populate import populate_metadata
 from oracc_parser.models.config import RunConfig
 from oracc_parser.models.tablet import TabletRecord
@@ -164,6 +174,153 @@ def export_to_csv(records: list[TabletRecord], output_path: str) -> Path:
 
 
 # ---------------------------------------------------------------------------
+# Word-CSV entry point
+# ---------------------------------------------------------------------------
+
+
+def records_to_word_dataframes(
+    records: list[TabletRecord],
+) -> dict[str, pd.DataFrame]:
+    """Convert parsed TabletRecords to per-word DataFrames.
+
+    Each DataFrame contains one row per word and is keyed by ``text_id``.
+    Use this to prepare data for upload (save each DataFrame with
+    ``save_word_csv``) or for in-memory inspection.
+
+    Args:
+        records: List of parsed TabletRecord objects.
+
+    Returns:
+        Dict mapping text_id to per-word DataFrame.
+    """
+    result = {}
+    for record in records:
+        text_id = record.metadata.id_text
+        if text_id:
+            result[text_id] = record_to_word_dataframe(record)
+    return result
+
+
+def save_project_catalogue(project: str, path: Path | None = None) -> Path:
+    """Extract the raw ORACC catalogue for a project and save it as a CSV.
+
+    Reads ``catalogue.json`` from the project's ZIP and writes one row per
+    text with all raw catalogue fields preserved.  The resulting file is
+    saved to ``enriched_data/catalogues/{project_slug}.csv`` by
+    default and can be loaded back with :func:`load_project_catalogue`.
+
+    Args:
+        project: ORACC project path, e.g. ``"saao/saa01"``.
+        path: Override the output path. Optional.
+
+    Returns:
+        Path to the written CSV.
+
+    Example::
+
+        from oracc_parser import save_project_catalogue
+        csv_path = save_project_catalogue("saao/saa01")
+    """
+    project_data = extract_from_zip(project)
+    catalogue = project_data.project_catalogue or {}
+    members = catalogue.get("members", {})
+    if not members:
+        logger.warning(f"No catalogue members found for {project} — skipping catalogue save")
+        raise ValueError(f"No catalogue members found for {project}")
+    df = catalogue_to_dataframe(project, members)
+    return save_catalogue_csv(df, path)
+
+
+def load_project_catalogue(path: str | Path) -> pd.DataFrame:
+    """Load a saved project catalogue CSV from disk.
+
+    Args:
+        path: Path to the catalogue CSV saved by :func:`save_project_catalogue`.
+
+    Returns:
+        DataFrame with one row per text and raw catalogue fields as columns.
+
+    Example::
+
+        from oracc_parser import load_project_catalogue
+        df = load_project_catalogue("enriched_data/catalogues/saao-saa01.csv")
+    """
+    return load_catalogue_csv(path)
+
+
+def parse_project_from_word_csvs(
+    project: str,
+    word_dfs: dict[str, pd.DataFrame],
+    config: RunConfig | None = None,
+) -> list[TabletRecord]:
+    """Parse tablets from pre-loaded per-word DataFrames.
+
+    This is an alternative entry point to :func:`parse_project` for users
+    who have downloaded the word-level CSVs from Zenodo instead of the raw
+    ORACC JSON ZIPs.  All ``RunConfig`` options work identically: string
+    representations are rebuilt from the word data according to ``config``.
+
+    To load ``word_dfs``, use one of:
+
+    - :func:`~oracc_parser.io.word_csv.load_word_csvs_from_zenodo` —
+      stream directly from a Zenodo record without saving to disk.
+    - :func:`~oracc_parser.io.word_csv.load_word_csvs_from_dir` —
+      load from a local directory of CSV files.
+
+    Args:
+        project: ORACC project path, e.g. ``"saao/saa01"``.
+        word_dfs: Dict mapping text_id to per-word DataFrame, as returned
+            by the loader functions above.
+        config: RunConfig with parsing options. Uses defaults if None.
+
+    Returns:
+        List of TabletRecord objects (same type as :func:`parse_project`).
+
+    Example::
+
+        from oracc_parser import parse_project_from_word_csvs, RunConfig
+        from oracc_parser.io.word_csv import load_word_csvs_from_zenodo
+
+        word_dfs = load_word_csvs_from_zenodo(
+            zenodo_url="https://zenodo.org/records/12345",
+            project="saao/saa01",
+        )
+        records = parse_project_from_word_csvs(
+            "saao/saa01", word_dfs, config=RunConfig(drop_missing=True)
+        )
+    """
+    if config is None:
+        config = RunConfig()
+
+    # Load catalogue once so each tablet gets its provenance/period/genre
+    from oracc_parser.settings import CATALOGUE_DIR
+    cat_path = CATALOGUE_DIR / f"{project.replace('/', '-')}.csv"
+    catalogue_lookup: dict[str, dict] = {}
+    if cat_path.exists():
+        cat_df = load_catalogue_csv(cat_path)
+        if "text_id" in cat_df.columns:
+            catalogue_lookup = {
+                row["text_id"]: row.to_dict()
+                for _, row in cat_df.iterrows()
+            }
+    else:
+        logger.warning(f"No catalogue found at {cat_path}; metadata will be empty")
+
+    records = []
+    for text_id, df in tqdm(word_dfs.items(), desc=f"Processing {project}"):
+        catalogue_row = catalogue_lookup.get(text_id)
+        record = word_dataframe_to_record(df, config, catalogue_row=catalogue_row)
+        if config.fetch_translations:
+            record.content.english_translation = get_translation(
+                project, text_id, cache_dir=config.cache_dir
+            )
+        records.append(record)
+
+    logger.info(f"Processed {len(records)} tablets for {project} from word CSVs")
+    return records
+
+
+# ---------------------------------------------------------------------------
 # Granular convenience functions  — flat pandas DataFrames
 # ---------------------------------------------------------------------------
 
@@ -173,7 +330,8 @@ def get_metadata_table(records: list[TabletRecord]) -> pd.DataFrame:
 
     Returns a DataFrame with one row per tablet, containing:
     ``id``, ``project``, ``text_id``, ``genre``, ``archive``, ``provenance``,
-    ``pleiades_id``, ``period``, ``start_year``, ``end_year``.
+    ``pleiades_id``, ``period``, ``start_year``, ``end_year``,
+    ``accession_museum_publication_numbers``, ``secondary_literature``.
 
     Example::
 
@@ -181,9 +339,30 @@ def get_metadata_table(records: list[TabletRecord]) -> pd.DataFrame:
         metadata_df = get_metadata_table(records)
         print(metadata_df.head())
     """
+    from oracc_parser.metadata.populate import (
+        _PUBLICATION_COLS, _MUSEUM_NUMBER_COLS, _SECONDARY_LIT_COLS,
+        _JOURNAL_TITLE_COL, _JOURNAL_VOL_COL, _merge_columns,
+        _CREDITS_COLS, _CITE_AS_COLS,
+    )
+    _accession_pub_cols = _PUBLICATION_COLS + _MUSEUM_NUMBER_COLS
+
     rows = []
     for r in records:
         md = r.metadata
+        raw = md.metadata_raw_dict or {}
+
+        raw_series = pd.Series(raw)
+
+        # Combine journal title + volume into a single entry for secondary_literature
+        journal_title = str(raw.get(_JOURNAL_TITLE_COL, "")).strip()
+        journal_vol   = str(raw.get(_JOURNAL_VOL_COL,   "")).strip()
+        journal_title = "" if journal_title.lower() in ("nan", "none") else journal_title
+        journal_vol   = "" if journal_vol.lower()   in ("nan", "none") else journal_vol
+        journal_combined = f"{journal_title} {journal_vol}".strip() if (journal_title or journal_vol) else ""
+        if journal_combined:
+            raw_series["_journal_combined"] = journal_combined
+        secondary_cols = _SECONDARY_LIT_COLS + (["_journal_combined"] if journal_combined else [])
+
         rows.append({
             "id": md.identifier,
             "project": md.project,
@@ -200,6 +379,16 @@ def get_metadata_table(records: list[TabletRecord]) -> pd.DataFrame:
             ),
             "start_year": md.chronological_information.start_year,
             "end_year": md.chronological_information.end_year,
+            "accession_museum_publication_numbers": _merge_columns(
+                raw_series,
+                [c for c in _accession_pub_cols if not (c == "designation" and md.project.startswith("adsd"))],
+            ),
+            "secondary_literature": _merge_columns(raw_series, secondary_cols),
+            "credits": _merge_columns(raw_series, _CREDITS_COLS),
+            "cite_as": (
+                _merge_columns(raw_series, _CITE_AS_COLS)
+                or f"Please cite this page as http://oracc.org/{md.project}/{md.id_text}/."
+            ),
         })
     return pd.DataFrame(rows)
 

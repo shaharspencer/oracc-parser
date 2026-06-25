@@ -4,6 +4,7 @@ Download ORACC project ZIPs from the ORACC server.
 Supports downloading specific projects by name or filtering by language
 from the projects metadata table.
 """
+from __future__ import annotations
 
 import os
 from pathlib import Path

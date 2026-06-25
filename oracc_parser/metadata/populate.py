@@ -8,6 +8,7 @@ Logic ported from src/metadata_processing/:
   - map_tablet_to_state.py
   - get_tablet_chronological_information.py
 """
+from __future__ import annotations
 
 import re
 
@@ -183,44 +184,39 @@ def _get_copyright(metadata_dict: dict, project: str, text_id: str) -> str:
 # Geography  (from src/metadata_processing/map_tablet_to_city.py + map_tablet_to_state.py)
 # ---------------------------------------------------------------------------
 
-_PREFIX_TO_STATE: list[tuple[str, str]] = [
-    ("atae",  "Neo-Assyrian Empire"),
-    ("asbp",  "Neo-Assyrian Empire"),
-    ("riao",  "Neo-Assyrian Empire"),
-    ("rinap", "Neo-Assyrian Empire"),
-    ("saao",  "Neo-Assyrian Empire"),
-    ("tcma",  "Middle-Assyrian State"),
-]
+_state_mapping_cache: tuple[list[tuple[str, str]], dict[str, str]] | None = None
 
-_PROJECT_TO_STATE: dict[str, str] = {
-    "ribo-bab7scores156":                 "Neo Babylonian Empire",
-    "ribo-babylon101":                    "Hellenistic",
-    "ribo-babylon240":                    "Babylonia Transition Period 2nd to 1st mill",
-    "ribo-babylon34":                     "Babylonia Transition Period 2nd to 1st mill",
-    "ribo-babylon46":                     "Babylonia Transition Period 2nd to 1st mill",
-    "ribo-babylon51":                     "Babylonia Transition Period 2nd to 1st mill",
-    "ribo-babylon6127":                   "WE HAVE NOT YET MAPPED THIS PROJECT",
-    "ribo-babylon7244":                   "Neo Babylonian Empire",
-    "ribo-babylon83":                     "Achemenid",
-    "ribo-scores111":                     "Neo Babylonian Empire",
-    "ribo-sources400":                    "Neo Babylonian Empire",
-    "rimanum378":                         "Babylonia",
-    "suhu33":                             "Suhu",
-    "urap148":                            "First Sealand Dynasty",
-    "ario175":                            "Achemenid",
-}
+
+def _load_state_mapping() -> tuple[list[tuple[str, str]], dict[str, str]]:
+    """Load state mapping from CSV, returning (prefix_list, exact_dict)."""
+    global _state_mapping_cache
+    if _state_mapping_cache is not None:
+        return _state_mapping_cache
+    from oracc_parser.utils.paths import get_state_mapping
+    df = get_state_mapping()
+    prefixes = [
+        (row["project"], row["state_supergroup"])
+        for _, row in df[df["match_type"] == "prefix"].iterrows()
+    ]
+    exact = {
+        row["project"]: row["state_supergroup"]
+        for _, row in df[df["match_type"] == "exact"].iterrows()
+    }
+    _state_mapping_cache = (prefixes, exact)
+    return _state_mapping_cache
 
 
 def _get_state(project: str) -> str:
-    """Map project name to a state supergroup string.
-
-    Mirrors src/metadata_processing/map_tablet_to_state.py.
-    """
+    """Map project name to a state supergroup string."""
     try:
-        for prefix, state in _PREFIX_TO_STATE:
-            if project.startswith(prefix):
-                return state
-        return _PROJECT_TO_STATE.get(project, "WE HAVE NOT YET MAPPED THIS PROJECT")
+        # Normalise to slug format (saao/saa01 → saao-saa01) so lookups match
+        # the CSV which uses hyphens, not slashes.
+        slug = project.replace("/", "-")
+        prefix_list, exact_dict = _load_state_mapping()
+        for prefix, state in prefix_list:
+            if slug.startswith(prefix):
+                return state or "WE HAVE NOT YET MAPPED THIS PROJECT"
+        return exact_dict.get(slug, "") or "WE HAVE NOT YET MAPPED THIS PROJECT"
     except Exception as e:
         logger.error(f"error in get_state for project {project!r}: {e}")
         return "WE HAVE NOT YET MAPPED THIS PROJECT"
@@ -445,3 +441,124 @@ def _get_period(period_string: str) -> TabletPeriod:
         logger.error(f"error in get_period for {period_string!r}: {e}")
 
     return period
+
+
+# ---------------------------------------------------------------------------
+# Catalogue DataFrame enrichment
+# ---------------------------------------------------------------------------
+
+# Source columns for each output column.
+# Only columns that exist in a given catalogue DataFrame are used — missing ones
+# are silently skipped, so the lists can be exhaustive across all projects.
+
+_PUBLICATION_COLS = [
+    "abl_no", "adb_no", "add_no", "ags_no", "BAK", "copies", "copy",
+    "ct_53_no", "ct_54_no", "ctn_no", "designation", "display_name",
+    "geers_no", "gpa_no", "handcopy", "kah_no", "kar_no", "kav_no",
+    "las_no", "lka_no", "nargd_no", "nl_no", "pkt_no", "pkta_no",
+    "primary_publication", "prt_no", "publication", "rma_no", "stt_no",
+    "tim_11_no", "previous_publication",
+]
+
+_MUSEUM_NUMBER_COLS = [
+    # Museum & Accession group — number columns only (names excluded)
+    "accession_no", "accession_number", "cdli_accession_no", "cdli_museum_no",
+    "mus_no", "museum_no", "museum_number", "museum-nos", "object_ref",
+    "bm", "ybc",
+    # Publication group — excavation/accession numbers
+    "ALCA", "cdli_excavation_no", "excavation_no", "unique_ID",
+]
+
+_CREDITS_COLS = [
+    "atae_attribution", "attribution", "author", "btto_attribution",
+    "credits", "editor", "riao_attribution", "saa_attribution",
+]
+
+_CITE_AS_COLS = [
+    "cite_as", "please_cite",
+]
+
+_SECONDARY_LIT_COLS = [
+    "bibilography", "bibliography", "bibliography__book_title",
+    "bibliography__shortref", "citation", "editions", "other_pub",
+    "photo", "photo_no", "photos", "primary_publication2",
+    "publication_history", "published_collation", "secondary-literatures",
+    "translations",
+]
+# These two are combined as "journal_title vol_num" before joining
+_JOURNAL_TITLE_COL = "bibliography__journal_title"
+_JOURNAL_VOL_COL = "bibliography__volume_number"
+
+
+def _merge_columns(row: "pd.Series", cols: list[str]) -> str:
+    """Collect non-empty values from cols present in row, deduplicate case-insensitively, join with '; '."""
+    seen_lower: set[str] = set()
+    parts: list[str] = []
+    for col in cols:
+        if col not in row.index:
+            continue
+        val = str(row[col]).strip() if row[col] is not None else ""
+        if not val or val.lower() in ("nan", "none", ""):
+            continue
+        if val.lower() not in seen_lower:
+            seen_lower.add(val.lower())
+            parts.append(val)
+    return "; ".join(parts)
+
+
+def enrich_catalogue_df(df: "pd.DataFrame") -> "pd.DataFrame":
+    """Add ``accession_museum_publication_numbers`` and ``secondary_literature``
+    columns to a catalogue DataFrame.
+
+    Each column is built by collecting non-empty values from a defined set of
+    source columns, deduplicating case-insensitively, and joining with ``'; '``.
+    Source columns absent from ``df`` are silently skipped.
+
+    Args:
+        df: Catalogue DataFrame as returned by ``load_project_catalogue`` or
+            ``save_project_catalogue``.
+
+    Returns:
+        The same DataFrame with three new columns appended (in place).
+    """
+    import pandas as pd
+
+    # Pre-compute the combined journal+volume column if both halves exist
+    has_journal = _JOURNAL_TITLE_COL in df.columns
+    has_vol = _JOURNAL_VOL_COL in df.columns
+    if has_journal or has_vol:
+        def _combine_journal(row):
+            title = str(row.get(_JOURNAL_TITLE_COL, "")).strip() if has_journal else ""
+            vol   = str(row.get(_JOURNAL_VOL_COL,   "")).strip() if has_vol   else ""
+            title = "" if title.lower() in ("nan", "none") else title
+            vol   = "" if vol.lower()   in ("nan", "none") else vol
+            return f"{title} {vol}".strip() if (title or vol) else ""
+        df = df.copy()
+        df["_journal_combined"] = df.apply(_combine_journal, axis=1)
+        secondary_cols = _SECONDARY_LIT_COLS + ["_journal_combined"]
+    else:
+        secondary_cols = _SECONDARY_LIT_COLS
+
+    _all_accession_pub = _PUBLICATION_COLS + _MUSEUM_NUMBER_COLS
+    df["accession_museum_publication_numbers"] = df.apply(
+        lambda r: _merge_columns(
+            r,
+            [c for c in _all_accession_pub
+             if not (c == "designation" and str(r.get("project", "")).startswith("adsd"))],
+        ),
+        axis=1,
+    )
+    df["secondary_literature"] = df.apply(lambda r: _merge_columns(r, secondary_cols), axis=1)
+    df["credits"] = df.apply(lambda r: _merge_columns(r, _CREDITS_COLS), axis=1)
+    df["cite_as"] = df.apply(
+        lambda r: (
+            _merge_columns(r, _CITE_AS_COLS)
+            or f"Please cite this page as http://oracc.org/{r.get('project', '')}/{r.get('text_id', '')}/."
+        ),
+        axis=1,
+    )
+
+    if "_journal_combined" in df.columns:
+        df = df.drop(columns=["_journal_combined"])
+
+    return df

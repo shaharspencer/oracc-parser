@@ -14,17 +14,18 @@ Two levels of text building
 2. **Sign-level** — ``signs_to_unicode()``
    Produces the Unicode cuneiform string.
    Break filtering here is *sign-granularity*: individual signs are
-   dropped (or kept) based on their breakage state (``"missing"`` /
-   ``"damaged"``).  Controlled via ``RunConfig.drop_missing`` and
-   ``RunConfig.drop_damaged``.
+   replaced with ``X`` (or kept) based on their breakage state
+   (``"missing"`` / ``"damaged"``).  Controlled via
+   ``RunConfig.drop_missing`` and ``RunConfig.drop_damaged``.
 
 .. note::
-   Because the two levels use different granularities and different
-   inclusion rules, **the text versions and the Unicode version are not
-   necessarily aligned**.  A word kept intact in the transliteration
-   (because its average break fraction is below the threshold) may still
-   have individual signs dropped from the Unicode output, and vice-versa.
+   Because the two levels use different granularities, **the text versions
+   and the Unicode version are not necessarily aligned**.  A word kept
+   intact in the transliteration (because its average break fraction is
+   below the threshold) may still have individual signs replaced with
+   ``X`` in the Unicode output, and vice-versa.
 """
+from __future__ import annotations
 
 from typing import Any
 
@@ -111,21 +112,29 @@ def signs_to_unicode(
     Args:
         df: DataFrame with ``unicode`` (list[str]), ``break`` (list[str]),
             and ``line`` (int) columns.
-        drop_missing: Drop signs marked ``"missing"``.
-        drop_damaged: Drop signs marked ``"damaged"``.
+        drop_missing: Replace signs marked ``"missing"`` with ``X``.
+        drop_damaged: Replace signs marked ``"damaged"`` with ``X``.
         keep_word_segmentation: Preserve word boundaries with spaces.
 
     Returns:
         ``(text, total_chars, included_chars)``
     """
-    def _include(state: str, ch: Any) -> bool:
+    def _apply(state: str, ch: Any) -> str:
+        """Return the character to emit for this sign.
+
+        Complete signs pass through unchanged.  Missing/damaged signs are
+        replaced with ``X`` when the corresponding flag is set; otherwise
+        they pass through (damaged) or are kept as-is (missing).
+        """
         if state == "complete":
-            return True
-        if state == "missing" and not drop_missing:
-            return True
-        if state == "damaged" and not drop_damaged and ch != "x":
-            return True
-        return False
+            return ch
+        if state == "missing":
+            return "X" if drop_missing else ch
+        if state == "damaged":
+            if drop_damaged:
+                return "X"
+            return "" if ch == "x" else ch
+        return ch
 
     total_chars = 0
     included_chars = 0
@@ -141,21 +150,24 @@ def signs_to_unicode(
         if keep_word_segmentation:
             word_strs = []
             for word_chars, states in zip(unicode_seq, break_states):
-                filtered = "".join(
-                    ch for ch, st in zip(word_chars, states) if _include(st, ch)
-                )
-                included_chars += len(filtered)
-                if filtered:
-                    word_strs.append(filtered)
+                rendered = "".join(_apply(st, ch) for ch, st in zip(word_chars, states))
+                complete = sum(1 for ch, st in zip(word_chars, states) if st == "complete")
+                included_chars += complete
+                if rendered:
+                    word_strs.append(rendered)
             filtered_line = " ".join(word_strs)
         else:
             filtered_line = "".join(
-                ch
+                _apply(st, ch)
                 for word_chars, states in zip(unicode_seq, break_states)
                 for ch, st in zip(word_chars, states)
-                if _include(st, ch)
             )
-            included_chars += len(filtered_line)
+            included_chars += sum(
+                1
+                for word_chars, states in zip(unicode_seq, break_states)
+                for ch, st in zip(word_chars, states)
+                if st == "complete"
+            )
 
         if filtered_line:
             lines.append(filtered_line)

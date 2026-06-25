@@ -1,6 +1,7 @@
 """
 Extract JSON text files and catalogue from downloaded ORACC project ZIPs.
 """
+from __future__ import annotations
 
 import json
 import os
