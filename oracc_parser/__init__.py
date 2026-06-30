@@ -3,7 +3,7 @@ oracc-parser: Download and parse ORACC cuneiform text projects.
 """
 from __future__ import annotations
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 
 # Public re-exports for convenience
 from oracc_parser.pipeline import (  # noqa: F401
