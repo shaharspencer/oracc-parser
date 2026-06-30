@@ -28,6 +28,7 @@ from oracc_parser.io.word_csv import (
     load_word_csvs_from_zenodo,
     record_to_word_dataframe,
     save_catalogue_csv,
+    save_word_csv,
     word_dataframe_to_record,
 )
 from oracc_parser.metadata.populate import populate_metadata
