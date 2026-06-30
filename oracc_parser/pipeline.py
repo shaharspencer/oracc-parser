@@ -18,11 +18,6 @@ from pathlib import Path
 import pandas as pd
 from tqdm import tqdm
 
-from oracc_parser.cache import (
-    clear_project_cache,
-    load_cached_tablet,
-    save_tablet_to_cache,
-)
 from oracc_parser.download.extract_jsons import extract_from_zip
 from oracc_parser.download.oracc_download import download_projects, download_zip, get_live_projects_dataframe
 from oracc_parser.export.to_jsonl import to_csv, to_jsonl
@@ -94,10 +89,14 @@ def parse_project(
 ) -> list[TabletRecord]:
     """Download, parse, and return all tablets from an ORACC project.
 
+    On first call, downloads the ORACC ZIP, parses each tablet from JSON,
+    and saves per-word CSVs to disk for fast future reloads.  On subsequent
+    calls the word CSVs are used directly, skipping the JSON parsing step.
+
     Args:
         project: ORACC project path, e.g. ``"saao/saa01"``.
         config: RunConfig with parsing options. Uses defaults if None.
-        download: If True, download the ZIP from ORACC first.
+        download: If True, download the ZIP from ORACC if not already present.
 
     Returns:
         List of TabletRecord objects.
@@ -105,62 +104,52 @@ def parse_project(
     if config is None:
         config = RunConfig()
 
-    # 1. Download
+    from oracc_parser.settings import WORD_CSV_DIR
+    project_slug = project.replace("/", "-")
+    csv_dir = WORD_CSV_DIR / project_slug
+
+    # Fast path: word CSVs already on disk — skip JSON parsing entirely
+    if csv_dir.exists() and any(csv_dir.glob("*.csv")):
+        word_dfs = load_word_csvs_from_dir(csv_dir, project=project)
+        if config.limit is not None:
+            word_dfs = dict(list(word_dfs.items())[: config.limit])
+        return parse_project_from_word_csvs(project, word_dfs, config=config)
+
+    # Slow path: parse from JSON, then save word CSVs for future use
     if download:
         zip_path = download_zip(project)
         if not zip_path:
             logger.error(f"Failed to download {project}")
             return []
 
-    # 2. Extract JSONs from ZIP
     project_data = extract_from_zip(project)
     if not project_data.json_files:
         logger.warning(f"No JSON files found for {project}")
         return []
 
-    # 3. Parse each text
     catalogue = project_data.project_catalogue or {}
     members = catalogue.get("members", {})
-    records = []
 
     json_files = project_data.json_files
     if config.limit is not None:
         json_files = json_files[: config.limit]
 
-    cache_hits = 0
+    records = []
     for js in tqdm(json_files, desc=f"Parsing {project}"):
         text_id = js.get("textid", "")
-
-        # --- Cache: instant if config matches, rebuild strings if not ---
-        if config.use_cache:
-            cached = load_cached_tablet(project, text_id, config, config.cache_dir)
-            if cached is not None:
-                records.append(cached)
-                cache_hits += 1
-                continue
-
-        # --- Parse from scratch ---
         metadata_dict = members.get(text_id, {})
 
         record = TabletRecord()
         record.content = parse_json_text(js, config)
-        record.content.english_translation = get_translation(
-            project, text_id, cache_dir=config.cache_dir
-        )
+        if config.fetch_translations:
+            record.content.english_translation = get_translation(project, text_id)
         record.metadata = populate_metadata(metadata_dict, text_id, project)
         records.append(record)
 
-        # --- Save to cache (with config fingerprint) ---
-        if config.use_cache:
-            save_tablet_to_cache(record, project, text_id, config, config.cache_dir)
+        # Save word CSV so future calls skip JSON parsing
+        save_word_csv(record_to_word_dataframe(record))
 
-    if cache_hits:
-        logger.info(
-            f"Loaded {cache_hits}/{len(records)} tablets from cache, "
-            f"parsed {len(records) - cache_hits} new"
-        )
-    else:
-        logger.info(f"Parsed {len(records)} tablets from {project}")
+    logger.info(f"Parsed {len(records)} tablets from {project}")
     return records
 
 
@@ -317,9 +306,7 @@ def parse_project_from_word_csvs(
         catalogue_row = catalogue_lookup.get(text_id)
         record = word_dataframe_to_record(df, config, catalogue_row=catalogue_row)
         if config.fetch_translations:
-            record.content.english_translation = get_translation(
-                project, text_id, cache_dir=config.cache_dir
-            )
+            record.content.english_translation = get_translation(project, text_id)
         records.append(record)
 
     logger.info(f"Processed {len(records)} tablets for {project} from word CSVs")
@@ -493,11 +480,10 @@ def get_translations(records: list[TabletRecord]) -> pd.DataFrame:
 def get_full_flat_table(records: list[TabletRecord]) -> pd.DataFrame:
     """Get everything in one flat DataFrame — ideal for releasing as a dataset.
 
-    Combines metadata + all string representations into a single table.
-    No nesting, no Pydantic objects — just clean columns.
+    Combines all metadata columns (same as ``get_metadata_table``) with the
+    text string representations. No nesting, no Pydantic objects.
 
-    Returns columns: ``id``, ``project``, ``text_id``, ``genre``, ``archive``,
-    ``provenance``, ``period``, ``start_year``, ``end_year``,
+    Returns all columns from ``get_metadata_table`` plus:
     ``transliteration``, ``normalization``, ``lemmatization``,
     ``unicode``, ``translation``, ``total_tokens``, ``tokens_without_broken``.
 
@@ -507,7 +493,9 @@ def get_full_flat_table(records: list[TabletRecord]) -> pd.DataFrame:
         df = get_full_flat_table(records)
         df.to_json("dataset.jsonl", orient="records", lines=True)
     """
-    rows = []
+    meta_df = get_metadata_table(records)
+
+    text_rows = []
     for r in records:
         md = r.metadata
         ct = r.content
@@ -515,21 +503,8 @@ def get_full_flat_table(records: list[TabletRecord]) -> pd.DataFrame:
         n_rep = ct.normalized_str_representation
         l_rep = ct.lemmatized_str_representation
         u_rep = ct.unicode_str_representation
-
-        rows.append({
+        text_rows.append({
             "id": md.identifier,
-            "project": md.project,
-            "text_id": md.id_text,
-            "genre": md.genre or "",
-            "archive": md.archive or "",
-            "provenance": md.geographical_information.city.city_name,
-            "period": (
-                md.chronological_information.tablet_period.period_name
-                if md.chronological_information.tablet_period
-                else ""
-            ),
-            "start_year": md.chronological_information.start_year,
-            "end_year": md.chronological_information.end_year,
             "transliteration": t_rep.text if t_rep else "",
             "normalization": n_rep.text if n_rep else "",
             "lemmatization": l_rep.text if l_rep else "",
@@ -538,4 +513,5 @@ def get_full_flat_table(records: list[TabletRecord]) -> pd.DataFrame:
             "total_tokens": t_rep.total_tokens if t_rep else 0,
             "tokens_without_broken": t_rep.tokens_without_broken if t_rep else 0,
         })
-    return pd.DataFrame(rows)
+    text_df = pd.DataFrame(text_rows)
+    return meta_df.merge(text_df, on="id")

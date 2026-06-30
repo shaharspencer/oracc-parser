@@ -22,7 +22,7 @@ from pathlib import Path
 import requests
 from tqdm import tqdm
 
-from oracc_parser.settings import zenodo_url, data_dir, jsonzip_dir, word_csv_dir, catalogue_dir, cache_dir
+from oracc_parser.settings import zenodo_url, data_dir, jsonzip_dir, word_csv_dir, catalogue_dir, translations_dir
 
 
 def download_file(url: str, dest: Path, desc: str = "") -> Path:
@@ -235,7 +235,7 @@ def fetch_data(
 
     def _already_extracted(filename: str) -> bool:
         if filename == "oracc_html_translations.zip":
-            return any((cache_dir() / "html").rglob("*.html"))
+            return (translations_dir() / ".translations_complete").exists()
         if filename == "catalogues.zip":
             return catalogue_dir().exists() and any(catalogue_dir().glob("*.csv"))
         if filename == "oracc_jsonzip_all.zip":
@@ -266,9 +266,9 @@ def fetch_data(
 
     translations_zip = dest / "oracc_html_translations.zip"
     if translations_zip.exists():
-        extract_data_archive(translations_zip, cache_dir() / "html", "HTML translations")
+        extract_data_archive(translations_zip, translations_dir(), "HTML translations")
         translations_zip.unlink()
-        (cache_dir() / "html" / ".translations_complete").touch()
+        (translations_dir() / ".translations_complete").touch()
 
     catalogues_zip = dest / "catalogues.zip"
     if catalogues_zip.exists():

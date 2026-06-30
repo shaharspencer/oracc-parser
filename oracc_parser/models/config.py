@@ -82,19 +82,6 @@ class RunConfig(BaseModel):
         ),
     )
 
-    # --- Caching ---
-    use_cache: bool = Field(
-        default=True,
-        description="Use cached parsed results if available.",
-    )
-    cache_dir: Optional[str] = Field(
-        default=None,
-        description=(
-            "Directory for cached parsed results. "
-            "Defaults to './oracc_cache/' in the current working directory."
-        ),
-    )
-
     # --- Sample / limit mode ---
     limit: Optional[int] = Field(
         default=None,

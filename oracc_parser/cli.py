@@ -6,8 +6,6 @@ Usage:
     oracc-parser download --lang akkadian
     oracc-parser parse --project saao/saa01 --format jsonl --output data.jsonl
     oracc-parser parse --project saao/saa01 --limit 5 --format csv --output data.csv
-    oracc-parser clear-cache                    # clear all cached tablets
-    oracc-parser clear-cache --project saao     # clear one project's cache
 """
 from __future__ import annotations
 
@@ -71,7 +69,6 @@ def main(argv: list[str] | None = None):
         default=[],
         help="POS tags to mask (e.g. PN DN GN)",
     )
-    ps.add_argument("--no-cache", action="store_true", help="Disable caching")
     ps.add_argument("--no-download", action="store_true", help="Skip download step")
 
     # --------------- fetch-data ---------------
@@ -81,13 +78,6 @@ def main(argv: list[str] | None = None):
 
     # --------------- info ---------------
     subparsers.add_parser("info", help="Show bundled reference data summary")
-
-    # --------------- clear-cache ---------------
-    cc = subparsers.add_parser("clear-cache", help="Delete cached parsed tablets")
-    cc.add_argument(
-        "--project", "-p",
-        help="Only clear cache for this project (default: clear all)",
-    )
 
     args = parser.parse_args(argv)
 
@@ -99,8 +89,6 @@ def main(argv: list[str] | None = None):
         _cmd_parse(args)
     elif args.command == "info":
         _cmd_info()
-    elif args.command == "clear-cache":
-        _cmd_clear_cache(args)
     else:
         parser.print_help()
         sys.exit(1)
@@ -144,7 +132,6 @@ def _cmd_parse(args):
         drop_missing=args.drop_missing,
         drop_damaged=args.drop_damaged,
         mask_pos=args.mask_pos,
-        use_cache=not args.no_cache,
         limit=args.limit,
     )
 
@@ -183,18 +170,6 @@ def _cmd_info():
             print(f"  {name}: {len(df)} rows, columns: {list(df.columns)}")
         except Exception as e:
             print(f"  {name}: Error loading - {e}", file=sys.stderr)
-
-
-def _cmd_clear_cache(args):
-    """Handle the clear-cache command."""
-    from oracc_parser.cache import clear_project_cache
-
-    count = clear_project_cache(project=args.project)
-    if count:
-        scope = f"project '{args.project}'" if args.project else "all projects"
-        print(f"Cleared {count} cached tablet(s) for {scope}.")
-    else:
-        print("No cached tablets found.")
 
 
 if __name__ == "__main__":

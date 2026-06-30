@@ -25,8 +25,6 @@ class TestRunConfig:
         assert config.drop_damaged is False
         assert config.keep_word_segmentation is True
         assert config.mask_pos == []
-        assert config.use_cache is True
-        assert config.cache_dir is None
         assert config.limit is None
         assert config.languages == ["Akkadian"]
 

@@ -36,7 +36,7 @@ class Language(BaseModel):
     """Language tag for a word, with cuneiform flag."""
 
     is_cuneiform: bool = True
-    normalized_language: Literal[
+    normalized_language: Optional[Literal[
         "Sumerian",
         "Proto-cuneiform",
         "Akkadian",
@@ -53,7 +53,8 @@ class Language(BaseModel):
         "Proto-Elamite",
         "Greek",
         "Egyptian",
-    ] = None
+        "Assyrian Hieroglyphs",
+    ]] = None
     dialect: str = ""
 
 

@@ -26,14 +26,14 @@ print("Updated Cell 5 (Check data existence).")
 # Cell 6: Directory layout info
 cell6_source = """from pathlib import Path
 from oracc_parser import reference_data
-from oracc_parser.settings import data_dir, output_dir, cache_dir, jsonzip_dir
+from oracc_parser.settings import data_dir, output_dir, translations_dir, jsonzip_dir
 
 # What directories does oracc-parser use?
 print("📁 Directory layout:")
-print(f"   Data dir:    {data_dir()}")
-print(f"   JSON ZIPs:   {jsonzip_dir()}")
-print(f"   Output dir:  {output_dir()}")
-print(f"   Cache dir:   {cache_dir()}")
+print(f"   Data dir:       {data_dir()}")
+print(f"   JSON ZIPs:      {jsonzip_dir()}")
+print(f"   Output dir:     {output_dir()}")
+print(f"   Translations:   {translations_dir()}")
 print()
 print("   (These are configurable in .env — see .env.example)")"""
 

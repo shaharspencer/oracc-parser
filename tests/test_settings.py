@@ -4,7 +4,7 @@ import os
 
 import pytest
 
-from oracc_parser.settings import get_settings, data_dir, cache_dir, log_level
+from oracc_parser.settings import get_settings, data_dir, log_level
 
 
 class TestSettings:
@@ -17,18 +17,12 @@ class TestSettings:
         d = data_dir()
         assert hasattr(d, "exists")  # It's a Path
 
-    def test_cache_dir_under_data(self):
-        c = cache_dir()
-        d = data_dir()
-        # Default cache dir should be under data dir
-        assert str(d) in str(c)
-
     def test_settings_returns_dict(self):
         s = get_settings()
         assert isinstance(s, dict)
         assert "zenodo_record_url" in s
         assert "data_dir" in s
-        assert "use_cache" in s
+        assert "translations_dir" in s
 
     def test_env_override(self, monkeypatch):
         """Environment variables should override defaults."""

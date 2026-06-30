@@ -20,7 +20,7 @@ Or via environment variable (set before running Python)::
     oracc_data/          <-- DATA_DIR
       catalogues/        <-- CATALOGUE_DIR (project catalogue CSVs)
       oracc_csvs/        <-- WORD_CSV_DIR (downloaded word-level CSVs)
-      cache/             <-- CACHE_DIR (parsed tablet JSON cache)
+      translations/      <-- TRANSLATIONS_DIR (cached HTML translation pages)
       jsonzip/           <-- JSONZIP_DIR (downloaded ORACC JSON ZIPs)
       output/            <-- OUTPUT_DIR (exported CSVs, JSONL files)
 
@@ -57,16 +57,13 @@ def _default_data_dir() -> Path:
 DATA_DIR: Path = _default_data_dir()
 OUTPUT_DIR: Path = DATA_DIR / "output"
 
-CACHE_DIR: Path = DATA_DIR / "cache"
+TRANSLATIONS_DIR: Path = DATA_DIR / "translations"
 JSONZIP_DIR: Path = DATA_DIR / "jsonzip"
 WORD_CSV_DIR: Path = DATA_DIR / "oracc_csvs"
 CATALOGUE_DIR: Path = DATA_DIR / "catalogues"
 
 # URL for downloading reference data (Zenodo)
 ZENODO_RECORD_URL: str = "https://zenodo.org/records/20625379"
-
-# Should the parser use cached output?
-USE_CACHE: bool = True
 
 # Logging
 LOG_LEVEL: str = "INFO"
@@ -87,9 +84,9 @@ def output_dir() -> Path:
     global OUTPUT_DIR
     return OUTPUT_DIR
 
-def cache_dir() -> Path:
-    global CACHE_DIR
-    return CACHE_DIR
+def translations_dir() -> Path:
+    global TRANSLATIONS_DIR
+    return TRANSLATIONS_DIR
 
 def jsonzip_dir() -> Path:
     global JSONZIP_DIR
@@ -107,10 +104,6 @@ def zenodo_url() -> str:
     global ZENODO_RECORD_URL
     return ZENODO_RECORD_URL
 
-def use_cache() -> bool:
-    global USE_CACHE
-    return USE_CACHE
-
 def log_level() -> str:
     global LOG_LEVEL
     return LOG_LEVEL
@@ -118,3 +111,15 @@ def log_level() -> str:
 def pleiades_zip_path() -> Path | None:
     global PLEIADES_ZIP
     return PLEIADES_ZIP
+
+def get_settings() -> dict:
+    """Return current settings as a plain dict (useful for inspection/debugging)."""
+    return {
+        "data_dir": str(DATA_DIR),
+        "translations_dir": str(TRANSLATIONS_DIR),
+        "jsonzip_dir": str(JSONZIP_DIR),
+        "word_csv_dir": str(WORD_CSV_DIR),
+        "catalogue_dir": str(CATALOGUE_DIR),
+        "zenodo_record_url": ZENODO_RECORD_URL,
+        "log_level": LOG_LEVEL,
+    }

@@ -12,14 +12,14 @@ import requests
 from bs4 import BeautifulSoup
 
 from oracc_parser.utils.logger import get_logger
-from oracc_parser.settings import CACHE_DIR as _settings_CACHE_DIR
+from oracc_parser.settings import TRANSLATIONS_DIR as _settings_TRANSLATIONS_DIR
 
 logger = get_logger()
 
 ORACC_HTML_URL = "https://oracc.museum.upenn.edu"
 
 
-def get_translation(project: str, text_id: str, cache_dir: str | None = None) -> str:
+def get_translation(project: str, text_id: str) -> str:
     """Fetch the English translation for a specific tablet.
 
     Tries to read from a cached HTML file first. If not found,
@@ -28,12 +28,11 @@ def get_translation(project: str, text_id: str, cache_dir: str | None = None) ->
     Args:
         project: Project path, e.g. ``"saao/saa01"``.
         text_id: The P-number or text ID, e.g. ``"P313511"``.
-        cache_dir: Custom cache directory. Default: ``oracc_cache/html/``.
 
     Returns:
         Multi-line translation string, or empty string on failure.
     """
-    cache = Path(cache_dir) if cache_dir else _settings_CACHE_DIR / "html"
+    cache = _settings_TRANSLATIONS_DIR
     cache.mkdir(parents=True, exist_ok=True)
 
     project_path = project.replace("-", "/")
