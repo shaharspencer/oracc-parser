@@ -40,4 +40,4 @@ tests/test_output/
 # Jupyter
 .ipynb_checkpoints/
 
-enriched_data/
+/enriched_data/
