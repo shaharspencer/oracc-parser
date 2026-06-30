@@ -1,0 +1,57 @@
+project,match_type,state_supergroup
+adsd-adart1,exact,Mix
+adsd-adart2,exact,Seleucid Empire
+adsd-adart3,exact,Seleucid Empire; Parthian Empire
+adsd-adart5,exact,Mix
+adsd-adart6,exact,Mix
+aemw-alalakh-idrimi,exact,Western Periphery
+aemw-amarna,exact,Mix
+aemw-ugarit,exact,Western Periphery
+akklove,exact,Old Babylonian Kingdoms
+ario,exact,Achemenid Empire
+asbp,prefix,Neo-Assyrian Empire
+atae,prefix,Neo-Assyrian Empire
+babcity,exact,Mix
+balt,exact,Mix
+blms,exact,Mix
+borsippa,exact,Mix
+btto,exact,Mix
+cams-barutu,exact,Old Babylonian Kingdoms
+cams-gkab,exact,Mix
+cams-ludlul,exact,Mix
+cams-selbi,exact,Seleucid Empire
+cams-tlab,exact,Mix
+caspo,exact,Mix
+caspo-akkpm,exact,Mix
+ccpo,exact,Mix
+cdli,exact,Mix
+cmawro-cmawr1,exact,Mix
+cmawro-cmawr2,exact,Mix
+cmawro-cmawr3,exact,Mix
+cmawro-maqlu,exact,Mix
+cmawro-sources,exact,Mix
+contrib-amarna,exact,Mix
+csik,exact,Mix
+glass,exact,Mix
+hbtin,exact,Seleucid Empire
+nere,exact,Old Babylonian Kingdoms
+obabat-atletters,exact,Old Babylonian Kingdoms
+obta,exact,Old Babylonian Kingdoms
+riao,prefix,Neo-Assyrian Empire
+ribo-bab7scores,exact,Neo-Babylonian Empire
+ribo-babylon10,exact,Seleucid Empire
+ribo-babylon2,exact,Babylonia Transition Period 2nd to 1st mill
+ribo-babylon3,exact,Babylonia Transition Period 2nd to 1st mill
+ribo-babylon4,exact,Babylonia Transition Period 2nd to 1st mill
+ribo-babylon5,exact,Babylonia Transition Period 2nd to 1st mill
+ribo-babylon6,exact,Babylonia Transition Period 2nd to 1st mill
+ribo-babylon7,exact,Neo-Babylonian Empire
+ribo-babylon8,exact,Achemenid Empire
+ribo-scores,exact,Neo-Babylonian Empire
+ribo-sources,exact,Neo-Babylonian Empire
+rimanum,exact,Old Babylonian Kingdoms
+rinap,prefix,Neo-Assyrian Empire
+saao,prefix,Neo-Assyrian Empire
+suhu,exact,Suhu
+tcma,prefix,Middle Assyrian State
+urap,exact,First Sealand Dynasty

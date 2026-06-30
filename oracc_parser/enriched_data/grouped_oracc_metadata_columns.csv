@@ -1,0 +1,338 @@
+Group,Column,Description,Subgroups,Remove,Why_remove,Reviewed,Comments
+Chronology,alternative_years,Few Hellenistic dates,,no,over 98% null values,yes,merge with other date info
+Chronology,ancient_date,,,yes,over 98% null values,yes,just two entries
+Chronology,ancient_day,,,yes,over 98% null values,yes,"one entry, info in other columns"
+Chronology,ancient_month,,,yes,over 98% null values,yes,"one entry, info in other columns"
+Chronology,ancient_year,Hellenistic year names,,no,,yes,
+Chronology,astron_date,exact years 7th century,,no,over 98% null values,yes,
+Chronology,century,151 texts categorized 8th century,,no,over 98% null values,yes,
+Chronology,copy_period,,,yes,over 98% null values,yes,one entry
+Chronology,date,"dates written in mixed, inconsistent formats",,no,,yes,
+Chronology,date_bce,"years, Hellenistic",,no,,yes,
+Chronology,date_comments,justification for dates based on regnal years / astronomical observations,,no,,yes,
+Chronology,date_gen,dates in year-month-day formula (primarily),,no,,yes,
+Chronology,date_of_origin,"dates written in mixed, inconsistent formats",,no,,yes,
+Chronology,date_remarks,"dates written in mixed, inconsistent formats",,no,over 98% null values,yes,
+Chronology,dates,dates written as king.year.month.day,,no,over 98% null values,yes,
+Chronology,dates_referenced,dates written as king.year.month.day,,no,,yes,
+Chronology,day,just the number of the day,,no,,yes,
+Chronology,eponym,names of eponyms,,no,,yes,
+Chronology,eponym_title,,,no,over 98% null values,yes,
+Chronology,goal_year,Hellenistic year names,,no,over 98% null values,yes,
+Chronology,has_date,comments on date and its preservation,,no,,yes,
+Chronology,is_period_uncertain,,,yes,over 98% null values,yes,just seven entries
+Chronology,long_date,full eponym date formula,,no,,yes,check if it can be removed if the information is in other columns
+Chronology,long_date_gen,full eponym date formula,,no,,yes,check if it can be removed if the information is in other columns
+Chronology,modern_converted_date,,,yes,over 98% null values,yes,one entry
+Chronology,month,month numbers,,no,,yes,
+Chronology,months_recorded,list of month (not date of text probably),,no,,yes,"check if its not date of text, if so can remove"
+Chronology,period,broad categorizations of periods,,no,,yes,
+Chronology,period_remarks,more broad periods with more verbal uncertainty included,,no,over 98% null values,yes,
+Chronology,proposed_date,dates in varied structured formats,,no,,yes,
+Chronology,regnal_dates,year ranges,,no,,yes,
+Chronology,ruler,king names,,no,,yes,
+Chronology,title_in_date,,,yes,over 98% null values,yes,one entry
+Chronology,tradition,first millennium or nothing,,yes,Two variables that are irrelevant,yes,
+Chronology,year,year numbers,,no,,yes,
+Chronology,year_name_eponym,mostly king names,,no,over 98% null values,yes,
+Composite Information,comp_wit,composite or witness,,yes,Two variables that are irrelevant,yes,"8 composites, 5051 witness, we can get this information from the P vs. Q numbers"
+Composite Information,composite_no,Q numbers assigned to P number,,no,over 98% null values,yes,
+Composite Information,composite_witness,,,yes,Two variables that are irrelevant,yes,
+Composite Information,composites,Q numbers assigned to P number,,no,over 98% null values,yes,
+Composite Information,composition_designation,Names of composition in secondary literature,,no,over 98% null values,yes,
+Composite Information,duplicates,designation of duplicate texts,,no,over 98% null values,yes,
+Composite Information,ex1,"I think it's examplar, only in one row",,yes,over 98% null values,yes,combine with other columns
+Composite Information,ex1id,"I think it's examplar, only in one row",,yes,over 98% null values,yes,combine with other columns
+Composite Information,ex2,"I think it's examplar, only in one row",,yes,over 98% null values,yes,combine with other columns
+Composite Information,ex2id,"I think it's examplar, only in one row",,yes,over 98% null values,yes,combine with other columns
+Composite Information,ex3,"I think it's examplar, only in one row",,yes,over 98% null values,yes,combine with other columns
+Composite Information,ex3id,"I think it's examplar, only in one row",,yes,over 98% null values,yes,combine with other columns
+Composite Information,exemplars,"text designation, with secondary literature in parenthesis",,no,,yes,
+Composite Information,id_composite,Q numbers,,no,,yes,
+Composite Information,old_composition_id,Q numbers,,no,over 98% null values,yes,
+Composite Information,Q_designation,Names of composition in secondary literature,,no,over 98% null values,yes,
+Composite Information,q_number,Q numbers,,no,over 98% null values,yes,
+Composite Information,qcat_2__id_composite,Q numbers,,no,,yes,
+Composite Information,related_compositions,Q numbers of other compositions,,yes,over 98% null values,yes,
+Composite Information,sources,P values for Q entries,,no,over 98% null values,yes,just three but still
+Copyrights,atae_attribution,,7,no,,yes,combine with credits
+Copyrights,attribution,,7,no,over 98% null values,yes,combine with credits
+Copyrights,author,,7,no,,yes,combine with credits
+Copyrights,btto_attribution,,7,no,over 98% null values,yes,combine with credits
+Copyrights,cite_as,,8,no,,yes,
+Copyrights,collection_copyright,,,yes,Two variables that are irrelevant,yes,
+Copyrights,credits,,7,no,,yes,
+Copyrights,editor,names of modern text editors,7,no,,yes,combine with credits
+Copyrights,funder,,,yes,Two variables that are irrelevant,yes,
+Copyrights,please_cite,,8,no,,yes,combine with cite_as
+Copyrights,riao_attribution,,7,no,over 98% null values,yes,combine with credits
+Copyrights,saa_attribution,,7,no,,yes,combine with credits
+Geography & Location,archive,,3,no,,yes,
+Geography & Location,category_oracc,professional archives,3,yes,over 98% null values,yes,"information already exists under ""archive"""
+Geography & Location,dynastic_seat,,1,no,,yes,
+Geography & Location,findspot,,"2, 3",no,over 98% null values,yes,
+Geography & Location,findspot_comments,"comments in german, pretty null",3,no,over 98% null values,yes,
+Geography & Location,findspot_remarks,"some unclear and inconsistent values (part numbers, part ""x's house"")","2, 3",no,,yes,"has lots of random numbers with unknown meanings, but also names of cities/temples that can be used"
+Geography & Location,findspot_square,,3,no,,yes,
+Geography & Location,findspots,,2,no,over 98% null values,yes,
+Geography & Location,google_earth_collection,,,yes,Two variables that are irrelevant,yes,
+Geography & Location,is_provenience_uncertain,,4,no,over 98% null values,yes,
+Geography & Location,place,,2,no,over 98% null values,yes,
+Geography & Location,place_of_writing_oracc,,"1, 2",no,over 98% null values,yes,
+Geography & Location,pleiades_coord,,,yes,get coordinates from Pelaides,yes,
+Geography & Location,pleiades_id,,,no,,yes,
+Geography & Location,pleiades_sender_loc,,,no,,yes,
+Geography & Location,provenience,,"1, 2",no,,yes,
+Geography & Location,provenience_comments,"only very few values, but nice values",3,no,over 98% null values,yes,
+Geography & Location,provenience_remarks,,"2, 3",no,,yes,
+Geography & Location,saa_cdli_excavation,,,yes,Two variables that are irrelevant,yes,
+Geography & Location,sender_loc,,2,no,,yes,
+Geography & Location,sender_loc_coordinates,,,yes,get coordinates from Pelaides,yes,
+Geography & Location,strat_east,,,yes,over 98% null values,yes,
+Geography & Location,strat_height,,,yes,over 98% null values,yes,
+Geography & Location,strat_north,,,yes,over 98% null values,yes,
+Geography & Location,stratigraphic_level,,,yes,over 98% null values,yes,
+Identification & Project Info,artifact_id,,,yes,information exists in other columns,yes,P numbers without the P and only for ca. 1000 entries
+Identification & Project Info,cdli_id,,,yes,information exists in other columns,yes,P numbers for ca. 6000 entries
+Identification & Project Info,id,,,yes,over 98% null values,yes,5 or 6 digit numbers that do not correlate with P numbers
+Identification & Project Info,id_text,,,yes,information exists in other columns,yes,P numbers for ca. 30000 of the entries
+Identification & Project Info,id_text_int,,,yes,information exists in other columns,yes,P numbers without the P for 368 entries
+Identification & Project Info,member_id,,9,no,,yes,"P, Q and X numbers for all entries"
+Identification & Project Info,project,,9,no,,yes,
+Identification & Project Info,saa_cdli_id,,,yes,,yes,Unclear yes/no values for some entries
+Identification & Project Info,subproject,,,yes,over 98% null values,yes,two subprojects for ca. 400 entries
+Identification & Project Info,temp_id,,,yes,information exists in other columns,yes,info exists in member_id
+Identification & Project Info,xproject,,,yes,Two variables that are irrelevant,yes,it's CDLI or blank
+Language & Script,dialect,,,no,,yes,"exists for ca. 4000 entries, includes only Neo-Assyrian (3688), Neo-Babylonian (1232), and Standard Babylonian (1)"
+Language & Script,langs,,,no,,yes,merge lang columns
+Language & Script,language,,,no,,yes,merge lang columns
+Language & Script,language_remarks,,,no,,yes,merge lang columns
+Language & Script,languages,,,no,,yes,merge lang columns
+Language & Script,languages_uncertain,,,yes,Two variables that are irrelevant,yes,
+Language & Script,script,,,no,,yes,should check information overlap with language
+Language & Script,script_remarks,,,yes,Two variables that are irrelevant,yes,"rarely information other then ""inscribed"", obvious"
+Language & Script,script_type,,,yes,information exists in other columns,yes,"basically whether it's cuneiform or Aramaic, not for all entries, obvious from language"
+Museum & Accession,accession_no,museum accession number,,no,,yes,
+Museum & Accession,accession_number,museum accession number,,no,over 98% null values,yes,merge with accession_no
+Museum & Accession,cdli_accession_no,museum accession number,,no,,yes,check for duplicates with accession_no
+Museum & Accession,cdli_museum_no,museum number,,no,,yes,merge with museum_no
+Museum & Accession,collection,Museum name,,no,,yes,"lots of duplicate entries, merge with museum"
+Museum & Accession,collections,museum names,,no,,yes,merge with museum
+Museum & Accession,mus_no,museum number,,no,over 98% null values,yes,merge with museum_no
+Museum & Accession,museum,Museum name,,no,over 98% null values,yes,
+Museum & Accession,museum_no,museum number,,no,,yes,
+Museum & Accession,museum_number,museum number,,no,over 98% null values,yes,merge with museum_no
+Museum & Accession,museum-nos,museum number,,no,over 98% null values,yes,merge with museum_no
+Museum & Accession,object_ref,museum number,,no,over 98% null values,yes,merge with museum_no
+Museum & Accession,owner,Museum name,,no,,yes,merge with museum
+Museum & Accession,saa_cdli_accession,,,yes,Two variables that are irrelevant,yes,"no idea what they mean, it's yes/no and not for all entries"
+Museum & Accession,saa_cdli_museum,,,yes,Two variables that are irrelevant,yes,"no idea what they mean, it's yes/no and not for all entries"
+Object Information,artifact_preservation,,,yes,Two variables that are irrelevant,yes,
+Object Information,artifact_type,,,no,,yes,"material shape, very messy"
+Object Information,artifact_type_comments,,,yes,over 98% null values,yes,
+Object Information,columns,,,yes,over 98% null values,yes,number of columns
+Object Information,condition_description,,,no,,yes,verbal description of object preservaion
+Object Information,fingernails_number,,,yes,over 98% null values,yes,interesting but documented for so few tablets...
+Object Information,height,,,no,,yes,
+Object Information,material,,,no,,yes,merge with materials
+Object Information,materials,,,no,,yes,merge with material
+Object Information,materials_color,,,yes,over 98% null values,yes,one value
+Object Information,measurements,,,no,,yes,inconsistent format
+Object Information,object,,,no,Two variables that are irrelevant,yes,merge with artifact_type
+Object Information,object_preservation,,,no,over 98% null values,yes,merge with condition_description
+Object Information,object_remarks,,,no,,yes,mess of information that can be distributed to other columns
+Object Information,object_type,,,no,,yes,merge with artifact_type
+Object Information,orientation,,,yes,over 98% null values,yes,less than a hundred entries
+Object Information,seal_id,,,no,over 98% null values,yes,
+Object Information,seal_information,,,no,over 98% null values,yes,secondary literature on seal
+Object Information,seal_mark_type,,,yes,over 98% null values,yes,less than a hundred entries
+Object Information,seal_no,,,no,over 98% null values,yes,merge with seal_id
+Object Information,sealed_marked,,,yes,over 98% null values,yes,unclear what this is
+Object Information,seals,,,no,over 98% null values,yes,merge with seal_id
+Object Information,seals_number,,,yes,over 98% null values,yes,less than 50 entries
+Object Information,surface_preservation,,,no,over 98% null values,yes,merge with condition_description
+Object Information,tablet_comments,,,yes,over 98% null values,yes,varied information that can be distributed in other columns
+Object Information,thickness,,,no,,yes,
+Object Information,width,,,no,,yes,
+Prosopography,ancient_author,,,no,,yes,
+Prosopography,ancient_buyer,,,no,over 98% null values,yes,
+Prosopography,ancient_creditor,,,no,over 98% null values,yes,
+Prosopography,ancient_debtor,,,no,over 98% null values,yes,
+Prosopography,ancient_recipient,,,no,,yes,
+Prosopography,ancient_seller,,,no,over 98% null values,yes,
+Prosopography,dossier_list,names of SAA letter senders,,no,,yes,
+Prosopography,prosobab,,,no,over 98% null values,yes,
+Prosopography,recipient,,,no,over 98% null values,yes,
+Prosopography,seal_owner,,,no,over 98% null values,yes,
+Publication & Bibliographic Metadata,abl_no,specific publication numbers in ABL series,,no,,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,acquisition_history,,,yes,over 98% null values,yes,
+Publication & Bibliographic Metadata,adb_no,specific publication numbers in ADB series,,no,over 98% null values,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,add_no,specific publication numbers in ADD series,,no,,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,ags_no,specific publication numbers in AGS series,,no,over 98% null values,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,ALCA,"some excavations numbers and other unidentified IDs, just for MA Assur texts",,no,,yes,merge with one new column for excavation+museum numbers
+Publication & Bibliographic Metadata,author_remarks,,,yes,over 98% null values,yes,
+Publication & Bibliographic Metadata,BAK,specific publication numbers in BAK series,,no,over 98% null values,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,bibilography,secondary literature references,,no,over 98% null values,yes,merge with one column for secondary literature references
+Publication & Bibliographic Metadata,bibliography,secondary literature references,,no,over 98% null values,yes,merge with one column for secondary literature references
+Publication & Bibliographic Metadata,bibliography__book_title,secondary literature references,,no,,yes,merge with one column for secondary literature references
+Publication & Bibliographic Metadata,bibliography__id_biblio,secondary literature references,,yes,,yes,"IDs for secondary publications, I don't know that they are used anywhere else; no overlap with book_title, sometimes there's an id but book title is blank and vice versa"
+Publication & Bibliographic Metadata,bibliography__journal_title,secondary literature references,,no,over 98% null values,yes,merge with bibliography__volume_number and then to one column for secondary publications
+Publication & Bibliographic Metadata,bibliography__shortref,secondary literature references,,no,,yes,merge with one column for secondary literature references
+Publication & Bibliographic Metadata,bibliography__unpublished_title,,,yes,over 98% null values,yes,
+Publication & Bibliographic Metadata,bibliography__volume_number,secondary literature references,,no,,yes,merge with bibliography__journal_title and then to one column for secondary publications
+Publication & Bibliographic Metadata,buy_book,URLs to where you can purchase the books,,yes,over 98% null values,yes,
+Publication & Bibliographic Metadata,c_both,combination of c_group and c_item,,yes,over 98% null values,yes,
+Publication & Bibliographic Metadata,c_group,chapter organization of CMAWRO (numerical),6,yes,over 98% null values,yes,
+Publication & Bibliographic Metadata,c_item,chapter organization of CMAWRO (numerical),6,yes,over 98% null values,yes,
+Publication & Bibliographic Metadata,c_name,chapter organization of CMAWRO (verbal),6,no,over 98% null values,yes,can be used for subgenres
+Publication & Bibliographic Metadata,c_num_name,chapter organization of CMAWRO (verbal),6,no,over 98% null values,yes,can be used for subgenres
+Publication & Bibliographic Metadata,cdli_comments,mess of information,,yes,over 98% null values,yes,one should be able to get updated comments from CDLI if one wants
+Publication & Bibliographic Metadata,cdli_excavation_no,excavation numbers,,no,over 98% null values,yes,merge with one new column for excavation+museum numbers
+Publication & Bibliographic Metadata,ch_name,chapter organization of SAAo,6,yes,duplicate of ch_num_name,yes,
+Publication & Bibliographic Metadata,ch_no,chapter organization of SAAo,6,yes,duplicate of ch_num_name,yes,
+Publication & Bibliographic Metadata,ch_num_name,combination of ch_no and ch_name,6,no,,yes,can be used for subgenres
+Publication & Bibliographic Metadata,citation,secondary literature,,no,over 98% null values,yes,merge with one column for secondary literature references
+Publication & Bibliographic Metadata,copies,publication name,,no,over 98% null values,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,copy,publication name,,no,,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,ct_53_no,publication name,,no,,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,ct_54_no,publication name,,no,over 98% null values,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,ctn_no,publication name,,no,over 98% null values,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,designation,publication name,,no,,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,display_name,publication name,,no,,yes,merge with designation
+Publication & Bibliographic Metadata,dossier,groupings for SAA letters,6,no,,yes,can be used for subgenres
+Publication & Bibliographic Metadata,editions,secondary literature,,no,over 98% null values,yes,merge with one column for secondary literature references
+Publication & Bibliographic Metadata,editorial_comments,"varied comments on publication info, unstructured",,yes,over 98% null values,yes,
+Publication & Bibliographic Metadata,electronic_publication,links to editions on Livius website,,yes,over 98% null values,yes,
+Publication & Bibliographic Metadata,excavation_no,excavation numbers,,no,,yes,merge with one new column for excavation+museum numbers
+Publication & Bibliographic Metadata,geers_no,"I think excavation numbers, only CMAWRO",,no,,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,gpa_no,,,no,over 98% null values,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,group,chapter organization of CMAWRO (verbal),6,no,,yes,can be used for subgenres
+Publication & Bibliographic Metadata,handcopy,references to secondary literature for handcopies,,no,,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,join_information,designations of joins,,no,,yes,
+Publication & Bibliographic Metadata,kah_no,KAH numbers,,no,over 98% null values,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,kar_no,KAR numbers,,no,over 98% null values,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,kav_no,KAV numbers,,no,over 98% null values,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,las_no,LAS numbers,,no,over 98% null values,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,lka_no,LKA numbers,,no,over 98% null values,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,nargd_no,NARGD numbers,,no,over 98% null values,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,nl_no,NL numbers,,no,over 98% null values,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,nme_chapter,Chapter organization of Nineveh medical library,6,no,over 98% null values,yes,can be used for subgenres
+Publication & Bibliographic Metadata,note,join information,,no,over 98% null values,yes,combine with join_information column
+Publication & Bibliographic Metadata,notes,too varied to categorize,,no,,yes,
+Publication & Bibliographic Metadata,other_names,Verbal text names,5,no,over 98% null values,yes,can be used for subgenres
+Publication & Bibliographic Metadata,other_pub,Secondary literature,,no,over 98% null values,yes,merge with one column for secondary literature references
+Publication & Bibliographic Metadata,owner_remarks,"some join information, some labeling errors information",,yes,over 98% null values,yes,"only seven rows, not worth it..."
+Publication & Bibliographic Metadata,photo,secondary literature reference to photo,,no,,yes,merge with one column for secondary literature references
+Publication & Bibliographic Metadata,photo_no,secondary literature reference to photo,,no,over 98% null values,yes,merge with one column for secondary literature references
+Publication & Bibliographic Metadata,photos,secondary literature reference to photo,,no,over 98% null values,yes,merge with one column for secondary literature references
+Publication & Bibliographic Metadata,pkt_no,PKT numbers,,no,over 98% null values,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,pkta_no,PKTA numbers,,no,over 98% null values,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,popular_name,mix of publication names and descriptive names,,no,,yes,
+Publication & Bibliographic Metadata,pr_joins__pages,"lists with mostly numbers, what it references unclear, from multiple projects",,yes,Unclear content,yes,
+Publication & Bibliographic Metadata,primary_edition,"only CMAWRO project, duplicate information in other columns",,yes,over 98% null values,yes,
+Publication & Bibliographic Metadata,primary_publication,secondary literature,,no,,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,primary_publication2,secondary literature,,no,over 98% null values,yes,merge with one column for secondary literature references
+Publication & Bibliographic Metadata,principal,Eleanor Robson or blank,,yes,Two variables that are irrelevant,yes,
+Publication & Bibliographic Metadata,prt_no,PRT numbers,,no,over 98% null values,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,publication,secondary literature,,no,over 98% null values,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,publication_date,mostly just years,,yes,,yes,
+Publication & Bibliographic Metadata,publication_history,secondary literature,,no,,yes,merge with one column for secondary literature references
+Publication & Bibliographic Metadata,publications_comment,some information about text genre,5,no,over 98% null values,yes,can be used for subgenre
+Publication & Bibliographic Metadata,publications_exact_ref,mostly context-less numbers,,yes,,yes,
+Publication & Bibliographic Metadata,publications_key,combination of meaningless numbers with secondary literature references; hard clean,,no,,yes,
+Publication & Bibliographic Metadata,publications_type,types are history or primary; irrelevant,,yes,,yes,
+Publication & Bibliographic Metadata,published_collation,secondary literature,,no,over 98% null values,yes,merge with one column for secondary literature references
+Publication & Bibliographic Metadata,qcat_2__other_names,names for text groups used in CMAWRO,6,no,,yes,can be used for subgenre
+Publication & Bibliographic Metadata,rma_no,RMA numbers,,no,over 98% null values,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,season,I think it's excavation season years - irrelevant,,yes,over 98% null values,yes,
+Publication & Bibliographic Metadata,secondary-literatures,secondary literature,,no,over 98% null values,yes,merge with one column for secondary literature references
+Publication & Bibliographic Metadata,session,grouping of texts used in CAMS-TLAB,6,no,over 98% null values,yes,can be used for subgenre
+Publication & Bibliographic Metadata,short_title,grouping of texts used in SAAo,6,no,,yes,can be used for subgenre
+Publication & Bibliographic Metadata,sort_order,medical text groupings,6,no,over 98% null values,yes,can be used for subgenre
+Publication & Bibliographic Metadata,stt_no,STT numbers,,no,over 98% null values,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,ta_photo_no,numbers I'm not sure what they refer to,,yes,,yes,
+Publication & Bibliographic Metadata,text_comments,philological comments on ADSD texts,,yes,,yes,irrelevant
+Publication & Bibliographic Metadata,text_remarks,varied pieces of information,,no,,yes,
+Publication & Bibliographic Metadata,textname,medical texts groupings + text designation,,yes,over 98% null values,yes,probably duplicated information from other columns
+Publication & Bibliographic Metadata,tim_11_no,TIM 11 numbers,,no,over 98% null values,yes,merge with one new column for publications
+Publication & Bibliographic Metadata,title,text names that are descriptive,5,no,,yes,can be used for subgenre
+Publication & Bibliographic Metadata,translations,secondary literature,,no,over 98% null values,yes,merge with one column for secondary literature references
+Publication & Bibliographic Metadata,unique_ID,excavation numbers,,no,over 98% null values,yes,merge with one new column for excavation+museum numbers
+Publication & Bibliographic Metadata,vol_title,SAA book titles,,yes,,yes,irrelevant
+Publication & Bibliographic Metadata,volume,SAA volume numbers,,yes,,yes,irrelevant
+Technical/Internal Use,ark,unidentified serial number,,yes,,yes,
+Technical/Internal Use,ark_number,unidentified serial number,,yes,over 98% null values,yes,
+Technical/Internal Use,atae_lists,format is project:Pnumber,,yes,,yes,information exists in other columns
+Technical/Internal Use,atf_source,"credits to people, not a lot",,yes,over 98% null values,yes,too few to bother
+Technical/Internal Use,atf_up,unclear,,yes,Two variables that are irrelevant,yes,
+Technical/Internal Use,checked,date when presumably text was last checked,,yes,over 98% null values,yes,
+Technical/Internal Use,created_by,people or institutions,,yes,over 98% null values,yes,"very few people/institutions, not worth it"
+Technical/Internal Use,created_on,date text entry was created,,yes,over 98% null values,yes,
+Technical/Internal Use,date_entered,again dates,,yes,not relevant,yes,
+Technical/Internal Use,date_updated,again dates,,yes,not relevant,yes,
+Technical/Internal Use,db_source,dates and peoples names,,yes,not relevant,yes,
+Technical/Internal Use,edited_twice,yes / no values,,yes,Two variables that are irrelevant,yes,
+Technical/Internal Use,external_id,"either project name then section, or Kassite seals, or X ids",,yes,over 98% null values,yes,
+Technical/Internal Use,external_resources,names of other online resources,8,no,,yes,can be useful for using data from other databases
+Technical/Internal Use,external_resources_key,text designations presumably in the other online resources,8,no,,yes,can be useful for using data from other databases
+Technical/Internal Use,images,empty lists or blank,,yes,not relevant,yes,
+Technical/Internal Use,in_corpus,True False values,,yes,Two variables that are irrelevant,yes,
+Technical/Internal Use,last_mod_by,people or projects,,yes,not relevant,yes,just three people anyway
+Technical/Internal Use,last_modified,dates,,yes,not relevant,yes,
+Technical/Internal Use,last_modified_by,one person and two weird abbreviations,,yes,over 98% null values,yes,
+Technical/Internal Use,last_modified_on,dates,,yes,over 98% null values,yes,
+Technical/Internal Use,lemmed,dates,,yes,over 98% null values,yes,
+Technical/Internal Use,lineart_up,"three options, all start with 150 ppi and then dates",,yes,over 98% null values,yes,
+Technical/Internal Use,list_name,format is project:Pnumber,,yes,not relevant,yes,information exists in other columns
+Technical/Internal Use,obta_no,Text number in OBTA project,,yes,over 98% null values,yes,not important to keep
+Technical/Internal Use,oracc_header,atf-style header,,yes,not relevant,yes,information exists in other columns
+Technical/Internal Use,photo_up,ppi numbers and dates,,yes,over 98% null values,yes,
+Technical/Internal Use,photographed,dates,,yes,over 98% null values,yes,
+Technical/Internal Use,photographer,names,,yes,over 98% null values,yes,
+Technical/Internal Use,pq_joins__external_id,just CMWARO project ids,,yes,not relevant,yes,information exists in other columns
+Technical/Internal Use,proof-read,dates,,yes,over 98% null values,yes,
+Technical/Internal Use,proof-reader,names,,yes,over 98% null values,yes,
+Technical/Internal Use,public,no or blank,,yes,Two variables that are irrelevant,yes,
+Technical/Internal Use,record_id,"id numbers, don't know what for",,yes,not relevant,yes,
+Technical/Internal Use,repository,Cambridge or blank,,yes,Two variables that are irrelevant,yes,
+Technical/Internal Use,rework,yes or no,,yes,Two variables that are irrelevant,yes,
+Technical/Internal Use,saao_lists,format is project:Pnumber,,yes,not relevant,yes,information exists in other columns
+Technical/Internal Use,secondary_record,yes no values,,yes,not relevant,yes,
+Technical/Internal Use,status,active or blank,,yes,over 98% null values,yes,
+Technical/Internal Use,trans,"translation language, English German or French",,yes,not relevant,yes,
+Technical/Internal Use,translation_source,"Geller, no translation or blank",,yes,over 98% null values,yes,
+Technical/Internal Use,translit_ed,dates,,yes,over 98% null values,yes,
+Technical/Internal Use,uploaded,dates,,yes,over 98% null values,yes,
+Technical/Internal Use,uri,CDLI links,8,no,,yes,"could be used to link to CDLI, has over 10,000 entries"
+Technical/Internal Use,user,"admin, Robson or blank",,yes,Two variables that are irrelevant,yes,
+Text Classification,artifact_comments,,,yes,over 98% null values,yes,
+Text Classification,genre,,,no,,yes,merge genre columns
+Text Classification,genres,,,no,,yes,merge genre columns
+Text Classification,genres_comment,,,no,over 98% null values,yes,merge genre columns
+Text Classification,genres_uncertain,,,no,over 98% null values,yes,merge genre columns
+Text Classification,is_school_text,,,no,over 98% null values,yes,merge genre columns
+Text Classification,subgenre,,,no,,yes,merge genre columns
+Text Classification,subgenre_remarks,,,no,,yes,merge genre columns
+Text Classification,supergenre,,,no,,yes,
+Uncertain,attested,,,yes,Two variables that are irrelevant,yes,
+Uncertain,axes,,,yes,over 98% null values,yes,
+Uncertain,dumb2,,,yes,over 98% null values,yes,
+Uncertain,exemplar_number,,,yes,over 98% null values,yes,
+Uncertain,google_earth_provenience,,,yes,over 98% null values,yes,
+Uncertain,has_fragments,,,yes,over 98% null values,yes,
+Uncertain,headings,,,yes,over 98% null values,yes,
+Uncertain,ka,,,yes,over 98% null values,yes,
+Uncertain,number,,,yes,over 98% null values,yes,
+Uncertain,outline_sort_name,,,yes,over 98% null values,yes,
+Uncertain,person,,,yes,over 98% null values,yes,
+Uncertain,series,,,yes,over 98% null values,yes,
+Uncertain,series_section,,,yes,over 98% null values,yes,
+Uncertain,temp_no,,,yes,over 98% null values,yes,
+Publication & Bibliographic Metadata,achemenet,Achement ID numbers,,no,,yes,
+Museum & Accession,bm,Accession numbers,,no,,yes,merge with one new column for excavation+museum numbers
+Publication & Bibliographic Metadata,ebl,Publication names without spaces (fits eBL URL),,no,,yes,
+Museum & Accession,louvre,unclear number sequences,,yes,,yes,
+Publication & Bibliographic Metadata,nabucco,Nabucco ID numbers,,no,,yes,
+Publication & Bibliographic Metadata,previous_publication,publication names,,no,,yes,merge with one new column for publications
+Technical/Internal Use,source,column name generated for cdli catalogue which did not exist previously,,,,,
+Museum & Accession,ybc,unclear number sequences,,no,,yes,
