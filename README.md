@@ -11,6 +11,11 @@ A Python tool to download and parse [ORACC](http://oracc.museum.upenn.edu/) cune
 
 ## Installation
 
+```bash
+pip install oracc-parser
+```
+
+Or for development:
 
 ```bash
 git clone https://github.com/shaharspencer/oracc-parser.git
@@ -23,12 +28,12 @@ pip install -e ".[dev]"
 The easiest way to explore oracc-parser is through the interactive notebooks.
 Start with notebook 01 — it downloads all the data you need from Zenodo automatically.
 
-| Notebook | What you'll learn |
-|---|---|
-| [`01_quickstart.ipynb`](notebooks/01_quickstart.ipynb) | Download the dataset → parse a project from pre-processed CSVs → explore transliterations, translations, and metadata → export |
-| [`02_reference_data.ipynb`](notebooks/02_reference_data.ipynb) | Browse all projects in the dataset, query catalogues, explore bundled reference data (provenance, periods, sign list, POS tags) |
-| [`03_configure_and_export.ipynb`](notebooks/03_configure_and_export.ipynb) | All `RunConfig` options — word-level and sign-level break filtering, POS masking — combining multiple projects and exporting datasets |
-| [`04_oracc_json_processing.ipynb`](notebooks/04_oracc_json_processing.ipynb) | Advanced: understand the raw ORACC JSON structure, the JSON → TabletRecord → CSV pipeline, and how to download and parse projects not in the dataset |
+| Notebook | What you'll learn | Open in Colab |
+|---|---|---|
+| [`01_quickstart.ipynb`](notebooks/01_quickstart.ipynb) | Download the dataset → parse a project → explore transliterations, translations, and metadata → export | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shaharspencer/oracc-parser/blob/main/notebooks/01_quickstart.ipynb) |
+| [`02_reference_data.ipynb`](notebooks/02_reference_data.ipynb) | Browse all projects in the dataset, query catalogues, explore bundled reference data (provenance, periods, sign list, POS tags) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shaharspencer/oracc-parser/blob/main/notebooks/02_reference_data.ipynb) |
+| [`03_configure_and_export.ipynb`](notebooks/03_configure_and_export.ipynb) | All `RunConfig` options — word-level and sign-level break filtering, POS masking — combining multiple projects and exporting datasets | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shaharspencer/oracc-parser/blob/main/notebooks/03_configure_and_export.ipynb) |
+| [`04_oracc_json_processing.ipynb`](notebooks/04_oracc_json_processing.ipynb) | Advanced: understand the raw ORACC JSON structure, the JSON → TabletRecord → CSV pipeline, and how to download and parse projects not in the dataset | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shaharspencer/oracc-parser/blob/main/notebooks/04_oracc_json_processing.ipynb) |
 
 ```bash
 pip install oracc-parser[notebooks]
