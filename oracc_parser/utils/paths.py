@@ -49,6 +49,15 @@ def get_archives() -> pd.DataFrame:
     return pd.read_csv(_data_file("raw_archive_values.csv"), dtype=str, keep_default_na=False)
 
 
+def get_catalogue_columns() -> pd.DataFrame:
+    """Load the grouped ORACC metadata columns reference table.
+
+    Contains all catalogue column names found across ORACC projects, grouped
+    by category (e.g. Publications, Museum Numbers, Provenance, etc.).
+    """
+    return pd.read_csv(_data_file("grouped_oracc_metadata_columns.csv"), dtype=str, keep_default_na=False)
+
+
 def get_provenience(pleiades_only: bool = True) -> pd.DataFrame:
     """Load the consolidated provenance table (merged from two original CSVs).
 

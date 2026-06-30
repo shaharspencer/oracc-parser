@@ -48,6 +48,9 @@ from oracc_parser.utils.paths import (
     get_pos_tags,
     get_languages,
     get_projects_metadata,
+    get_state_mapping,
+    get_archives,
+    get_catalogue_columns,
 )
 
 logger = get_logger()
@@ -73,6 +76,9 @@ class reference_data:
     get_pos_tags = staticmethod(get_pos_tags)
     get_languages = staticmethod(get_languages)
     get_projects_metadata = staticmethod(get_projects_metadata)
+    get_state_supergroup_mapping = staticmethod(get_state_mapping)
+    get_archive_mapping = staticmethod(get_archives)
+    get_catalogue_columns = staticmethod(get_catalogue_columns)
     get_live_project_list = staticmethod(get_live_projects_dataframe)
 
 
