@@ -143,6 +143,10 @@ class TabletMetadata(BaseModel):
     archive: Optional[str] = ""
     copyright_information: str = ""
     genre: Optional[str] = ""
+    accession_museum_publication_numbers: str = ""
+    secondary_literature: str = ""
+    credits: str = ""
+    cite_as: str = ""
 
 
 # ---------------------------------------------------------------------------

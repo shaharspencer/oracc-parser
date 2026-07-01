@@ -333,30 +333,9 @@ def get_metadata_table(records: list[TabletRecord]) -> pd.DataFrame:
         metadata_df = get_metadata_table(records)
         print(metadata_df.head())
     """
-    from oracc_parser.metadata.populate import (
-        _PUBLICATION_COLS, _MUSEUM_NUMBER_COLS, _SECONDARY_LIT_COLS,
-        _JOURNAL_TITLE_COL, _JOURNAL_VOL_COL, _merge_columns,
-        _CREDITS_COLS, _CITE_AS_COLS,
-    )
-    _accession_pub_cols = _PUBLICATION_COLS + _MUSEUM_NUMBER_COLS
-
     rows = []
     for r in records:
         md = r.metadata
-        raw = md.metadata_raw_dict or {}
-
-        raw_series = pd.Series(raw)
-
-        # Combine journal title + volume into a single entry for secondary_literature
-        journal_title = str(raw.get(_JOURNAL_TITLE_COL, "")).strip()
-        journal_vol   = str(raw.get(_JOURNAL_VOL_COL,   "")).strip()
-        journal_title = "" if journal_title.lower() in ("nan", "none") else journal_title
-        journal_vol   = "" if journal_vol.lower()   in ("nan", "none") else journal_vol
-        journal_combined = f"{journal_title} {journal_vol}".strip() if (journal_title or journal_vol) else ""
-        if journal_combined:
-            raw_series["_journal_combined"] = journal_combined
-        secondary_cols = _SECONDARY_LIT_COLS + (["_journal_combined"] if journal_combined else [])
-
         rows.append({
             "id": md.identifier,
             "project": md.project,
@@ -373,16 +352,10 @@ def get_metadata_table(records: list[TabletRecord]) -> pd.DataFrame:
             ),
             "start_year": md.chronological_information.start_year,
             "end_year": md.chronological_information.end_year,
-            "accession_museum_publication_numbers": _merge_columns(
-                raw_series,
-                [c for c in _accession_pub_cols if not (c == "designation" and md.project.startswith("adsd"))],
-            ),
-            "secondary_literature": _merge_columns(raw_series, secondary_cols),
-            "credits": _merge_columns(raw_series, _CREDITS_COLS),
-            "cite_as": (
-                _merge_columns(raw_series, _CITE_AS_COLS)
-                or f"Please cite this page as http://oracc.org/{md.project}/{md.id_text}/."
-            ),
+            "accession_museum_publication_numbers": md.accession_museum_publication_numbers,
+            "secondary_literature": md.secondary_literature,
+            "credits": md.credits,
+            "cite_as": md.cite_as,
         })
     return pd.DataFrame(rows)
 

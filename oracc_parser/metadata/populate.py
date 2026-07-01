@@ -103,6 +103,9 @@ def populate_metadata(
         md.chronological_information = _get_chronology(metadata_dict, project, text_id)
         md.archive = _get_archive(metadata_dict, project, text_id)
         md.genre = metadata_dict.get("genre", "")
+        md.accession_museum_publication_numbers, md.secondary_literature, md.credits, md.cite_as = (
+            _get_publication_fields(metadata_dict, project, text_id)
+        )
     except Exception as e:
         logger.error(f"error in populate_metadata for {project}/{text_id}: {e}")
 
@@ -488,6 +491,38 @@ _SECONDARY_LIT_COLS = [
 # These two are combined as "journal_title vol_num" before joining
 _JOURNAL_TITLE_COL = "bibliography__journal_title"
 _JOURNAL_VOL_COL = "bibliography__volume_number"
+
+
+def _get_publication_fields(
+    metadata_dict: dict,
+    project: str,
+    text_id: str,
+) -> tuple[str, str, str, str]:
+    """Derive accession/publication numbers, secondary literature, credits, and cite_as."""
+    import pandas as pd
+    raw = pd.Series(metadata_dict)
+
+    journal_title = str(metadata_dict.get(_JOURNAL_TITLE_COL, "")).strip()
+    journal_vol = str(metadata_dict.get(_JOURNAL_VOL_COL, "")).strip()
+    journal_title = "" if journal_title.lower() in ("nan", "none") else journal_title
+    journal_vol = "" if journal_vol.lower() in ("nan", "none") else journal_vol
+    journal_combined = f"{journal_title} {journal_vol}".strip() if (journal_title or journal_vol) else ""
+    if journal_combined:
+        raw["_journal_combined"] = journal_combined
+    secondary_cols = _SECONDARY_LIT_COLS + (["_journal_combined"] if journal_combined else [])
+
+    _accession_pub_cols = _PUBLICATION_COLS + _MUSEUM_NUMBER_COLS
+    accession = _merge_columns(
+        raw,
+        [c for c in _accession_pub_cols if not (c == "designation" and project.startswith("adsd"))],
+    )
+    secondary = _merge_columns(raw, secondary_cols)
+    credits = _merge_columns(raw, _CREDITS_COLS)
+    cite_as = (
+        _merge_columns(raw, _CITE_AS_COLS)
+        or f"Please cite this page as http://oracc.org/{project}/{text_id}/."
+    )
+    return accession, secondary, credits, cite_as
 
 
 def _merge_columns(row: "pd.Series", cols: list[str]) -> str:
