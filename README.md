@@ -19,7 +19,7 @@ If you use oracc-parser in your research, please cite:
   title        = {oracc-parser: A Python toolkit for downloading and parsing ORACC cuneiform text projects},
   year         = {2026},
   publisher    = {Zenodo},
-  version      = {0.1.3},
+  version      = {0.1.4},
   doi          = {10.5281/zenodo.18643122},
   url          = {https://doi.org/10.5281/zenodo.18643122}
 }
