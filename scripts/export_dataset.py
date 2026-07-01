@@ -13,7 +13,7 @@ import argparse
 import os
 from pathlib import Path
 
-from oracc_parser import RunConfig, parse_project, get_full_flat_table
+from oracc_parser import RunConfig, parse_project_from_oracc_from_oracc, get_full_flat_table
 from oracc_parser.utils.paths import get_output_dir
 
 
@@ -66,7 +66,7 @@ def main():
     for project in projects:
         print(f"\n--- {project} ---")
         try:
-            records = parse_project(project, config=config, download=False)
+            records = parse_project_from_oracc(project, config=config, download=False)
             if records:
                 df = get_full_flat_table(records)
                 all_rows.append(df)

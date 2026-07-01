@@ -12,7 +12,7 @@ from __future__ import annotations
 import argparse
 import sys
 
-from oracc_parser.pipeline import export_to_csv, export_to_jsonl, parse_project
+from oracc_parser.pipeline import export_to_csv, export_to_jsonl, parse_project_from_oracc
 from oracc_parser.download.oracc_download import download_projects
 from oracc_parser.models.config import RunConfig
 from oracc_parser.utils.logger import get_logger
@@ -135,7 +135,7 @@ def _cmd_parse(args):
         limit=args.limit,
     )
 
-    records = parse_project(
+    records = parse_project_from_oracc(
         args.project, config=config, download=not args.no_download
     )
 

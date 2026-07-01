@@ -44,10 +44,10 @@ jupyter notebook notebooks/
 ## Quick Example
 
 ```python
-from oracc_parser import parse_project, RunConfig, get_full_flat_table
+from oracc_parser import parse_project_from_oracc, RunConfig, get_full_flat_table
 
 # Parse 5 tablets from SAA 01 (Neo-Assyrian royal letters)
-records = parse_project("saao/saa01", config=RunConfig(limit=5))
+records = parse_project_from_oracc("saao/saa01", config=RunConfig(limit=5))
 
 # Get a flat DataFrame — no nesting, ready for analysis
 df = get_full_flat_table(records)
@@ -59,9 +59,9 @@ df.to_json("dataset.jsonl", orient="records", lines=True)
 You can customize the parsing process using `RunConfig`:
 
 ```python
-from oracc_parser import parse_project, RunConfig
+from oracc_parser import parse_project_from_oracc, RunConfig
 
-records = parse_project("saao/saa01", config=RunConfig(
+records = parse_project_from_oracc("saao/saa01", config=RunConfig(
     limit=10,
     max_break_fraction=0.5,   # word-level: drop words that are >50% broken
     drop_missing=True,        # sign-level: drop [x] signs from Unicode output

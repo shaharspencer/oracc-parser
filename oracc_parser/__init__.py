@@ -9,7 +9,7 @@ __version__ = "0.1.3"
 from oracc_parser.pipeline import (  # noqa: F401
     export_to_csv,
     export_to_jsonl,
-    parse_project,
+    parse_project_from_oracc,
     parse_project_from_word_csvs,
     records_to_word_dataframes,
     save_project_catalogue,

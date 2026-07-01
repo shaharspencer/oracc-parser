@@ -3,8 +3,8 @@ Pipeline and convenience functions for oracc-parser.
 
 Usage — run via ``main.py`` or import these functions in your script::
 
-    from oracc_parser.pipeline import parse_project, RunConfig
-    records = parse_project("saao/saa01", config=RunConfig(limit=5))
+    from oracc_parser.pipeline import parse_project_from_oracc_from_oracc, RunConfig
+    records = parse_project_from_oracc_from_oracc("saao/saa01", config=RunConfig(limit=5))
 
 For quick access to just metadata, transliterations, etc., use the
 granular helpers:
@@ -83,7 +83,7 @@ class reference_data:
 # ---------------------------------------------------------------------------
 
 
-def parse_project(
+def parse_project_from_oracc_from_oracc(
     project: str,
     config: RunConfig | None = None,
     download: bool = True,
@@ -114,7 +114,7 @@ def parse_project(
         word_dfs = load_word_csvs_from_dir(csv_dir, project=project)
         if config.limit is not None:
             word_dfs = dict(list(word_dfs.items())[: config.limit])
-        return parse_project_from_word_csvs(project, word_dfs, config=config)
+        return parse_project_from_oracc_from_word_csvs(project, word_dfs, config=config)
 
     # Slow path: parse from JSON, then save word CSVs for future use
     if download:
@@ -244,14 +244,14 @@ def load_project_catalogue(path: str | Path) -> pd.DataFrame:
     return load_catalogue_csv(path)
 
 
-def parse_project_from_word_csvs(
+def parse_project_from_oracc_from_word_csvs(
     project: str,
     word_dfs: dict[str, pd.DataFrame],
     config: RunConfig | None = None,
 ) -> list[TabletRecord]:
     """Parse tablets from pre-loaded per-word DataFrames.
 
-    This is an alternative entry point to :func:`parse_project` for users
+    This is an alternative entry point to :func:`parse_project_from_oracc` for users
     who have downloaded the word-level CSVs from Zenodo instead of the raw
     ORACC JSON ZIPs.  All ``RunConfig`` options work identically: string
     representations are rebuilt from the word data according to ``config``.
@@ -270,18 +270,18 @@ def parse_project_from_word_csvs(
         config: RunConfig with parsing options. Uses defaults if None.
 
     Returns:
-        List of TabletRecord objects (same type as :func:`parse_project`).
+        List of TabletRecord objects (same type as :func:`parse_project_from_oracc`).
 
     Example::
 
-        from oracc_parser import parse_project_from_word_csvs, RunConfig
+        from oracc_parser import parse_project_from_oracc_from_word_csvs, RunConfig
         from oracc_parser.io.word_csv import load_word_csvs_from_zenodo
 
         word_dfs = load_word_csvs_from_zenodo(
             zenodo_url="https://zenodo.org/records/12345",
             project="saao/saa01",
         )
-        records = parse_project_from_word_csvs(
+        records = parse_project_from_oracc_from_word_csvs(
             "saao/saa01", word_dfs, config=RunConfig(drop_missing=True)
         )
     """
@@ -329,7 +329,7 @@ def get_metadata_table(records: list[TabletRecord]) -> pd.DataFrame:
 
     Example::
 
-        records = parse_project("saao/saa01", config=RunConfig(limit=5))
+        records = parse_project_from_oracc("saao/saa01", config=RunConfig(limit=5))
         metadata_df = get_metadata_table(records)
         print(metadata_df.head())
     """
@@ -463,7 +463,7 @@ def get_full_flat_table(records: list[TabletRecord]) -> pd.DataFrame:
 
     Example::
 
-        records = parse_project("saao/saa01")
+        records = parse_project_from_oracc("saao/saa01")
         df = get_full_flat_table(records)
         df.to_json("dataset.jsonl", orient="records", lines=True)
     """

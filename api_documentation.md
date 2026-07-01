@@ -282,7 +282,7 @@ The main user-facing module. All functions below are also importable directly fr
 
 ### Parsing
 
-#### `parse_project(project, config=None, download=True) → list[TabletRecord]`
+#### `parse_project_from_oracc(project, config=None, download=True) → list[TabletRecord]`
 
 Download and parse all tablets from an ORACC project.
 
@@ -297,9 +297,9 @@ On the first call, downloads the ORACC JSON ZIP, parses each tablet from the CDL
 
 ---
 
-#### `parse_project_from_word_csvs(project, word_dfs, config=None) → list[TabletRecord]`
+#### `parse_project_from_oracc_from_word_csvs(project, word_dfs, config=None) → list[TabletRecord]`
 
-Parse tablets from pre-loaded per-word DataFrames. Faster than `parse_project` as it skips JSON parsing entirely. All `RunConfig` options apply identically.
+Parse tablets from pre-loaded per-word DataFrames. Faster than `parse_project_from_oracc` as it skips JSON parsing entirely. All `RunConfig` options apply identically.
 
 **Parameters:**
 - `project` (`str`) — ORACC project path.
@@ -468,7 +468,7 @@ By default downloads only `catalogues.zip`. Word CSVs are downloaded lazily per-
 - `url` (`str | None`) — Zenodo record URL. Defaults to `ZENODO_RECORD_URL`.
 - `dest` (`Path | None`) — Directory for temporary download files. Defaults to `DATA_DIR`.
 - `include_translations` (`bool`) — Also download `oracc_html_translations.zip` (~130 MB). Required for offline translation access.
-- `include_json_zips` (`bool`) — Also download `oracc_jsonzip_all.zip`. Required only if you want to re-run the full JSON processing pipeline via `parse_project` on projects not already cached as word CSVs.
+- `include_json_zips` (`bool`) — Also download `oracc_jsonzip_all.zip`. Required only if you want to re-run the full JSON processing pipeline via `parse_project_from_oracc` on projects not already cached as word CSVs.
 
 #### `extract_project_csvs(project, dest_dir=None) → Path`
 

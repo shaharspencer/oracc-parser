@@ -6,7 +6,7 @@ per-umbrella zip files on Zenodo (e.g. ``saao.zip`` covers all saao/* projects).
 Catalogues and HTML translations are downloaded eagerly on the first call to
 ``fetch_data()``.  Pass ``include_json_zips=True`` to also fetch the raw ORACC
 JSON ZIPs (needed only if you want to re-run the full JSON processing pipeline
-via ``parse_project()``).
+via ``parse_project_from_oracc()``).
 
 Can be called as:
     oracc-parser fetch-data
@@ -198,7 +198,7 @@ def fetch_data(
     translations in parsed output without live web requests).
 
     Set ``include_json_zips=True`` to also fetch ``oracc_jsonzip_all.zip`` (raw
-    ORACC JSON, needed only for ``parse_project()``).
+    ORACC JSON, needed only for ``parse_project_from_oracc()``).
 
     All transport ZIPs are deleted after extraction.
 
@@ -288,7 +288,7 @@ if __name__ == "__main__":
         "--include-json-zips",
         action="store_true",
         default=False,
-        help="Also download raw ORACC JSON ZIPs (needed for parse_project())",
+        help="Also download raw ORACC JSON ZIPs (needed for parse_project_from_oracc())",
     )
     args = parser.parse_args()
     fetch_data(

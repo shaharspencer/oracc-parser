@@ -9,7 +9,7 @@ Usage:
 """
 
 from oracc_parser import (
-    parse_project,
+    parse_project_from_oracc,
     RunConfig,
     get_metadata_table,
     get_full_flat_table,
@@ -45,7 +45,7 @@ def main():
     )
 
     print(f"Parsing {args.project}...")
-    records = parse_project(args.project, config=config)
+    records = parse_project_from_oracc(args.project, config=config)
 
     if not records:
         print("No records parsed.")
