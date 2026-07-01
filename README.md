@@ -44,14 +44,22 @@ jupyter notebook notebooks/
 ## Quick Example
 
 ```python
+from oracc_parser.download.fetch_data import fetch_data
 from oracc_parser import parse_project, RunConfig, get_full_flat_table
 
-# Parse 5 tablets from SAA 01 (Neo-Assyrian royal letters)
+# Step 1: download catalogues from Zenodo (run once)
+fetch_data()
+
+# Step 2: parse a project — word CSVs fetched from Zenodo on first call,
+# read from disk on subsequent calls
 records = parse_project("saao/saa01", config=RunConfig(limit=5))
 
 # Get a flat DataFrame — no nesting, ready for analysis
 df = get_full_flat_table(records)
 df.to_json("dataset.jsonl", orient="records", lines=True)
+
+# For a project not on Zenodo, download directly from ORACC servers:
+records = parse_project("my/project", download_from_oracc_server=True)
 ```
 
 ## Configuration
@@ -94,8 +102,6 @@ operating at different granularities and affecting different outputs:
 | `limit` | `None` | Only parse the first N texts (useful for testing) |
 | `keep_word_segmentation` | `True` | Preserve word boundaries in Unicode cuneiform output |
 | `mask_pos` | `[]` | Replace words of certain POS tags with the tag name |
-| `languages` | `["Akkadian"]` | Which languages to include when downloading projects |
-| `use_cache` | `True` | Use cached results if available |
 
 All reference data is bundled with the package, so you don't need to configure external paths unless you are customizing `oracc_parser.settings`.
 

@@ -114,7 +114,6 @@ config = RunConfig(drop_missing=True, mask_pos=["PN", "DN"], limit=10)
 | `mask_pos` | `list[str]` | `[]` | POS tags whose lemma forms are replaced with the tag name. Valid values: `PN`, `DN`, `GN`, `MN`, `RN`, `SN`, `N`, `V`, `AJ`, and others from the bundled POS table. |
 | `fetch_translations` | `bool` | `False` | Fetch English translations from ORACC (or read from `TRANSLATIONS_DIR` if cached). Requires network access or a pre-downloaded translation cache. |
 | `limit` | `int \| None` | `None` | Parse only the first N texts. `None` = parse all. |
-| `languages` | `list[str]` | `["Akkadian"]` | Language filter for bulk project downloads, based on main language at project level. Use `["all"]` to include all languages. |
 
 ---
 
@@ -282,18 +281,23 @@ The main user-facing module. All functions below are also importable directly fr
 
 ### Parsing
 
-#### `parse_project(project, config=None, download=True) → list[TabletRecord]`
+#### `parse_project(project, config=None, download_from_oracc_server=False) → list[TabletRecord]`
 
-Download and parse tablets of an ORACC project.
+Parse tablets of an ORACC project.
 
-The recommended workflow is to run `fetch_data()` first, which downloads pre-processed word CSVs from Zenodo. If word CSVs for the project are already on disk (in `WORD_CSV_DIR`), reads from those directly.
+**Priority order:**
+1. If word CSVs are already on disk in `WORD_CSV_DIR` → reads from disk (fast, no network)
+2. If not on disk and `download_from_oracc_server=False` (default) → downloads word CSVs from Zenodo and saves to disk
+3. If not on disk and `download_from_oracc_server=True` → downloads raw JSON ZIP from ORACC live servers, parses, and saves word CSVs to disk
 
-Otherwise downloads the raw JSON ZIP from the ORACC servers, parses each tablet from the CDL tree, and saves per-word CSVs to `WORD_CSV_DIR` for fast future reloads.
+Run `fetch_data()` first to download catalogues from Zenodo, which are required for metadata fields (provenance, period, genre, etc.).
+
+Use `download_from_oracc_server=True` only for projects not included in the Zenodo dataset.
 
 **Parameters:**
 - `project` (`str`) — ORACC project path, e.g. `"saao/saa01"` or `"babcity"`.
 - `config` (`RunConfig | None`) — Parsing options. Uses defaults if `None`.
-- `download` (`bool`) — If `True`, download the ZIP from ORACC if word CSVs are not already present. Set to `False` to prevent any network access.
+- `download_from_oracc_server` (`bool`) — If `True`, download from ORACC live servers instead of Zenodo when word CSVs are not on disk. Default `False`.
 
 **Returns:** `list[TabletRecord]`
 
@@ -433,21 +437,13 @@ Reconstruct a `TabletRecord` from a per-word DataFrame, applying `config`. Norma
 
 Download pre-processed ORACC data from Zenodo and extract it.
 
-By default downloads only `catalogues.zip`. Word CSVs are downloaded lazily per-project on first access.
+Downloads `catalogues.zip` from Zenodo (required for metadata fields such as provenance, period, and genre). Must be run before `parse_project()` if you want populated metadata. Word CSVs are **not** downloaded by `fetch_data` — they are fetched lazily by `parse_project()` on first access per project.
 
 **Parameters:**
 - `url` (`str | None`) — Zenodo record URL. Defaults to `ZENODO_RECORD_URL`.
 - `dest` (`Path | None`) — Directory for temporary download files. Defaults to `DATA_DIR`.
 - `include_translations` (`bool`) — Also download `oracc_html_translations.zip` (~130 MB). Required for offline translation access.
-- `include_json_zips` (`bool`) — Also download `oracc_jsonzip_all.zip`. Required only if you want to re-run `parse_project()` on projects not already available as word CSVs on Zenodo.
-
-#### `extract_project_csvs(project, dest_dir=None) → Path`
-
-Download and extract word CSVs for a single project from Zenodo on demand. Downloads the umbrella ZIP (e.g. `saao.zip` for any `saao/*` project), extracts all sub-projects it contains, then deletes the temporary ZIP. Subsequent calls for any project in the same umbrella are instant.
-
-**Parameters:**
-- `project` (`str`) — ORACC project path.
-- `dest_dir` (`Path | None`) — Root directory for extracted CSVs. Defaults to `WORD_CSV_DIR`.
+- `include_json_zips` (`bool`) — Also download `oracc_jsonzip_all.zip`. Not normally needed — `parse_project(download_from_oracc_server=True)` downloads individual project ZIPs on demand.
 
 ### `oracc_download` (`oracc_parser.download.oracc_download`)
 
@@ -455,9 +451,6 @@ Download and extract word CSVs for a single project from Zenodo on demand. Downl
 
 Download a single project's JSON ZIP from `oracc.museum.upenn.edu`. Skips if already downloaded. Returns the ZIP path, or `None` on failure.
 
-#### `download_projects(config=None) → list[Path]`
-
-Bulk-download all projects matching the language filter in `config.languages`. Returns a list of downloaded ZIP paths.
 
 #### `get_live_projects_dataframe() → pd.DataFrame`
 
@@ -467,7 +460,7 @@ Fetch the live list of all public ORACC projects from the ORACC servers. Require
 
 ## Metadata (`oracc_parser.metadata.populate`)
 
-#### `enrich_catalogue_df(df) → pd.DataFrame`
+### `enrich_catalogue_df(df) → pd.DataFrame`
 
 Take a raw catalogue DataFrame (as loaded from a catalogue CSV) and add normalised provenance, period, state supergroup, archive, and year columns. Useful for analysing metadata without doing a full parse.
 

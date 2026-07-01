@@ -19,7 +19,7 @@ import pandas as pd
 from tqdm import tqdm
 
 from oracc_parser.download.extract_jsons import extract_from_zip
-from oracc_parser.download.oracc_download import download_projects, download_zip, get_live_projects_dataframe
+from oracc_parser.download.oracc_download import download_zip, get_live_projects_dataframe
 from oracc_parser.export.to_jsonl import to_csv, to_jsonl
 from oracc_parser.io.word_csv import (
     catalogue_to_dataframe,
@@ -85,18 +85,29 @@ class reference_data:
 def parse_project(
     project: str,
     config: RunConfig | None = None,
-    download: bool = True,
+    download_from_oracc_server: bool = False,
 ) -> list[TabletRecord]:
-    """Download, parse, and return all tablets from an ORACC project.
+    """Parse all tablets from an ORACC project.
 
-    On first call, downloads the ORACC ZIP, parses each tablet from JSON,
-    and saves per-word CSVs to disk for fast future reloads.  On subsequent
-    calls the word CSVs are used directly, skipping the JSON parsing step.
+    Checks for word CSVs on disk first (placed there by a previous run or by
+    ``fetch_data()``).  If not found, downloads them from Zenodo by default,
+    or from the live ORACC servers if ``download_from_oracc_server=True``.
+
+    The recommended workflow is::
+
+        from oracc_parser.download.fetch_data import fetch_data
+        fetch_data()                          # downloads catalogues from Zenodo
+        records = parse_project("saao/saa01") # downloads word CSVs from Zenodo on first call,
+                                              # reads from disk on subsequent calls
+
+    Use ``download_from_oracc_server=True`` only for projects not available on Zenodo.
 
     Args:
         project: ORACC project path, e.g. ``"saao/saa01"``.
         config: RunConfig with parsing options. Uses defaults if None.
-        download: If True, download the ZIP from ORACC if not already present.
+        download_from_oracc_server: If True, download the raw JSON ZIP from the
+            ORACC servers instead of Zenodo when word CSVs are not on disk.
+            Use this for projects not included in the Zenodo dataset.
 
     Returns:
         List of TabletRecord objects.
@@ -108,19 +119,35 @@ def parse_project(
     project_slug = project.replace("/", "-")
     csv_dir = WORD_CSV_DIR / project_slug
 
-    # Fast path: word CSVs already on disk — skip JSON parsing entirely
+    # Fast path: word CSVs already on disk
     if csv_dir.exists() and any(csv_dir.glob("*.csv")):
-        word_dfs = load_word_csvs_from_dir(csv_dir, project=project)
+        word_dfs = load_word_csvs_from_dir(csv_dir)
         if config.limit is not None:
             word_dfs = dict(list(word_dfs.items())[: config.limit])
         return _parse_from_word_dfs(project, word_dfs, config=config)
 
-    # Slow path: parse from JSON, then save word CSVs for future use
-    if download:
-        zip_path = download_zip(project)
-        if not zip_path:
-            logger.error(f"Failed to download {project}")
+    if not download_from_oracc_server:
+        # Download word CSVs from Zenodo, save to disk, then parse
+        from oracc_parser.download.fetch_data import extract_project_csvs
+        try:
+            extract_project_csvs(project)
+        except (FileNotFoundError, ValueError):
+            logger.error(
+                f"Project '{project}' not found on Zenodo. "
+                f"Use parse_project('{project}', download_from_oracc_server=True) "
+                f"to download directly from the ORACC servers."
+            )
             return []
+        word_dfs = load_word_csvs_from_dir(csv_dir)
+        if config.limit is not None:
+            word_dfs = dict(list(word_dfs.items())[: config.limit])
+        return _parse_from_word_dfs(project, word_dfs, config=config)
+
+    # Download from ORACC live servers, parse JSON, save word CSVs to disk
+    zip_path = download_zip(project)
+    if not zip_path:
+        logger.error(f"Failed to download {project}")
+        return []
 
     project_data = extract_from_zip(project)
     if not project_data.json_files:
@@ -146,7 +173,6 @@ def parse_project(
         record.metadata = populate_metadata(metadata_dict, text_id, project)
         records.append(record)
 
-        # Save word CSV so future calls skip JSON parsing
         save_word_csv(record_to_word_dataframe(record))
 
     logger.info(f"Parsed {len(records)} tablets from {project}")

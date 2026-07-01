@@ -87,15 +87,3 @@ class RunConfig(BaseModel):
         default=None,
         description="Process only the first N texts. None = process all.",
     )
-
-    # --- Language filter ---
-    languages: list[str] = Field(
-        default_factory=lambda: ["Akkadian"],
-        description=(
-            "Languages to include when downloading projects. "
-            "Default: ['Akkadian']. Use ['all'] to download everything. "
-            "Valid languages include: 'Akkadian', 'Sumerian', 'Hittite', "
-            "'Elamite', 'Urartian', 'Old Persian', 'Ugaritic', 'Hurrian', "
-            "'Amorite', 'Aramaic', 'Eblaite', 'Greek', 'Egyptian'."
-        ),
-    )

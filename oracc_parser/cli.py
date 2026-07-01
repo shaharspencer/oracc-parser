@@ -13,7 +13,6 @@ import argparse
 import sys
 
 from oracc_parser.pipeline import export_to_csv, export_to_jsonl, parse_project
-from oracc_parser.download.oracc_download import download_projects
 from oracc_parser.models.config import RunConfig
 from oracc_parser.utils.logger import get_logger
 
@@ -29,15 +28,8 @@ def main(argv: list[str] | None = None):
     subparsers = parser.add_subparsers(dest="command", help="Available commands")
 
     # --------------- download ---------------
-    dl = subparsers.add_parser("download", help="Download ORACC project ZIPs")
-    dl.add_argument("--project", "-p", help="Project path, e.g. saao/saa01")
-    dl.add_argument(
-        "--lang",
-        "-l",
-        default="Akkadian",
-        help="Language filter for bulk download (default: Akkadian)",
-    )
-    dl.add_argument("--limit", "-n", type=int, help="Download only first N projects")
+    dl = subparsers.add_parser("download", help="Download a single ORACC project ZIP from the ORACC servers")
+    dl.add_argument("--project", "-p", required=True, help="Project path, e.g. saao/saa01")
 
     # --------------- parse ---------------
     ps = subparsers.add_parser("parse", help="Parse a project and export results")
@@ -69,7 +61,11 @@ def main(argv: list[str] | None = None):
         default=[],
         help="POS tags to mask (e.g. PN DN GN)",
     )
-    ps.add_argument("--no-download", action="store_true", help="Skip download step")
+    ps.add_argument(
+        "--from-oracc",
+        action="store_true",
+        help="Download from ORACC live servers instead of Zenodo (for projects not in the dataset)",
+    )
 
     # --------------- fetch-data ---------------
     fd = subparsers.add_parser("fetch-data", help="Download pre-processed data from Zenodo")
@@ -107,23 +103,14 @@ def _cmd_fetch_data(args):
 
 def _cmd_download(args):
     """Handle the download command."""
-    config = RunConfig(
-        languages=[args.lang] if args.lang else ["Akkadian"],
-        limit=args.limit,
-    )
+    from oracc_parser.download.oracc_download import download_zip
 
-    if args.project:
-        from oracc_parser.download.oracc_download import download_zip
-
-        path = download_zip(args.project)
-        if path:
-            print(f"Downloaded: {path}")
-        else:
-            print("Download failed.", file=sys.stderr)
-            sys.exit(1)
+    path = download_zip(args.project)
+    if path:
+        print(f"Downloaded: {path}")
     else:
-        paths = download_projects(config=config)
-        print(f"Downloaded {len(paths)} project(s).")
+        print("Download failed.", file=sys.stderr)
+        sys.exit(1)
 
 
 def _cmd_parse(args):
@@ -136,7 +123,7 @@ def _cmd_parse(args):
     )
 
     records = parse_project(
-        args.project, config=config, download=not args.no_download
+        args.project, config=config, download_from_oracc_server=args.from_oracc
     )
 
     if not records:
