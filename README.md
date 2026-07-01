@@ -15,7 +15,7 @@ If you use oracc-parser in your research, please cite:
 
 ```bibtex
 @software{romach_oracc_parser_2026,
-  author       = {Romach, Avital and Spencer, Shahar},
+  author       = {Romach, Avital and Spencer, Shahar and Gordin, Shai},
   title        = {oracc-parser: A Python toolkit for downloading and parsing ORACC cuneiform text projects},
   year         = {2026},
   publisher    = {Zenodo},
