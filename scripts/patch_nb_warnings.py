@@ -16,15 +16,15 @@ def patch_01():
     nb = json.loads(nb_path.read_text(encoding="utf-8"))
     cells = nb["cells"]
 
-    # Find the parse_project_from_oracc code cell
+    # Find the parse_project code cell
     for i, cell in enumerate(cells):
-        if cell["cell_type"] == "code" and any("parse_project_from_oracc" in l and "PROJECT" in l
+        if cell["cell_type"] == "code" and any("parse_project" in l and "PROJECT" in l
                                                 for l in cell.get("source", [])):
             # Only replace if it's the main parse cell (with PROJECT = ...)
             src = "".join(cell.get("source", []))
             if 'PROJECT = "saao/saa01"' in src or "PROJECT = " in src:
                 cell["source"] = [
-                    "from oracc_parser import parse_project_from_oracc, RunConfig\n",
+                    "from oracc_parser import parse_project, RunConfig\n",
                     "from oracc_parser.settings import jsonzip_dir\n",
                     "\n",
                     "# Change this to any project you want!\n",
@@ -41,7 +41,7 @@ def patch_01():
                     "    print(f\"   To download: oracc-parser download --project {PROJECT}\")\n",
                     "else:\n",
                     "    config = RunConfig(limit=LIMIT)\n",
-                    "    records = parse_project_from_oracc(PROJECT, config=config)\n",
+                    "    records = parse_project(PROJECT, config=config)\n",
                     "    print(f\"✓ Parsed {len(records)} tablets from {PROJECT}\")",
                 ]
                 cell["outputs"] = []
@@ -52,7 +52,7 @@ def patch_01():
     for i, cell in enumerate(cells):
         if cell["cell_type"] == "markdown" and any("Caching" in l for l in cell.get("source", [])):
             cell["source"] = [
-                "> **💡 Caching:** The first `parse_project_from_oracc()` call parses everything (slow).\n",
+                "> **💡 Caching:** The first `parse_project()` call parses everything (slow).\n",
                 "> Subsequent calls with the **same config** return instantly from cache.\n",
                 "> Switching configs (e.g. `mask_pos`, `drop_missing`) reuses the cached words\n",
                 "> and only rebuilds the string representations — still much faster than re-parsing.\n",
@@ -74,7 +74,7 @@ def patch_03():
         if cell["cell_type"] != "code":
             continue
         src = "".join(cell.get("source", []))
-        if "PROJECTS = [" in src and "parse_project_from_oracc" in src:
+        if "PROJECTS = [" in src and "parse_project" in src:
             cell["source"] = [
                 "from oracc_parser.settings import jsonzip_dir\n",
                 "\n",
@@ -94,7 +94,7 @@ def patch_03():
                 "for project in PROJECTS:\n",
                 "    print(f\"Parsing {project}...\")\n",
                 "    try:\n",
-                "        records = parse_project_from_oracc(project, config=config)\n",
+                "        records = parse_project(project, config=config)\n",
                 "        df = get_full_flat_table(records)\n",
                 "        all_dfs.append(df)\n",
                 "        print(f\"  → {len(records)} tablets\")\n",

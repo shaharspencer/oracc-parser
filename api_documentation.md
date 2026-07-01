@@ -282,29 +282,18 @@ The main user-facing module. All functions below are also importable directly fr
 
 ### Parsing
 
-#### `parse_project_from_oracc(project, config=None, download=True) → list[TabletRecord]`
+#### `parse_project(project, config=None, download=True) → list[TabletRecord]`
 
-Download and parse all tablets from an ORACC project.
+Download and parse tablets of an ORACC project.
 
-On the first call, downloads the ORACC JSON ZIP, parses each tablet from the CDL tree, and saves per-word CSVs to `WORD_CSV_DIR` for fast future reloads. On subsequent calls the word CSVs are used directly, skipping JSON parsing entirely.
+The recommended workflow is to run `fetch_data()` first, which downloads pre-processed word CSVs from Zenodo. If word CSVs for the project are already on disk (in `WORD_CSV_DIR`), reads from those directly.
+
+Otherwise downloads the raw JSON ZIP from the ORACC servers, parses each tablet from the CDL tree, and saves per-word CSVs to `WORD_CSV_DIR` for fast future reloads.
 
 **Parameters:**
 - `project` (`str`) — ORACC project path, e.g. `"saao/saa01"` or `"babcity"`.
 - `config` (`RunConfig | None`) — Parsing options. Uses defaults if `None`.
-- `download` (`bool`) — If `True`, download the ZIP from ORACC if not already present. Set to `False` if the ZIP is already in `JSONZIP_DIR`.
-
-**Returns:** `list[TabletRecord]`
-
----
-
-#### `parse_project_from_oracc_from_word_csvs(project, word_dfs, config=None) → list[TabletRecord]`
-
-Parse tablets from pre-loaded per-word DataFrames. Faster than `parse_project_from_oracc` as it skips JSON parsing entirely. All `RunConfig` options apply identically.
-
-**Parameters:**
-- `project` (`str`) — ORACC project path.
-- `word_dfs` (`dict[str, pd.DataFrame]`) — Mapping of `text_id` → per-word DataFrame. Load with `load_word_csvs_from_dir` or `load_word_csvs_from_zenodo`.
-- `config` (`RunConfig | None`) — Parsing options.
+- `download` (`bool`) — If `True`, download the ZIP from ORACC if word CSVs are not already present. Set to `False` to prevent any network access.
 
 **Returns:** `list[TabletRecord]`
 
@@ -426,24 +415,6 @@ Write a per-word DataFrame to disk. If `path` is omitted, saves to `WORD_CSV_DIR
 
 Load a single per-word CSV from disk.
 
-#### `load_word_csvs_from_dir(directory, project=None) → dict[str, pd.DataFrame]`
-
-Load all per-word CSVs from a local directory. Returns a dict mapping `text_id` to DataFrame.
-
-If the directory is empty or missing and `project` is given, automatically downloads the project's CSVs from Zenodo and caches them locally.
-
-**Parameters:**
-- `directory` (`str | Path`) — Directory containing `{text_id}.csv` files.
-- `project` (`str | None`) — ORACC project path. Required for automatic Zenodo download.
-
-#### `load_word_csvs_from_zenodo(zenodo_url, project) → dict[str, pd.DataFrame]`
-
-Stream a project's word CSV ZIP from a Zenodo record into memory without saving to disk.
-
-**Parameters:**
-- `zenodo_url` (`str`) — Zenodo record URL.
-- `project` (`str`) — ORACC project path.
-
 #### `record_to_word_dataframe(record) → pd.DataFrame`
 
 Serialise a `TabletRecord` into a per-word DataFrame.
@@ -468,7 +439,7 @@ By default downloads only `catalogues.zip`. Word CSVs are downloaded lazily per-
 - `url` (`str | None`) — Zenodo record URL. Defaults to `ZENODO_RECORD_URL`.
 - `dest` (`Path | None`) — Directory for temporary download files. Defaults to `DATA_DIR`.
 - `include_translations` (`bool`) — Also download `oracc_html_translations.zip` (~130 MB). Required for offline translation access.
-- `include_json_zips` (`bool`) — Also download `oracc_jsonzip_all.zip`. Required only if you want to re-run the full JSON processing pipeline via `parse_project_from_oracc` on projects not already cached as word CSVs.
+- `include_json_zips` (`bool`) — Also download `oracc_jsonzip_all.zip`. Required only if you want to re-run `parse_project()` on projects not already available as word CSVs on Zenodo.
 
 #### `extract_project_csvs(project, dest_dir=None) → Path`
 

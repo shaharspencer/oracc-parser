@@ -9,8 +9,7 @@ __version__ = "0.1.3"
 from oracc_parser.pipeline import (  # noqa: F401
     export_to_csv,
     export_to_jsonl,
-    parse_project_from_oracc,
-    parse_project_from_word_csvs,
+    parse_project,
     records_to_word_dataframes,
     save_project_catalogue,
     load_project_catalogue,
@@ -24,8 +23,6 @@ from oracc_parser.pipeline import (  # noqa: F401
     get_full_flat_table,
 )
 from oracc_parser.io.word_csv import (  # noqa: F401
-    load_word_csvs_from_dir,
-    load_word_csvs_from_zenodo,
     save_word_csv,
 )
 from oracc_parser.models.config import RunConfig  # noqa: F401
