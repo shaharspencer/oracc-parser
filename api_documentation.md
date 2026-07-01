@@ -479,10 +479,9 @@ oracc-parser <command> [options]
 
 | Command | Description |
 |---|---|
-| `download --project <path>` | Download a single project ZIP from ORACC |
-| `download --lang <language>` | Bulk-download all projects in a language |
-| `parse --project <path>` | Parse a project and export results |
 | `fetch-data` | Download catalogues (and optionally translations/ZIPs) from Zenodo |
+| `download --project <path>` | Download a single project ZIP from the ORACC servers |
+| `parse --project <path>` | Parse a project and export results |
 | `info` | Show a summary of all bundled reference data |
 
 ### `parse` options
@@ -494,20 +493,22 @@ oracc-parser <command> [options]
 | `--limit <n>` | Parse only first N texts |
 | `--drop-missing` | Drop `[x]` signs from Unicode output |
 | `--drop-damaged` | Drop `⸢x⸣` signs from Unicode output |
+| `--max-break-fraction <float>` | Word-level break filter (default: `1.0` = keep all words) |
 | `--mask-pos <tags>` | Space-separated POS tags to mask (e.g. `PN DN`) |
-| `--no-download` | Skip download step (assume ZIP is already present) |
+| `--fetch-translations` | Fetch (English) translations (from cache or ORACC live) |
+| `--from-oracc` | Download from ORACC live servers instead of Zenodo when word CSVs are not on disk |
 
 ---
 
 ## Translations (`oracc_parser.parsing.translation`)
 
-#### `get_translation(project, text_id) → str`
+### `get_translation(project, text_id) → str`
 
-Fetch the English translation for a tablet. Reads from `TRANSLATIONS_DIR/{project}/{text_id}.html` if cached; otherwise downloads from `oracc.museum.upenn.edu` and caches the result.
+Fetch the (English) translation for a tablet. Reads from `TRANSLATIONS_DIR/{project}/{text_id}.html` if cached; otherwise downloads from `oracc.museum.upenn.edu` and caches the result.
 
 **Parameters:**
 - `project` (`str`) — ORACC project path.
-- `text_id` (`str`) — P-number or text ID.
+- `text_id` (`str`) — P-number or other text ID.
 
 **Returns:** Multi-line translation string, or empty string on failure.
 

@@ -62,6 +62,17 @@ def main(argv: list[str] | None = None):
         help="POS tags to mask (e.g. PN DN GN)",
     )
     ps.add_argument(
+        "--max-break-fraction",
+        type=float,
+        default=1.0,
+        help="Word-level break filter: words with more than this fraction of broken signs are replaced with X (default: 1.0 = keep all)",
+    )
+    ps.add_argument(
+        "--fetch-translations",
+        action="store_true",
+        help="Fetch English translations (from cache or ORACC live)",
+    )
+    ps.add_argument(
         "--from-oracc",
         action="store_true",
         help="Download from ORACC live servers instead of Zenodo (for projects not in the dataset)",
@@ -120,6 +131,8 @@ def _cmd_parse(args):
         drop_damaged=args.drop_damaged,
         mask_pos=args.mask_pos,
         limit=args.limit,
+        max_break_fraction=args.max_break_fraction,
+        fetch_translations=args.fetch_translations,
     )
 
     records = parse_project(
