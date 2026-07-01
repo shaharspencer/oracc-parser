@@ -4,10 +4,26 @@ A Python tool to download and parse [ORACC](http://oracc.museum.upenn.edu/) cune
 
 ## Features
 
-- **Download** — Fetch project ZIPs directly from ORACC or Zenodo
-- **Parse** — Convert raw ORACC JSON into structured data
+- **Download** — Fetch project ZIPs from preprocessed files on Zenodo or directly from ORACC
+- **Parse** — Convert raw ORACC JSON / preprocessed CSVs into structured data and create machine-learning-ready text representations (in transliteration, normalization, lemmatization, or Unicode cuneiform) 
+- **Configure** — Control handling of broken signs and POS masking
 - **Export** — Save datasets as JSONL, CSV, or pandas DataFrames
-- **Configure** — Control handling of broken signs and POS masking using `RunConfig`
+
+## How to Cite
+
+If you use oracc-parser in your research, please cite:
+
+```bibtex
+@software{romach_oracc_parser_2026,
+  author       = {Romach, Avital and Spencer, Shahar},
+  title        = {oracc-parser: A Python toolkit for downloading and parsing ORACC cuneiform text projects},
+  year         = {2026},
+  publisher    = {Zenodo},
+  version      = {0.1.3},
+  doi          = {10.5281/zenodo.18643122},
+  url          = {https://doi.org/10.5281/zenodo.18643122}
+}
+```
 
 ## Installation
 
@@ -25,8 +41,7 @@ pip install -e ".[dev]"
 
 ## Getting Started — Notebooks
 
-The easiest way to explore oracc-parser is through the interactive notebooks.
-Start with notebook 01 — it downloads all the data you need from Zenodo automatically.
+The easiest way to explore oracc-parser is through the interactive notebooks, that go through the main functions.
 
 | Notebook | What you'll learn | Open in Colab |
 |---|---|---|
@@ -91,9 +106,10 @@ operating at different granularities and affecting different outputs:
 
 > **Note:** Because word-level and sign-level filtering use different thresholds
 > and different granularities, **the text outputs and the Unicode cuneiform output
-> are not necessarily aligned**. A word kept in the transliteration (because its
+> are not aligned**. A word kept in the transliteration (because its
 > average damage is below `max_break_fraction`) may still have individual signs
 > dropped from the Unicode output if `drop_missing` / `drop_damaged` are enabled.
+> None of these filters affect the translations.
 
 ### Other options
 
@@ -114,7 +130,7 @@ oracc-parser parse --project saao/saa01 --limit 5 --format jsonl --output saa01.
 
 ## Heavy Data (Zenodo)
 
-Large data files (ORACC ZIPs, cached translations, Pleiades data) are on Zenodo:
+Large data files (ORACC ZIPs, word-level CSVs, cached translations, Pleiades data) are on Zenodo:
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18643122.svg)](https://doi.org/10.5281/zenodo.18643122)
 
@@ -127,11 +143,6 @@ python scripts/download_zenodo_data.py
 ```bash
 pytest tests/ -v     # 98 tests
 ```
-
-## Known Limitations
-
-- **Chronology**: Period-to-year normalization is optimized for the **1st Millennium BCE**.
-- **Language**: Parsing is primarily validated on **Akkadian** projects.
 
 ## License
 
