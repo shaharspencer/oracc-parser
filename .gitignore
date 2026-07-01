@@ -41,3 +41,6 @@ tests/test_output/
 .ipynb_checkpoints/
 
 /enriched_data/
+
+# Local developer notes (not for distribution)
+RELEASE_PROCESS.md
