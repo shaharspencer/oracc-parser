@@ -205,6 +205,7 @@ class UnicodeStringRepresentation(BaseModel):
     dropped_missing_signs: Optional[bool] = None
     dropped_damaged_signs: Optional[bool] = None
     keep_word_segmentation: Optional[bool] = None
+    pos_tags_with_mask: Optional[list[str]] = None
     total_chars: int = 0
     included_chars: int = 0
 

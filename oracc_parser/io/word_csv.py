@@ -204,6 +204,7 @@ def word_dataframe_to_record(
         drop_missing=config.drop_missing,
         drop_damaged=config.drop_damaged,
         keep_segmentation=config.keep_word_segmentation,
+        mask_pos=config.mask_pos,
     )
 
     return record

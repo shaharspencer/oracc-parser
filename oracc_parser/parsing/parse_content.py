@@ -53,6 +53,7 @@ def parse_json_text(js: dict, config: RunConfig | None = None) -> TabletContent:
             drop_missing=config.drop_missing,
             drop_damaged=config.drop_damaged,
             keep_segmentation=config.keep_word_segmentation,
+            mask_pos=config.mask_pos,
         )
     except Exception as e:
         text_id = js.get("textid", "unknown")
@@ -124,11 +125,16 @@ def _add_unicode_representation(
     drop_missing: bool,
     drop_damaged: bool,
     keep_segmentation: bool,
+    mask_pos: list[str] | None = None,
 ) -> TabletContent:
     """Add Unicode cuneiform string representation."""
+    mask_pos = mask_pos or []
     sign_rows = []
     for word in result.words:
         if not word.sign_dictionaries or not word.sign_dictionaries.signs:
+            continue
+        word_pos = word.normalized_pos.normalized_pos if word.normalized_pos else ""
+        if word_pos in mask_pos:
             continue
         sign_rows.append({
             "unicode": [s.unicode_version for s in word.sign_dictionaries.signs],
@@ -151,6 +157,7 @@ def _add_unicode_representation(
         dropped_missing_signs=drop_missing,
         dropped_damaged_signs=drop_damaged,
         keep_word_segmentation=keep_segmentation,
+        pos_tags_with_mask=mask_pos or None,
         total_chars=total,
         included_chars=included,
     )
