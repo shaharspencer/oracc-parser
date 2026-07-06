@@ -135,6 +135,11 @@ def _add_unicode_representation(
             continue
         word_pos = word.normalized_pos.normalized_pos if word.normalized_pos else ""
         if word_pos in mask_pos:
+            sign_rows.append({
+                "unicode": [word_pos],
+                "break": ["complete"],
+                "line": word.line,
+            })
             continue
         sign_rows.append({
             "unicode": [s.unicode_version for s in word.sign_dictionaries.signs],

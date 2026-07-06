@@ -26,7 +26,6 @@ class TestRunConfig:
         assert config.keep_word_segmentation is True
         assert config.mask_pos == []
         assert config.limit is None
-        assert config.languages == ["Akkadian"]
 
     def test_custom_values(self):
         config = RunConfig(
@@ -34,12 +33,10 @@ class TestRunConfig:
             drop_damaged=True,
             mask_pos=["PN", "DN"],
             limit=10,
-            languages=["Akkadian", "Sumerian"],
         )
         assert config.drop_missing is True
         assert config.mask_pos == ["PN", "DN"]
         assert config.limit == 10
-        assert len(config.languages) == 2
 
     def test_serialization_roundtrip(self):
         config = RunConfig(limit=5, mask_pos=["GN"])

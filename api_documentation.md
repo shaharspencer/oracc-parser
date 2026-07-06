@@ -112,7 +112,7 @@ config = RunConfig(drop_missing=True, mask_pos=["PN", "DN"], limit=10)
 | `keep_word_segmentation` | `bool` | `True` | Preserve word boundaries in **Unicode cuneiform output**. |
 | `max_break_fraction` | `float` | `1.0` | **Word-level** filter. Words whose fraction of broken signs exceeds this threshold are replaced with `X` in transliteration/normalisation/lemmatisation. `0.0` = exclude any word with even one broken sign; `1.0` = keep all words. |
 | `mask_pos` | `list[str]` | `[]` | POS tags whose lemma forms are replaced with the tag name. Valid values: `PN`, `DN`, `GN`, `MN`, `RN`, `SN`, `N`, `V`, `AJ`, and others from the bundled POS table. |
-| `fetch_translations` | `bool` | `False` | Fetch English translations from ORACC (or read from `TRANSLATIONS_DIR` if cached). Requires network access or a pre-downloaded translation cache. |
+| `fetch_translations` | `bool` | `False` | Fetch translations from ORACC (or read from `TRANSLATIONS_DIR` if cached). Requires network access or a pre-downloaded translation cache. |
 | `limit` | `int \| None` | `None` | Parse only the first N texts. `None` = parse all. |
 
 ---

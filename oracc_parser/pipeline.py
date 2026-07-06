@@ -478,4 +478,6 @@ def get_full_flat_table(records: list[TabletRecord]) -> pd.DataFrame:
             "tokens_without_broken": t_rep.tokens_without_broken if t_rep else 0,
         })
     text_df = pd.DataFrame(text_rows)
+    if text_df.empty or meta_df.empty:
+        return pd.DataFrame()
     return meta_df.merge(text_df, on="id")

@@ -24,12 +24,13 @@ class TestSettings:
         assert "data_dir" in s
         assert "translations_dir" in s
 
-    def test_env_override(self, monkeypatch):
-        """Environment variables should override defaults."""
-        # Clear the lru_cache first
-        get_settings.cache_clear()
-        monkeypatch.setenv("ORACC_LOG_LEVEL", "DEBUG")
-        s = get_settings()
-        assert s["log_level"] == "DEBUG"
-        # Clean up
-        get_settings.cache_clear()
+    def test_runtime_override(self):
+        """Module-level variables can be overridden at runtime."""
+        import oracc_parser.settings as settings_module
+        original = settings_module.LOG_LEVEL
+        try:
+            settings_module.LOG_LEVEL = "DEBUG"
+            assert settings_module.log_level() == "DEBUG"
+            assert settings_module.get_settings()["log_level"] == "DEBUG"
+        finally:
+            settings_module.LOG_LEVEL = original
