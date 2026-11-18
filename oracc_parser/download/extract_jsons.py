@@ -11,7 +11,7 @@ from typing import Optional
 from pydantic import BaseModel, Field
 
 from oracc_parser.utils.logger import get_logger
-from oracc_parser.utils.paths import get_zip_dir
+from oracc_parser.utils.paths import get_zip_dir, project_slug
 
 logger = get_logger()
 
@@ -37,7 +37,7 @@ def extract_from_zip(project: str, zip_dir=None) -> ProjectData:
         zip_dir = get_zip_dir()
 
     result = ProjectData()
-    zipf = os.path.join(str(zip_dir), f"{project.replace('/', '-')}.zip")
+    zipf = os.path.join(str(zip_dir), f"{project_slug(project)}.zip")
 
     if not os.path.exists(zipf):
         logger.error(f"ZIP file not found: {zipf}")

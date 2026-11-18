@@ -14,11 +14,12 @@ from tqdm import tqdm
 
 from oracc_parser.models.config import RunConfig
 from oracc_parser.utils.logger import get_logger
-from oracc_parser.utils.paths import get_projects_metadata, get_zip_dir
+from oracc_parser.utils.paths import get_projects_metadata, get_zip_dir, project_slug
 
 logger = get_logger()
 
-ORACC_BASE_URL = "http://oracc.museum.upenn.edu"
+# https directly: the http URL redirects to "https://…//json/…" (double slash).
+ORACC_BASE_URL = "https://oracc.museum.upenn.edu"
 
 
 def download_zip(project: str, output_dir: Path | None = None) -> Path | None:
@@ -34,8 +35,10 @@ def download_zip(project: str, output_dir: Path | None = None) -> Path | None:
     if output_dir is None:
         output_dir = get_zip_dir()
 
-    url = f"{ORACC_BASE_URL}/json/{project.strip('/')}.zip"
-    filename = project.replace("/", "-") + ".zip"
+    # ORACC serves project ZIPs under the dashed slug (json/saao-saa01.zip);
+    # the slash form (json/saao/saa01.zip) returns HTTP 500 as of 2026-11.
+    filename = project_slug(project) + ".zip"
+    url = f"{ORACC_BASE_URL}/json/{filename}"
     dest = output_dir / filename
 
     if dest.exists():

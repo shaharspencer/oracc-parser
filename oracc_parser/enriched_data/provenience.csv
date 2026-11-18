@@ -86,9 +86,9 @@ Gherla (Romania),Gherla,207133,Gherla,47.02427563044873,23.89699518491554
 Ginti-Kirmil,Ginti-Kirmil,718809993,Tel Jatt,32.97396069268557,35.23055496370524
 Ginti-ašna,Ginti-ašna,?,,,
 Gleieh,Gleieh,223856812,Gleieh,34.296752999999995,42.2019825
-Grave of Psusennes I,,,,,
+Grave of Psusennes I,Tanis,727236,Tanis,30.975452837412377,31.883619562443883
 Guddašuna,Guddašuna,?,,,
-Haddad,,,,,
+Haddad,Me-Turran,894042,Me-Turnat,34.1928,45.0563
 Hana (mod. uncertain),Hana,?,,,
 Haradum (modern Khirbit ed-Diniye),Haradum,894003,Haradu,34.4611,41.5866
 Harran,Harran/Carrhae,658427,Harran/Carrhae,36.86359430938534,39.03074965053609
@@ -198,9 +198,9 @@ Sabaʾa,Sabaʾa,528477900,Al-Sabaa wa Arbain,36.0807029,40.6565033
 Samaria (Sāmerīna),Samaria,678370,Samaria/Sebaste,32.27644536250876,35.19008143859431
 Samarra (Sur-marrati),Samarra,894082,[Samarra]/‘Sumere’,34.200116,43.876735
 Selaʾ,Selaʾ,86623849,Sela,30.7504121,35.7265981
-Seleucia,,,,,
+Seleucia,Seleucia,894084,Seleucia/Sliq Kharawta,33.097897999999994,44.523773
 Shechem,Shechem,678301,Neapolis,32.218684999999994,35.262911
-Shikaft-i Gulgul,,,,,
+Shikaft-i Gulgul,Shikaft-i Gulgul,?,,,
 Shir as-Sanam,Shir as-Sanam,58291143,Shir as-Sanam Inscription,34.52795,36.26839
 Sidon,Sidon,678393,Sidon/Col. Aurelia Pia,33.56101866666666,35.372060000000005
 Sippar,Sippar,894089,Sippar,33.05973769416011,44.254243286471
@@ -240,7 +240,7 @@ Takrit,Takrit,894099,Takrit/Birta,34.60665349999999,43.676953
 Tall Shekh Hamad (Dur-Katlimmu),Dur-Katlimmu,893991,[Dur-Katlimmu]/Magdalu,35.64487477378191,40.74249489282332
 Tang-i Var,Tang-i Var,155838204,Tang-i Var Rock Relief,35.0042587,46.62359516666667
 Tarbisu,Tarbisu,30774368,Tarbiṣu,36.4088442,43.0774055
-Tawfiqiyah,,,,,
+Tawfiqiyah,Tawfiqiyah,?,,,
 Tayma,Tayma,814739,Thaima,27.6219,38.55
 Tell Abta (Dūr-Bēl-Ḫarrān-bēlī-uṣur),Tell Abta,111343632,Dur-Bel-Harran-belu-uṣur,36.2145244,42.1622211
 Tell Abu Habbah (Sippar-Yahrurum),Sippar,894089,Sippar,33.05973769416011,44.254243286471
@@ -257,7 +257,7 @@ Tell Haddad (Me-Turan),Me-Turran,894042,Me-Turnat,34.1928,45.0563
 Tell Halaf (Guzana),Guzana,874739,Guzana (Tell Halaf),36.8267304,40.03967656666666
 Tell Hariri (Mari),Mari,286681704,Māri,34.55033901027138,40.88862038208488
 Tell Muqayyar (Ur),Ur,912985,Ur(i),30.96131794655308,46.10541981168791
-Tell Razzuq,,,,,
+Tell Razzuq,Tell Razzuq,?,,,
 Tell Satu Qala (Idu),Tell Satu Qala,894008,Idu/Diacira/Hit,33.6436,42.8215
 Tell Sheikh Hamad (Dur-Katlimmu),Dur-Katlimmu,893991,[Dur-Katlimmu]/Magdalu,35.64487477378191,40.74249489282332
 Tell Shekh Hamad (Dur-Katlimmu),Dur-Katlimmu,893991,[Dur-Katlimmu]/Magdalu,35.64487477378191,40.74249489282332
@@ -266,7 +266,7 @@ Tell Shiukh Fawqani (Burmarina),Burmarina,193113381,Burmarina,36.78753445,38.035
 Tell Tayinat (Kunalia),Tell Tayinat,913163220,Kunulua/Tell Tayinat,36.24826822114462,36.375942205920666
 Tell Tayinat (Unqi),Tell Tayinat,913163220,Kunulua/Tell Tayinat,36.24826822114462,36.375942205920666
 Tell Taʿynat,Tell Tayinat,913163220,Kunulua/Tell Tayinat,36.24826822114462,36.375942205920666
-Tell Yarah,,,,,
+Tell Yarah,Tell Yarah,?,,,
 Tell Yokneam,Tell Yokneam,180354033,Tel Yokneam,32.6643757168979,35.1089361357771
 Tell al Rimah (Qatara),Tell Rimah,356369838,Qattara?/Karana?,34.701245414906865,43.33427845446918
 Tell al-Hawa,Tell al-Hawa,874728,Tell al-Hawa,36.748449,42.30115215
@@ -332,6 +332,6 @@ unknown (Ma'allanate),Ma'allanate,193241521 (?),,,
 Ṭabete (mod. Tell Taban),Tell Taban,874754,Tell Taban/[Tabite]/Thebet(h)a?,36.336225850000005,40.787786100000005
 Ṭubihu,Ṭubihu,?,,,
 Ṭubu,Ṭubu,?,,,
-Babylon (mod. Bābil),,,,,
-Kish (mod. Tell Ingharra),,,,,
-Upi (mod. Opis),,,,,
+Babylon (mod. Bābil),Babylon,893951,Babylon,32.53729695,44.42497815
+Kish (mod. Tell Ingharra),Kish,894028,Kish,32.5460878,44.59316393333333
+Upi (mod. Opis),Opis,894056,Opis,33.1844,44.7015

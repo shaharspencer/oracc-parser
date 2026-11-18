@@ -120,6 +120,9 @@ class TabletChronologicalInformation(BaseModel):
     start_year: Optional[int] = None
     end_year: Optional[int] = None
     years_source: Optional[str] = ""
+    # Which catalogue field the period came from: "period" (primary column) or
+    # "rule:<column>" when a fallback rule from metadata_rules.csv was applied.
+    period_source: Optional[str] = ""
 
 
 # ---------------------------------------------------------------------------
@@ -132,6 +135,9 @@ class TabletMetadata(BaseModel):
 
     identifier: str = ""
     project: Optional[str] = None
+    # On-disk form of the project id (``riao/ria1`` -> ``riao-ria1``), as used by
+    # Zenodo folders, catalogue filenames and JSON ZIP names.
+    project_slug: Optional[str] = ""
     id_text: Optional[str] = None
     metadata_raw_dict: Optional[dict] = None
     geographical_information: TabletGeographicalInformation = Field(
@@ -142,7 +148,16 @@ class TabletMetadata(BaseModel):
     )
     archive: Optional[str] = ""
     copyright_information: str = ""
+    # Raw genre string. Taken from the catalogue ``genre`` column, falling back to
+    # ``genres`` then ``subgenre``, then to editorial rules (metadata_rules.csv).
     genre: Optional[str] = ""
+    # Where ``genre`` came from: "genre", "genres", "subgenre" or "rule:<field>".
+    genre_source: Optional[str] = ""
+    # ``genre`` with whitespace collapsed and case unified to a canonical spelling.
+    genre_normalized: Optional[str] = ""
+    # Coarse genre class (11 classes + "Uncertain") from genre_classes.csv; empty
+    # when the raw value is not covered by the mapping.
+    genre_class: Optional[str] = ""
     accession_museum_publication_numbers: str = ""
     secondary_literature: str = ""
     credits: str = ""

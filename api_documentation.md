@@ -26,6 +26,8 @@ oracc_parser/
   metadata/
     populate.py            # Catalogue dict → TabletMetadata (provenance, period, …)
     archive.py             # Archive name normalisation
+    genre.py               # Genre fallback, spelling normalisation, coarse classes
+    rules.py               # Fallback rules for empty genre/period (metadata_rules.csv)
   io/
     word_csv.py            # Serialize/deserialize TabletRecord ↔ per-word CSV
   export/
@@ -44,6 +46,9 @@ oracc_parser/
     raw_archive_values.csv
     state_supergroup_mapping.csv
     grouped_oracc_metadata_columns.csv
+    metadata_rules.csv     # Fallback rules when a catalogue has no genre/period
+    genre_normalization.csv  # Genre spelling variants → canonical spelling
+    genre_classes.csv      # (source field, raw genre) → coarse genre class
 ```
 
 ---
@@ -74,7 +79,7 @@ ORACC_DATA_DIR=/my/data/dir python my_script.py
 | `JSONZIP_DIR` | `DATA_DIR/jsonzip/` | Raw ORACC JSON ZIPs |
 | `WORD_CSV_DIR` | `DATA_DIR/oracc_csvs/` | Per-word CSV files |
 | `CATALOGUE_DIR` | `DATA_DIR/catalogues/` | Project catalogue CSVs |
-| `ZENODO_RECORD_URL` | `https://zenodo.org/records/20625379` | Zenodo record for pre-processed data |
+| `ZENODO_RECORD_URL` | `https://zenodo.org/records/24336925` | Zenodo record for pre-processed data |
 | `LOG_LEVEL` | `"INFO"` | Logging verbosity |
 
 ### Accessor functions
@@ -138,13 +143,17 @@ Top-level container. Every parsed tablet is one `TabletRecord`.
 |---|---|---|
 | `identifier` | `str` | Globally unique ID, e.g. `"saao/saa01_P334189"` |
 | `project` | `str \| None` | ORACC project path, e.g. `"saao/saa01"` |
+| `project_slug` | `str \| None` | On-disk form of the project id, e.g. `"saao-saa01"`: the name used for Zenodo folders, catalogue CSVs and JSON ZIPs |
 | `id_text` | `str \| None` | P-number or text ID, e.g. `"P334189"` |
 | `metadata_raw_dict` | `dict \| None` | Raw catalogue fields as downloaded from ORACC |
 | `geographical_information` | `TabletGeographicalInformation` | Provenance |
 | `chronological_information` | `TabletChronologicalInformation` | Period and year range |
 | `archive` | `str \| None` | Archive name (e.g. `"Šamaš-šumu-ukīn Archive"`) |
 | `copyright_information` | `str` | Raw copyright statement from ORACC |
-| `genre` | `str \| None` | Text genre (e.g. `"Administrative Letter"`) |
+| `genre` | `str \| None` | Raw text genre (e.g. `"Administrative Letter"`). Taken from the catalogue `genre` field, falling back to `genres`, then `subgenre`, then the editorial rules in `metadata_rules.csv` |
+| `genre_source` | `str \| None` | Where `genre` came from: `"genre"`, `"genres"`, `"subgenre"`, `"rule:<field>"` (a rule in `metadata_rules.csv`), or `""` |
+| `genre_normalized` | `str \| None` | `genre` with whitespace collapsed and case unified to one canonical spelling (`"letter"` → `"Letter"`) |
+| `genre_class` | `str \| None` | Coarse class (Legal, Administrative, Letter, Royal Inscription, Astronomical, Scholarly, Ritual/Incantation, Literary, Lexical, Treaty, Laws, or Uncertain) from `genre_classes.csv`; `""` when the raw value is not covered. The mapping is a contributed reference, not a canonical scheme |
 | `accession_museum_publication_numbers` | `str` | Accession numbers, museum numbers, and primary publication references merged from catalogue |
 | `secondary_literature` | `str` | Secondary literature references, including journal title/volume |
 | `credits` | `str` | Credits and acknowledgements for ORACC project |
@@ -173,6 +182,7 @@ Top-level container. Every parsed tablet is one `TabletRecord`.
 | `start_year` | `int \| None` | Start year (negative = BCE) |
 | `end_year` | `int \| None` | End year (negative = BCE) |
 | `years_source` | `str \| None` | How the dates were derived |
+| `period_source` | `str \| None` | Where `tablet_period` came from: `"period"` (catalogue field), `"rule:<field>"` (a fallback rule, e.g. `"rule:goal_year"`), or `""` |
 
 ### `TabletPeriod`
 
@@ -309,7 +319,9 @@ All functions below take `list[TabletRecord]` and return a flat `pd.DataFrame` w
 
 #### `get_metadata_table(records) → pd.DataFrame`
 
-Columns: `id`, `project`, `text_id`, `genre`, `archive`, `provenance`, `pleiades_id`, `state_supergroup`, `period`, `start_year`, `end_year`, `accession_museum_publication_numbers`, `secondary_literature`, `credits`, `cite_as`.
+Columns: `id`, `project`, `project_slug`, `text_id`, `genre`, `genre_source`, `genre_normalized`, `genre_class`, `archive`, `provenance`, `pleiades_id`, `state_supergroup`, `period`, `period_source`, `start_year`, `end_year`, `accession_museum_publication_numbers`, `secondary_literature`, `credits`, `cite_as`.
+
+`project` uses slashes (`riao/ria1`); `project_slug` uses dashes (`riao-ria1`), matching the Zenodo folder and catalogue file names, so you can join parsed output against those files without converting.
 
 #### `get_transliterations(records) → pd.DataFrame`
 
@@ -393,6 +405,9 @@ df = reference_data.get_provenance()
 | `get_state_supergroup_mapping()` | `pd.DataFrame` | Project → state/empire supergroup mapping |
 | `get_archive_mapping()` | `pd.DataFrame` | Raw archive strings → normalised archive names |
 | `get_catalogue_columns()` | `pd.DataFrame` | Grouped ORACC metadata column reference table |
+| `get_metadata_rules()` | `pd.DataFrame` | Fallback rules applied when a catalogue entry has no genre/period |
+| `get_genre_normalization()` | `pd.DataFrame` | Genre spelling variants → canonical spelling |
+| `get_genre_classes()` | `pd.DataFrame` | (source field, raw genre) → coarse genre class |
 | `get_live_project_list()` | `pd.DataFrame` | Live list of all public ORACC projects (fetches from ORACC servers) |
 
 ---

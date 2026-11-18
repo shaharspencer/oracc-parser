@@ -63,7 +63,7 @@ WORD_CSV_DIR: Path = DATA_DIR / "oracc_csvs"
 CATALOGUE_DIR: Path = DATA_DIR / "catalogues"
 
 # URL for downloading reference data (Zenodo)
-ZENODO_RECORD_URL: str = "https://zenodo.org/records/20625379"
+ZENODO_RECORD_URL: str = "https://zenodo.org/records/24336925"
 
 # Logging
 LOG_LEVEL: str = "INFO"

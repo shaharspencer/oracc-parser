@@ -23,6 +23,7 @@ import requests
 from tqdm import tqdm
 
 from oracc_parser.settings import zenodo_url, data_dir, jsonzip_dir, word_csv_dir, catalogue_dir, translations_dir
+from oracc_parser.utils.paths import project_slug
 
 
 def download_file(url: str, dest: Path, desc: str = "") -> Path:
@@ -65,7 +66,7 @@ def extract_jsonzip_archive(archive_path: Path, dest_dir: Path) -> None:
     Only the inner ``*.zip`` files are extracted — the ``jsonzip/`` prefix
     is stripped so they land directly in ``dest_dir``.
     """
-    print(f"\n📂 Extracting project ZIPs from {archive_path.name} ...")
+    print(f"\nExtracting project ZIPs from {archive_path.name} ...")
     dest_dir.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(archive_path, "r") as z:
         members = [m for m in z.namelist() if m.endswith(".zip")]
@@ -76,7 +77,7 @@ def extract_jsonzip_archive(archive_path: Path, dest_dir: Path) -> None:
                 continue
             with z.open(member) as src, open(target, "wb") as dst:
                 dst.write(src.read())
-    print(f"✅ Extracted {len(members)} project ZIPs to {dest_dir}")
+    print(f"[OK] Extracted {len(members)} project ZIPs to {dest_dir}")
 
 
 def extract_data_archive(archive_path: Path, dest_dir: Path, label: str) -> None:
@@ -86,7 +87,7 @@ def extract_data_archive(archive_path: Path, dest_dir: Path, label: str) -> None
     - Contents directly at the root (``saao-saa01/P123456.csv``)
     - Wrapped in a single top-level folder (``oracc_csvs/saao-saa01/P123456.csv``)
     """
-    print(f"\n📂 Extracting {archive_path.name} ...")
+    print(f"\nExtracting {archive_path.name} ...")
     dest_dir.mkdir(parents=True, exist_ok=True)
 
     with zipfile.ZipFile(archive_path, "r") as z:
@@ -112,7 +113,7 @@ def extract_data_archive(archive_path: Path, dest_dir: Path, label: str) -> None
             with z.open(member) as src, open(target, "wb") as dst:
                 dst.write(src.read())
 
-    print(f"✅ Extracted {len(files)} files to {dest_dir}")
+    print(f"[OK] Extracted {len(files)} files to {dest_dir}")
 
 
 def extract_project_csvs(
@@ -141,13 +142,13 @@ def extract_project_csvs(
     dest_dir = dest_dir or word_csv_dir()
     dest_dir.mkdir(parents=True, exist_ok=True)
 
-    project_slug = project.replace("/", "-")
-    project_dir = dest_dir / project_slug
+    slug = project_slug(project)
+    project_dir = dest_dir / slug
 
     if project_dir.exists() and any(project_dir.glob("*.csv")):
         return project_dir
 
-    umbrella = project_slug.split("-")[0]
+    umbrella = slug.split("-")[0]
     record_id = zenodo_url().rstrip("/").split("/")[-1]
     file_url = f"https://zenodo.org/records/{record_id}/files/{umbrella}.zip"
     tmp_zip = dest_dir / f"_tmp_{umbrella}.zip"
@@ -252,10 +253,10 @@ def fetch_data(
     for f in files:
         dest_path = dest / f["filename"]
         if _already_extracted(f["filename"]):
-            print(f"  ✓ {f['filename']} already extracted, skipping")
+            print(f"  [OK] {f['filename']} already extracted, skipping")
             continue
         if dest_path.exists():
-            print(f"  ✓ {f['filename']} already downloaded, extracting...")
+            print(f"  [OK] {f['filename']} already downloaded, extracting...")
         else:
             download_file(f["url"], dest_path, desc=f["filename"])
 
@@ -275,7 +276,7 @@ def fetch_data(
         extract_data_archive(catalogues_zip, catalogue_dir(), "catalogues")
         catalogues_zip.unlink()
 
-    print(f"\n✓ Done. Data is ready in {dest}")
+    print(f"\n[OK] Done. Data is ready in {dest}")
 
 
 if __name__ == "__main__":
