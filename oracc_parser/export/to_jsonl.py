@@ -71,8 +71,12 @@ def _record_to_dict(record: TabletRecord) -> dict:
     result = {
         "id": md.identifier,
         "project": md.project,
+        "project_slug": md.project_slug,
         "text_id": md.id_text,
         "genre": md.genre,
+        "genre_source": md.genre_source,
+        "genre_normalized": md.genre_normalized,
+        "genre_class": md.genre_class,
         "translation": ct.english_translation,
         "metadata": {
             "provenance": md.geographical_information.city.city_name,
@@ -83,6 +87,7 @@ def _record_to_dict(record: TabletRecord) -> dict:
                 if md.chronological_information.tablet_period
                 else ""
             ),
+            "period_source": md.chronological_information.period_source,
             "start_year": md.chronological_information.start_year,
             "end_year": md.chronological_information.end_year,
             "copyright": md.copyright_information,
@@ -117,14 +122,19 @@ def _record_to_flat_dict(record: TabletRecord) -> dict:
     return {
         "id": md.identifier,
         "project": md.project,
+        "project_slug": md.project_slug or "",
         "text_id": md.id_text,
         "genre": md.genre or "",
+        "genre_source": md.genre_source or "",
+        "genre_normalized": md.genre_normalized or "",
+        "genre_class": md.genre_class or "",
         "provenance": md.geographical_information.city.city_name,
         "period": (
             md.chronological_information.tablet_period.period_name
             if md.chronological_information.tablet_period
             else ""
         ),
+        "period_source": md.chronological_information.period_source or "",
         "start_year": md.chronological_information.start_year or "",
         "end_year": md.chronological_information.end_year or "",
         "translation": ct.english_translation,

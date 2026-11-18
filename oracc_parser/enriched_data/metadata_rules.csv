@@ -1,0 +1,10 @@
+target,project,field,match,match_value,value,kind,note
+period,,date,exact,7th century BC,Neo-Assyrian,general,"7th-century BC dates fall in the Neo-Assyrian period (asbp texts)"
+period,,goal_year,nonempty,,Hellenistic,general,"Coarse: adsd/adart6 goal-year texts; the goal year is a predicted year, not the composition year"
+genre,asbp/ninmed,,any,,Scholarly,editorial,Project-level default for texts with no genre/genres/subgenre
+genre,ccpo,,any,,Scholarly,editorial,Project-level default for texts with no genre/genres/subgenre
+genre,balt,designation,leading_token,VS 3,Legal,editorial,Publication-level default (exact match on the token before the first comma)
+genre,balt,designation,leading_token,AnOr 08,Legal,editorial,Publication-level default (exact match on the token before the first comma)
+genre,balt,designation,leading_token,GCCI 1,Administrative,editorial,Publication-level default (exact match on the token before the first comma)
+genre,balt,designation,leading_token,UCP 9/1,Administrative,editorial,Publication-level default (exact match on the token before the first comma)
+genre,balt,designation,leading_token,YOS 17,Administrative,editorial,Publication-level default (exact match on the token before the first comma)

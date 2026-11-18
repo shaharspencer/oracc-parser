@@ -11,6 +11,7 @@ Logic ported from src/metadata_processing/:
 from __future__ import annotations
 
 import re
+import unicodedata
 
 from oracc_parser.models.tablet import (
     City,
@@ -20,8 +21,10 @@ from oracc_parser.models.tablet import (
     TabletPeriod,
 )
 from oracc_parser.utils.logger import get_logger
-from oracc_parser.utils.paths import get_provenience, get_period_mapping
+from oracc_parser.utils.paths import get_provenience, get_period_mapping, project_slug
 from oracc_parser.metadata.archive import clean_archive
+from oracc_parser.metadata.genre import classify_genre, normalize_genre, resolve_genre
+from oracc_parser.metadata.rules import apply_rules, clean_value
 
 logger = get_logger()
 
@@ -32,9 +35,12 @@ logger = get_logger()
 _provenience_df = None
 _period_df = None
 _normalized_cities: dict[str, City] | None = None
+# Lenient lookup: normalized raw_provenience key -> City, or None when the key
+# is ambiguous (two raw values that normalize alike map to different cities).
+_fuzzy_cities: dict[str, City | None] | None = None
 
 def _ensure_loaded():
-    global _provenience_df, _period_df, _normalized_cities
+    global _provenience_df, _period_df, _normalized_cities, _fuzzy_cities
     try:
         if _provenience_df is None:
             _provenience_df = get_provenience(pleiades_only=False)
@@ -42,8 +48,49 @@ def _ensure_loaded():
             _period_df = get_period_mapping()
         if _normalized_cities is None:
             _normalized_cities = _build_normalized_cities(_provenience_df)
+        if _fuzzy_cities is None:
+            _fuzzy_cities = _build_fuzzy_cities(_normalized_cities)
     except Exception as e:
         logger.error(f"error loading reference data: {e}")
+
+
+_MOD_PAREN_RE = re.compile(r"\(\s*mod\.?[^)]*\)", re.IGNORECASE)
+
+
+def _provenience_key(raw: str) -> str:
+    """Normalize a provenience string for lenient lookup.
+
+    Strips diacritics (``Bābil`` -> ``babil``), case-folds and collapses
+    whitespace.
+    """
+    s = unicodedata.normalize("NFKD", str(raw))
+    s = "".join(c for c in s if not unicodedata.combining(c))
+    return " ".join(s.casefold().split())
+
+
+def _provenience_keys(raw: str) -> list[str]:
+    """Lookup keys to try for ``raw``, most specific first.
+
+    1. the normalized string;
+    2. the normalized string with any ``(mod. …)`` parenthetical removed,
+       e.g. ``Kish (mod. Tell Ingharra)`` -> ``kish``.
+    """
+    keys = [_provenience_key(raw)]
+    without_mod = _provenience_key(_MOD_PAREN_RE.sub(" ", str(raw)))
+    if without_mod and without_mod not in keys:
+        keys.append(without_mod)
+    return [k for k in keys if k]
+
+
+def _build_fuzzy_cities(exact: dict[str, City]) -> dict[str, City | None]:
+    result: dict[str, City | None] = {}
+    for raw, city in exact.items():
+        key = _provenience_key(raw)
+        if key in result and result[key] is not None and result[key] != city:
+            result[key] = None  # ambiguous: never guess
+        elif key not in result:
+            result[key] = city
+    return result
 
 def _build_normalized_cities(df) -> dict[str, City]:
     """Build raw_provenience → City dict from the bundled provenience CSV.
@@ -89,6 +136,7 @@ def populate_metadata(
     md = TabletMetadata(
         identifier=f"{project}_{text_id}",
         project=project,
+        project_slug=project_slug(project) if project else "",
         id_text=text_id,
         metadata_raw_dict=metadata_dict or {},
     )
@@ -102,7 +150,9 @@ def populate_metadata(
         md.geographical_information = _get_geography(metadata_dict, project, text_id)
         md.chronological_information = _get_chronology(metadata_dict, project, text_id)
         md.archive = _get_archive(metadata_dict, project, text_id)
-        md.genre = metadata_dict.get("genre", "")
+        md.genre, md.genre_source = resolve_genre(metadata_dict, project)
+        md.genre_normalized = normalize_genre(md.genre)
+        md.genre_class = classify_genre(md.genre, md.genre_source)
         md.accession_museum_publication_numbers, md.secondary_literature, md.credits, md.cite_as = (
             _get_publication_fields(metadata_dict, project, text_id)
         )
@@ -214,7 +264,7 @@ def _get_state(project: str) -> str:
     try:
         # Normalise to slug format (saao/saa01 → saao-saa01) so lookups match
         # the CSV which uses hyphens, not slashes.
-        slug = project.replace("/", "-")
+        slug = project_slug(project)
         prefix_list, exact_dict = _load_state_mapping()
         for prefix, state in prefix_list:
             if slug.startswith(prefix):
@@ -233,6 +283,11 @@ def _get_city(raw_prov: str, project: str, text_id: str) -> City:
     try:
         if raw_prov in _normalized_cities:
             return _normalized_cities[raw_prov]
+        for key in _provenience_keys(raw_prov):
+            city = _fuzzy_cities.get(key)
+            if city is not None:
+                logger.debug(f"provenience {raw_prov!r} matched leniently as {key!r}")
+                return city
         logger.error(f"tablet {project} - {text_id} does not have a normalized city")
         return City(city_name="CITY NOT MAPPED YET")
     except Exception as e:
@@ -288,10 +343,16 @@ def _get_chronology(metadata_dict: dict, project: str, text_id: str) -> TabletCh
                 info.start_year, info.end_year = start, end
                 info.years_source = "regnal_dates"
 
-        # 4. period (always populate tablet_period; use as year fallback)
-        if period := metadata_dict.get("period"):
+        # 4. period (always populate tablet_period; use as year fallback).
+        #    If the catalogue has no period, try the fallback rules in
+        #    metadata_rules.csv (e.g. goal_year -> Hellenistic).
+        period, period_source = clean_value(metadata_dict.get("period")), "period"
+        if not period:
+            period, period_source = apply_rules("period", metadata_dict, project)
+        if period:
             period_info = _get_period(period)
             info.tablet_period = period_info
+            info.period_source = period_source
             if period_info.period_start_year and period_info.period_end_year and not info.years_source:
                 info.start_year = period_info.period_start_year
                 info.end_year = period_info.period_end_year

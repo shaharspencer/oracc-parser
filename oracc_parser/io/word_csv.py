@@ -39,6 +39,7 @@ from oracc_parser.models.tablet import (
     WordSigns,
 )
 from oracc_parser.utils.logger import get_logger
+from oracc_parser.utils.paths import project_slug
 
 logger = get_logger()
 
@@ -232,8 +233,8 @@ def save_word_csv(df: pd.DataFrame, path: str | Path | None = None) -> Path:
         from oracc_parser.settings import WORD_CSV_DIR
         first = df.iloc[0] if not df.empty else {}
         text_id = str(first.get("text_id", "unknown"))
-        project_slug = str(first.get("project", "unknown")).replace("/", "-")
-        path = WORD_CSV_DIR / project_slug / f"{text_id}.csv"
+        slug = project_slug(str(first.get("project", "unknown")))
+        path = WORD_CSV_DIR / slug / f"{text_id}.csv"
 
     out = Path(path)
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -284,10 +285,27 @@ def load_word_csvs_from_dir(
         base = extract_project_csvs(project, dest_dir=base.parent)
 
     result = {}
+    skipped = []
     for f in sorted(base.glob("*.csv")):
         text_id = f.stem
-        result[text_id] = load_word_csv(f)
-    logger.info(f"Loaded {len(result)} word CSV(s) from {base}")
+        try:
+            df = load_word_csv(f)
+        except pd.errors.EmptyDataError:
+            df = None
+        except Exception as e:
+            logger.warning(f"Skipping unreadable word CSV {f}: {e}")
+            skipped.append(f.name)
+            continue
+        if df is None or df.empty:
+            logger.warning(f"Skipping empty word CSV {f}")
+            skipped.append(f.name)
+            continue
+        result[text_id] = df
+    msg = f"Loaded {len(result)} word CSV(s) from {base}"
+    if skipped:
+        more = ", ..." if len(skipped) > 10 else ""
+        msg += f" ({len(skipped)} skipped: {', '.join(skipped[:10])}{more})"
+    logger.info(msg)
     return result
 
 
@@ -336,8 +354,7 @@ def save_catalogue_csv(df: pd.DataFrame, path: str | Path | None = None) -> Path
             )
         from oracc_parser.settings import CATALOGUE_DIR
         project = str(df["project"].iloc[0])
-        project_slug = project.replace("/", "-")
-        path = CATALOGUE_DIR / f"{project_slug}.csv"
+        path = CATALOGUE_DIR / f"{project_slug(project)}.csv"
 
     out = Path(path)
     out.parent.mkdir(parents=True, exist_ok=True)

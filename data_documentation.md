@@ -1,5 +1,33 @@
 # Data Notes
 
+## Project ids: slashes vs dashes
+
+Parsed records use the ORACC project path with slashes (`riao/ria1`). Everything on disk (Zenodo folders, catalogue CSVs, JSON ZIPs) uses the same id with dashes (`riao-ria1`). Each record carries both, as `project` and `project_slug`. In code, use `oracc_parser.utils.paths.project_slug()` to convert a project id rather than calling `replace("/", "-")`, because the helper also strips stray leading or trailing slashes.
+
+## Genre and period when the primary catalogue field is empty
+
+ORACC catalogues do not all use the same fields. When `genre` is empty, the parser falls back to `genres`, then `subgenre`. When `period` is empty, it applies the fallback rules in `enriched_data/metadata_rules.csv`. The `genre_source` and `period_source` fields record which field or rule supplied the value, so recovered values can always be told apart from catalogue values.
+
+`metadata_rules.csv` contains two kinds of rule:
+
+* **general**: `date = "7th century BC"` → Neo-Assyrian (asbp texts), and a non-empty `goal_year` → Hellenistic (adsd/adart6). The goal-year rule is coarse, because the goal year is a predicted year rather than the year of composition.
+* **editorial**: project- or publication-level genre defaults for texts that have no genre field at all (asbp/ninmed and ccpo → Scholarly; some balt publications → Legal or Administrative). balt publications are matched exactly on the part of `designation` before the first comma, so `UCP 9/1` does not match `UCP 9/12`.
+
+Rules are applied in file order, and the first match wins. Contributed by external users building a classification corpus (2026-11).
+
+## Genre normalisation and classes
+
+* `genre_normalized` collapses whitespace and unifies case. The canonical spellings in `genre_normalization.csv` are generated from all catalogues by `scripts/build_genre_normalization.py`. When a group of spellings includes a capitalised one, that is used; otherwise the most frequent spelling is used. Re-run the script after a data update.
+* `genre_class` maps a (source field, raw value) pair to one of 11 coarse classes plus `Uncertain`, using `genre_classes.csv` (251 rows). The mapping was contributed as a reference and reflects one study's class boundaries, such as keeping Laws and Treaty separate from Legal. It covers the values in that study's corpus, so a value it does not cover gets an empty class.
+
+## Texts with no words
+
+Some catalogued texts have no words in their ORACC JSON (e.g. `balt/P365637`). These texts get no word CSV: the parser skips empty word CSVs with a warning, and the dataset build no longer ships them.
+
+## Projects left out on purpose
+
+`ckst` is listed as "Akkadian, Sumerian" in `projects_metadata.csv` but is not part of the dataset. The dataset build passes `--allow-missing ckst` to the completeness check.
+
 ## Texts without catalogue metadata
 
 A sanity check was run matching all text files in `enriched_data/oracc_csvs/` against their project's catalogue CSV in `enriched_data/catalogues/`. Out of 40,473 texts checked, 263 texts across 16 projects have no corresponding entry in their project's catalogue.

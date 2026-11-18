@@ -46,6 +46,11 @@ from oracc_parser.utils.paths import (
     get_state_mapping,
     get_archives,
     get_catalogue_columns,
+    get_metadata_rules,
+    get_genre_classes,
+    get_genre_normalization,
+    normalize_project,
+    project_slug,
 )
 
 logger = get_logger()
@@ -74,6 +79,9 @@ class reference_data:
     get_state_supergroup_mapping = staticmethod(get_state_mapping)
     get_archive_mapping = staticmethod(get_archives)
     get_catalogue_columns = staticmethod(get_catalogue_columns)
+    get_metadata_rules = staticmethod(get_metadata_rules)
+    get_genre_classes = staticmethod(get_genre_classes)
+    get_genre_normalization = staticmethod(get_genre_normalization)
     get_live_project_list = staticmethod(get_live_projects_dataframe)
 
 
@@ -116,8 +124,8 @@ def parse_project(
         config = RunConfig()
 
     from oracc_parser.settings import WORD_CSV_DIR
-    project_slug = project.replace("/", "-")
-    csv_dir = WORD_CSV_DIR / project_slug
+    project = normalize_project(project)
+    csv_dir = WORD_CSV_DIR / project_slug(project)
 
     # Fast path: word CSVs already on disk
     if csv_dir.exists() and any(csv_dir.glob("*.csv")):
@@ -173,7 +181,12 @@ def parse_project(
         record.metadata = populate_metadata(metadata_dict, text_id, project)
         records.append(record)
 
-        save_word_csv(record_to_word_dataframe(record))
+        word_df = record_to_word_dataframe(record)
+        if word_df.empty:
+            # e.g. balt/P365637: catalogued, but its ORACC JSON has no words.
+            logger.warning(f"{project}/{text_id} has no words; not writing a word CSV")
+        else:
+            save_word_csv(word_df)
 
     logger.info(f"Parsed {len(records)} tablets from {project}")
     return records
@@ -280,7 +293,7 @@ def _parse_from_word_dfs(
 
     # Load catalogue once so each tablet gets its provenance/period/genre
     from oracc_parser.settings import CATALOGUE_DIR
-    cat_path = CATALOGUE_DIR / f"{project.replace('/', '-')}.csv"
+    cat_path = CATALOGUE_DIR / f"{project_slug(project)}.csv"
     catalogue_lookup: dict[str, dict] = {}
     if cat_path.exists():
         cat_df = load_catalogue_csv(cat_path)
@@ -313,9 +326,15 @@ def get_metadata_table(records: list[TabletRecord]) -> pd.DataFrame:
     """Extract a flat metadata table from parsed records.
 
     Returns a DataFrame with one row per tablet, containing:
-    ``id``, ``project``, ``text_id``, ``genre``, ``archive``, ``provenance``,
-    ``pleiades_id``, ``period``, ``start_year``, ``end_year``,
-    ``accession_museum_publication_numbers``, ``secondary_literature``.
+    ``id``, ``project``, ``project_slug``, ``text_id``, ``genre``,
+    ``genre_source``, ``genre_normalized``, ``genre_class``, ``archive``,
+    ``provenance``, ``pleiades_id``, ``state_supergroup``, ``period``,
+    ``period_source``, ``start_year``, ``end_year``,
+    ``accession_museum_publication_numbers``, ``secondary_literature``,
+    ``credits``, ``cite_as``.
+
+    ``project`` uses slashes (``riao/ria1``); ``project_slug`` is the dashed
+    form used for Zenodo folders and catalogue filenames (``riao-ria1``).
 
     Example::
 
@@ -329,8 +348,12 @@ def get_metadata_table(records: list[TabletRecord]) -> pd.DataFrame:
         rows.append({
             "id": md.identifier,
             "project": md.project,
+            "project_slug": md.project_slug or "",
             "text_id": md.id_text,
             "genre": md.genre or "",
+            "genre_source": md.genre_source or "",
+            "genre_normalized": md.genre_normalized or "",
+            "genre_class": md.genre_class or "",
             "archive": md.archive or "",
             "provenance": md.geographical_information.city.city_name,
             "pleiades_id": md.geographical_information.city.city_plaides_id,
@@ -340,6 +363,7 @@ def get_metadata_table(records: list[TabletRecord]) -> pd.DataFrame:
                 if md.chronological_information.tablet_period
                 else ""
             ),
+            "period_source": md.chronological_information.period_source or "",
             "start_year": md.chronological_information.start_year,
             "end_year": md.chronological_information.end_year,
             "accession_museum_publication_numbers": md.accession_museum_publication_numbers,

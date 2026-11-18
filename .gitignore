@@ -44,3 +44,9 @@ tests/test_output/
 
 # Local developer notes (not for distribution)
 RELEASE_PROCESS.md
+
+# Local data downloads (Zenodo / ORACC)
+oracc_data/
+
+# External bug reports (local only)
+oracc_parser_report.md

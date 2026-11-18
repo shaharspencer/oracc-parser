@@ -19,9 +19,9 @@ If you use oracc-parser in your research, please cite:
   title        = {oracc-parser: A Python toolkit for downloading and parsing ORACC cuneiform text projects},
   year         = {2026},
   publisher    = {Zenodo},
-  version      = {0.1.5},
-  doi          = {10.5281/zenodo.18643122},
-  url          = {https://doi.org/10.5281/zenodo.18643122}
+  version      = {0.1.6},
+  doi          = {10.5281/zenodo.18643121},
+  url          = {https://doi.org/10.5281/zenodo.18643121}
 }
 ```
 
@@ -132,7 +132,7 @@ oracc-parser parse --project saao/saa01 --limit 5 --format jsonl --output saa01.
 
 Large data files (ORACC ZIPs, word-level CSVs, cached translations, Pleiades data) are on Zenodo:
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18643122.svg)](https://doi.org/10.5281/zenodo.18643122)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18643121.svg)](https://doi.org/10.5281/zenodo.18643121)
 
 ```bash
 python scripts/download_zenodo_data.py

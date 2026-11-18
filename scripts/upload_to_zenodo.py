@@ -4,6 +4,10 @@ Upload oracc-parser data files to Zenodo.
 Creates a new Zenodo deposit, uploads data files, adds metadata,
 and publishes. Requires ZENODO_ACCESS_TOKEN in the environment or .env.
 
+NOTE: this creates a *separate* deposit. To publish an updated version of the
+existing dataset record, use scripts/build_zenodo_release.py followed by
+scripts/zenodo_new_version.py instead.
+
 Usage:
     python scripts/upload_to_zenodo.py
 """

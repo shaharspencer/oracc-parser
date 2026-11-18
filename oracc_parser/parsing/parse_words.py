@@ -32,7 +32,7 @@ def _load_lookups():
                 _pos_dict[str(row.iloc[0])] = WordPOSInfo(
                     meaning=str(row.iloc[1]) if len(row) > 1 else "",
                     normalized_pos=str(row.iloc[2]) if len(row) > 2 else "",
-                    to_mask=str(row.iloc[3]).lower() == "true" if len(row) > 3 else False,
+                    to_mask=str(row.iloc[3]).strip().lower() == "yes" if len(row) > 3 else False,
                     mask_as=str(row.iloc[4]) if len(row) > 4 else "",
                 )
             except Exception:

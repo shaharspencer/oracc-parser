@@ -86,6 +86,34 @@ def get_period_mapping() -> pd.DataFrame:
     return pd.read_csv(_data_file("period_mapping.csv"))
 
 
+def get_metadata_rules() -> pd.DataFrame:
+    """Load the fallback rules used when a catalogue's primary genre/period field is empty.
+
+    Columns: ``target`` (``genre`` | ``period``), ``project`` (project path or
+    umbrella prefix; empty = any project), ``field`` (catalogue field the rule
+    reads), ``match`` (``any`` | ``exact`` | ``leading_token`` | ``nonempty``),
+    ``match_value``, ``value`` (the value assigned), ``kind``
+    (``general`` | ``editorial``), ``note``.
+    """
+    return pd.read_csv(_data_file("metadata_rules.csv"), dtype=str, keep_default_na=False)
+
+
+def get_genre_classes() -> pd.DataFrame:
+    """Load the (source field, raw genre) -> coarse genre class mapping.
+
+    Columns: ``source``, ``raw_value``, ``n_texts``, ``genre_class``.
+    """
+    return pd.read_csv(_data_file("genre_classes.csv"), dtype=str, keep_default_na=False)
+
+
+def get_genre_normalization() -> pd.DataFrame:
+    """Load the genre spelling-variant table (``variant`` -> ``canonical``).
+
+    Built by ``scripts/build_genre_normalization.py`` from the project catalogues.
+    """
+    return pd.read_csv(_data_file("genre_normalization.csv"), dtype=str, keep_default_na=False)
+
+
 
 def update_pos_tags_counts(
     word_csv_dir: Path | None = None,
@@ -509,6 +537,25 @@ def update_provenience_mapping(catalogue_dir: Path | None = None) -> pd.DataFram
     existing.to_csv(prov_path, index=False, encoding="utf-8")
     print(f"provenience.csv: {len(existing)} rows total, {len(new_rows)} new value(s) added")
     return existing
+
+
+def normalize_project(project: str) -> str:
+    """Return the canonical ORACC project path, e.g. ``"atae/saab0509/"`` -> ``"atae/saab0509"``.
+
+    Strips surrounding whitespace and leading/trailing slashes so that a stray
+    slash in metadata cannot leak into URLs or filenames.
+    """
+    return str(project).strip().strip("/")
+
+
+def project_slug(project: str) -> str:
+    """Return the on-disk form of a project id, e.g. ``"riao/ria1"`` -> ``"riao-ria1"``.
+
+    Zenodo folders, catalogue filenames and JSON ZIP names all use this
+    dash-separated slug, while parsed records use the slash-separated project
+    path. Use this helper whenever building a filename from a project id.
+    """
+    return normalize_project(project).replace("/", "-")
 
 
 def get_zip_dir(base: str | None = None) -> Path:

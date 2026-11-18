@@ -1,0 +1,252 @@
+source,raw_value,n_texts,genre_class
+genre,Legal,1698,Legal
+genre,Legal Transaction,927,Legal
+genres,Legal,182,Legal
+subgenre,Loan of lead,50,Legal
+subgenre,Loan of barley,49,Legal
+subgenre,Work contract,31,Legal
+subgenre,Loan,23,Legal
+subgenre,šulmānu,19,Legal
+subgenre,Purchase,18,Legal
+subgenre,Contract,10,Legal
+subgenre,Obligation,10,Legal
+subgenre,Adoption,7,Legal
+subgenre,Purchase of a slave,7,Legal
+subgenre,Transaction,7,Legal
+subgenre,Purchase of land,5,Legal
+subgenre,Testament,5,Legal
+subgenre,Work contract?,5,Legal
+subgenre,Loan of silver,4,Legal
+subgenre,Loan?,4,Legal
+subgenre,Debt-note,3,Legal
+subgenre,Division of inheritance,3,Legal
+subgenre,Loan of lead and barley,3,Legal
+subgenre,Exchange,2,Legal
+subgenre,Gift,2,Legal
+subgenre,Land sale,2,Legal
+subgenre,Legal document,2,Legal
+subgenre,Loan of a sheep,2,Legal
+subgenre,Purchase of slave + envelope,2,Legal
+subgenre,Sale of land,2,Legal
+subgenre,Work-contract,2,Legal
+genre,Gift,1,Legal
+subgenre,Adoption(?),1,Legal
+subgenre,Barley loan,1,Legal
+subgenre,Change in contract,1,Legal
+subgenre,Collection of loans,1,Legal
+subgenre,Contract for barley,1,Legal
+subgenre,Contract for lead,1,Legal
+subgenre,Contract of cultivation of state land,1,Legal
+subgenre,Debt,1,Legal
+subgenre,Debt statement,1,Legal
+subgenre,Division of inheritance?,1,Legal
+subgenre,Division of inheritence,1,Legal
+subgenre,Document on marriage,1,Legal
+subgenre,Juridical Text,1,Legal
+subgenre,Land sale+envelope,1,Legal
+subgenre,Lien,1,Legal
+subgenre,Loan ?,1,Legal
+subgenre,Loan of gold,1,Legal
+subgenre,Loan of lead + envelope,1,Legal
+subgenre,Loan of oil and wool,1,Legal
+subgenre,Loan of onions,1,Legal
+subgenre,Loan of sheep,1,Legal
+subgenre,Loan of silver and barley,1,Legal
+subgenre,Loan of wool,1,Legal
+subgenre,Manumission,1,Legal
+subgenre,Marriage contract,1,Legal
+subgenre,Mixed loan,1,Legal
+subgenre,Note on gift,1,Legal
+subgenre,Note on loans,1,Legal
+subgenre,Note on loans?,1,Legal
+subgenre,Ransom,1,Legal
+subgenre,Release,1,Legal
+subgenre,Sale of real estate,1,Legal
+subgenre,Security for a loan,1,Legal
+subgenre,Slave redemption,1,Legal
+subgenre,Transfer,1,Legal
+subgenre,Selfdedication,1,Legal
+subgenre,Testimony,1,Legal
+subgenre,Testimony?,1,Legal
+subgenre,Šulmānu,1,Legal
+subgenre,šulmānu(?),1,Legal
+subgenre,List of loans?,1,Legal
+subgenre,Loan of madder(?),1,Legal
+subgenre,Loan of šarbu,1,Legal
+subgenre,Sale?,1,Legal
+genre,Administrative,1347,Administrative
+subgenre,Note,340,Administrative
+genres,Administrative,325,Administrative
+genre,Administrative Record,312,Administrative
+subgenre,List,274,Administrative
+subgenre,Document,67,Administrative
+subgenre,Receipt,60,Administrative
+genre,administrative,51,Administrative
+subgenre,Disposition,40,Administrative
+subgenre,Delivery,37,Administrative
+subgenre,Table,36,Administrative
+subgenre,Account,8,Administrative
+genre,Receipt,6,Administrative
+genre,administrative record,6,Administrative
+subgenre,Collection,6,Administrative
+subgenre,Receipt for lead,4,Administrative
+subgenre,Receipt?,4,Administrative
+subgenre,disbursement,4,Administrative
+subgenre,Memorandum,3,Administrative
+subgenre,Protocol,3,Administrative
+subgenre,Receipt for barley,3,Administrative
+subgenre,Note on offerings,3,Administrative
+subgenre,Disbursement,2,Administrative
+subgenre,Document  + envelope,2,Administrative
+subgenre,Document + envelope,2,Administrative
+subgenre,Envelope,2,Administrative
+subgenre,Envelope(?),2,Administrative
+subgenre,Inventory,2,Administrative
+subgenre,Label,2,Administrative
+subgenre,Note on use,2,Administrative
+subgenre,Receipt + envelope,2,Administrative
+subgenre,note on receipt,2,Administrative
+subgenre,Delivery?,2,Administrative
+subgenre,List of deliveries,2,Administrative
+genres,Receipt,1,Administrative
+subgenre,Account?,1,Administrative
+subgenre,Allocation,1,Administrative
+subgenre,Cencus list of fields(?),1,Administrative
+subgenre,Census list of buildings,1,Administrative
+subgenre,Disposition for work,1,Administrative
+subgenre,Distribution agency,1,Administrative
+subgenre,List + envelope,1,Administrative
+subgenre,List of priests,1,Administrative
+subgenre,Lists,1,Administrative
+subgenre,Note + envelope,1,Administrative
+subgenre,Note on partial payment,1,Administrative
+subgenre,Note on receipt,1,Administrative
+subgenre,Note on receipt?,1,Administrative
+subgenre,Note?,1,Administrative
+subgenre,Order for collecting barley,1,Administrative
+subgenre,Partial payment,1,Administrative
+subgenre,Partial receipt,1,Administrative
+subgenre,Payment of customs,1,Administrative
+subgenre,Receipt for šarbu,1,Administrative
+subgenre,Receipt(?),1,Administrative
+subgenre,Record of barley allocations,1,Administrative
+subgenre,Reimbursement,1,Administrative
+subgenre,Work assignment,1,Administrative
+subgenre,Duplicate of T 96-017,1,Administrative
+subgenre,Calendar,1,Administrative
+subgenre,List of tribute,1,Administrative
+genre,Administrative Letter,865,Letter
+genre,Letter,344,Letter
+genre,Scholarly Letter,270,Letter
+genre,letter,267,Letter
+genres,Letter,223,Letter
+genre,Priestly Letter,129,Letter
+subgenre,Letter order,66,Letter
+subgenre,Letter report,26,Letter
+subgenre,Diplomatic letter,9,Letter
+subgenre,Summon,7,Letter
+subgenre,Letter order + envelope,5,Letter
+subgenre,diplomatic letter,4,Letter
+subgenre,Letter,3,Letter
+subgenre,Private Letter,3,Letter
+subgenre,Private letter,2,Letter
+subgenre,Historic letter,1,Letter
+subgenre,Letter fragment,1,Letter
+subgenre,Letter order(?),1,Letter
+subgenre,Letter report + envelope,1,Letter
+subgenre,Letter report(?),1,Letter
+subgenre,Letter(?),1,Letter
+subgenre,letter report,1,Letter
+subgenre,Report,1,Letter
+genre,Royal Inscription,1119,Royal Inscription
+subgenre,Royal document,9,Royal Inscription
+subgenre,Funerary Inscription,4,Royal Inscription
+subgenre,Dedication Inscription,3,Royal Inscription
+genre,Building Inscription,2,Royal Inscription
+subgenre,Monumental,2,Royal Inscription
+subgenre,Royal inscription,2,Royal Inscription
+genre,Royal/Monumental,1,Royal Inscription
+genre,royal inscription,1,Royal Inscription
+subgenre,Monumental Inscription,1,Royal Inscription
+genre,Astronomical Diary,396,Astronomical
+genre,Astrological Report,356,Astronomical
+genre,Goal-year text,157,Astronomical
+genre,planetary text,51,Astronomical
+genre,lunar text,46,Astronomical
+genre,Astronomical,24,Astronomical
+genre,Omen,82,Scholarly
+genre,Extispicy Report,36,Scholarly
+genres,Commentary,32,Scholarly
+genre,Extispicy Query,27,Scholarly
+genres,Divination,17,Scholarly
+genre,technical procedure,16,Scholarly
+genre,Medical,14,Scholarly
+genre,Scholarly,13,Scholarly
+genre,Eponym List,12,Scholarly
+genre,Hemerological,12,Scholarly
+subgenre,Hippology,12,Scholarly
+subgenre,Perfume recipe,9,Scholarly
+genre,Astrological,7,Scholarly
+genre,Mathematical,6,Scholarly
+subgenre,Note on delivery,5,Scholarly
+genre,Metrological,5,Scholarly
+genre,Prophecy,5,Scholarly
+subgenre,Chronicle,4,Scholarly
+subgenre,Delivery note,4,Scholarly
+subgenre,Extispicy,4,Scholarly
+genre,scholarly work,3,Scholarly
+genres,Scholarly or scientific,3,Scholarly
+genre,Eponym Chronicle,2,Scholarly
+genre,Scholarly or scientific,2,Scholarly
+subgenre,Hippology commentary,2,Scholarly
+subgenre,ana ittišu,2,Scholarly
+genre,School,2,Scholarly
+subgenre,Therapeutic + incantation,1,Scholarly
+subgenre,Colophon,1,Scholarly
+subgenre,Glass Recipe,1,Scholarly
+subgenre,List of eponyms,1,Scholarly
+genre,Ritual,53,Ritual/Incantation
+genre,Incantation-Ritual,49,Ritual/Incantation
+genre,Royal Ritual,21,Ritual/Incantation
+genre,Prayer/Incantation,20,Ritual/Incantation
+genre,Hymn-Prayer,11,Ritual/Incantation
+subgenre,Ritual,10,Ritual/Incantation
+subgenre,Incantation,2,Ritual/Incantation
+genres,Prayer,1,Ritual/Incantation
+subgenre,Ritual for the selection of eponym,1,Ritual/Incantation
+subgenre,Prayer,1,Ritual/Incantation
+genre,Literary,105,Literary
+genre,Literary Work,21,Literary
+genres,Literary,12,Literary
+subgenre,Epic Tiglath-Pileser I,1,Literary
+genre,Lexical,66,Lexical
+subgenre,Diri = atru,2,Lexical
+subgenre,Ea A = nâqu,2,Lexical
+subgenre,Abul = abullu,1,Lexical
+subgenre,Erim-ḫuš = anantu,1,Lexical
+subgenre,Godlist,1,Lexical
+subgenre,Izi = išātu,1,Lexical
+subgenre,Lexical List,1,Lexical
+subgenre,Sign list of measures,1,Lexical
+subgenre,UR₅.RA = ḫubullu,1,Lexical
+genres,Lexical,1,Lexical
+genres,Treaty,63,Treaty
+genre,Treaty,4,Treaty
+subgenre,Treaty,1,Treaty
+subgenre,Treaty?,1,Treaty
+subgenre,Laws,13,Laws
+genre,Grant,9,Laws
+genre,Decree,5,Laws
+subgenre,Edict,4,Laws
+subgenre,Decree,3,Laws
+genre,Appointment,1,Laws
+subgenre,Edict?,1,Laws
+subgenre,Partial duplicate of MAL B,1,Laws
+subgenre,Fragment,14,Uncertain
+genre,Votive Donation,8,Uncertain
+genre,Historical,5,Uncertain
+genre,Uncertain,5,Uncertain
+subgenre,Itinerary,3,Uncertain
+subgenre,Instruction,1,Uncertain
+genre,plan,1,Uncertain
+genre,Official or display,1,Uncertain
