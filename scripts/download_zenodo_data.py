@@ -7,7 +7,7 @@ oracc_parser.download.fetch_data so it is available after `pip install`.
 Usage:
     python scripts/download_zenodo_data.py
     python scripts/download_zenodo_data.py --output ./data
-    python scripts/download_zenodo_data.py --url https://zenodo.org/records/XXXXX
+    python scripts/download_zenodo_data.py --url https://zenodo.org/records/24336925  # pin a version
 """
 
 import argparse
@@ -23,7 +23,7 @@ def main():
     parser.add_argument(
         "--url", "-u",
         default=None,
-        help="Zenodo record URL (default: from .env or settings)",
+        help="Record URL of a specific dataset version (default: the newest version)",
     )
     parser.add_argument(
         "--output", "-o",

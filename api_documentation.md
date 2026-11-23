@@ -79,7 +79,9 @@ ORACC_DATA_DIR=/my/data/dir python my_script.py
 | `JSONZIP_DIR` | `DATA_DIR/jsonzip/` | Raw ORACC JSON ZIPs |
 | `WORD_CSV_DIR` | `DATA_DIR/oracc_csvs/` | Per-word CSV files |
 | `CATALOGUE_DIR` | `DATA_DIR/catalogues/` | Project catalogue CSVs |
-| `ZENODO_RECORD_URL` | `https://zenodo.org/records/24336925` | Zenodo record for pre-processed data |
+| `ZENODO_CONCEPT_ID` | `"18643121"` | Zenodo concept record of the dataset; resolves to its newest version |
+| `ZENODO_RECORD_URL` | `None` (env `ORACC_ZENODO_RECORD_URL`) | Pin a dataset version by its record URL, e.g. `https://zenodo.org/records/24336925`. `None` = newest version |
+| `ZENODO_FALLBACK_RECORD_ID` | `"24336925"` | Version used only if Zenodo cannot be reached to look up the newest one |
 | `LOG_LEVEL` | `"INFO"` | Logging verbosity |
 
 ### Accessor functions
@@ -92,7 +94,8 @@ Each global has a corresponding function that always returns the current value, 
 - `jsonzip_dir() → Path`
 - `word_csv_dir() → Path`
 - `catalogue_dir() → Path`
-- `zenodo_url() → str`
+- `zenodo_url() → str` — the pinned record URL, else the concept record URL
+- `zenodo_is_pinned() → bool`
 - `log_level() → str`
 - `pleiades_zip_path() → Path | None`
 - `get_settings() → dict` — returns all current settings as a plain dict
@@ -454,11 +457,17 @@ Download pre-processed ORACC data from Zenodo and extract it.
 
 Downloads `catalogues.zip` from Zenodo (required for metadata fields such as provenance, period, and genre). Must be run before `parse_project()` if you want populated metadata. Word CSVs are **not** downloaded by `fetch_data` — they are fetched lazily by `parse_project()` on first access per project.
 
+Uses the newest dataset version unless one is pinned. When the version on Zenodo changed a file you already extracted (compared by checksum, recorded in `DATA_DIR/.zenodo_files.json`), that file is downloaded again and overwrites the local copy; unchanged files are skipped. Word CSVs already on disk are never replaced; `fetch_data` lists the umbrella archives that a newer version changed, so you can delete those folders.
+
 **Parameters:**
-- `url` (`str | None`) — Zenodo record URL. Defaults to `ZENODO_RECORD_URL`.
+- `url` (`str | None`) — Record URL (or DOI) of a specific dataset version. Defaults to `zenodo_url()`: the pinned `ZENODO_RECORD_URL`, else the newest version.
 - `dest` (`Path | None`) — Directory for temporary download files. Defaults to `DATA_DIR`.
 - `include_translations` (`bool`) — Also download `oracc_html_translations.zip` (~130 MB). Required for offline translation access.
 - `include_json_zips` (`bool`) — Also download `oracc_jsonzip_all.zip`. Not normally needed — `parse_project(download_from_oracc_server=True)` downloads individual project ZIPs on demand.
+
+#### `resolve_record_id(record_url=None) → str`
+
+Record id of the dataset version to use: the newest version of the concept record, unless a version is pinned or `record_url` is given. If Zenodo cannot be reached and no version was chosen, falls back to `ZENODO_FALLBACK_RECORD_ID` with a warning.
 
 ### `oracc_download` (`oracc_parser.download.oracc_download`)
 
