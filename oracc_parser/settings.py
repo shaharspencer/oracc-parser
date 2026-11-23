@@ -75,7 +75,7 @@ ZENODO_RECORD_URL: str | None = os.environ.get("ORACC_ZENODO_RECORD_URL", "").st
 
 # Used only when the newest version cannot be looked up (Zenodo unreachable).
 # Keep it pointing at a published version; it does not need to be the newest.
-ZENODO_FALLBACK_RECORD_ID: str = "24336925"
+ZENODO_FALLBACK_RECORD_ID: str = "24462772"
 
 # Logging
 LOG_LEVEL: str = "INFO"

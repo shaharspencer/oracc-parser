@@ -81,7 +81,7 @@ ORACC_DATA_DIR=/my/data/dir python my_script.py
 | `CATALOGUE_DIR` | `DATA_DIR/catalogues/` | Project catalogue CSVs |
 | `ZENODO_CONCEPT_ID` | `"18643121"` | Zenodo concept record of the dataset; resolves to its newest version |
 | `ZENODO_RECORD_URL` | `None` (env `ORACC_ZENODO_RECORD_URL`) | Pin a dataset version by its record URL, e.g. `https://zenodo.org/records/24336925`. `None` = newest version |
-| `ZENODO_FALLBACK_RECORD_ID` | `"24336925"` | Version used only if Zenodo cannot be reached to look up the newest one |
+| `ZENODO_FALLBACK_RECORD_ID` | `"24462772"` | Version used only if Zenodo cannot be reached to look up the newest one |
 | `LOG_LEVEL` | `"INFO"` | Logging verbosity |
 
 ### Accessor functions
