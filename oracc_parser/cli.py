@@ -80,7 +80,8 @@ def main(argv: list[str] | None = None):
 
     # --------------- fetch-data ---------------
     fd = subparsers.add_parser("fetch-data", help="Download pre-processed data from Zenodo")
-    fd.add_argument("--url", "-u", default=None, help="Zenodo record URL")
+    fd.add_argument("--url", "-u", default=None,
+                    help="Record URL of a specific dataset version (default: the newest version)")
     fd.add_argument("--output", "-o", default=None, help="Destination directory")
 
     # --------------- info ---------------

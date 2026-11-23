@@ -138,6 +138,15 @@ Large data files (ORACC ZIPs, word-level CSVs, cached translations, Pleiades dat
 python scripts/download_zenodo_data.py
 ```
 
+The package always downloads the newest version of the dataset, so new dataset versions need no package update. To pin a version (e.g. for reproducibility), pass its record URL, or set it once for every download:
+
+```python
+import oracc_parser.settings as settings
+settings.ZENODO_RECORD_URL = "https://zenodo.org/records/24336925"   # or env var ORACC_ZENODO_RECORD_URL
+```
+
+When a newer version changes `catalogues.zip`, the next `fetch_data()` replaces your local catalogues. Word CSVs already on disk are kept; `fetch_data()` lists any that a newer version changed.
+
 ## Running Tests
 
 ```bash

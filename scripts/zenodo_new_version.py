@@ -2,7 +2,8 @@
 Create a new version of the oracc-parser Zenodo dataset from a release build.
 
 Reads ``MANIFEST.json`` written by ``scripts/build_zenodo_release.py`` and, on
-Zenodo, creates a new version of ``--record`` (the latest published version).
+Zenodo, creates a new version of ``--record`` (default: the newest published
+version, looked up from the dataset's concept record).
 Zenodo copies every file of the previous version into the new draft; this
 script replaces only the files the manifest marks as changed, updates the
 publication date (and optionally the version label and a change note), then
@@ -20,8 +21,9 @@ Three levels, from safest:
     python scripts/zenodo_new_version.py --upload-dir oracc_data/_release/upload --create-draft --publish
 
 Requires ``ZENODO_ACCESS_TOKEN`` (scopes: deposit:write, deposit:actions) in the
-environment for levels 2 and 3. After publishing, point
-``oracc_parser/settings.py::ZENODO_RECORD_URL`` at the new record.
+environment for levels 2 and 3. No code change is needed after publishing:
+the package downloads the newest version of the concept record
+(``oracc_parser/settings.py::ZENODO_CONCEPT_ID``) unless a version is pinned.
 """
 from __future__ import annotations
 
@@ -29,13 +31,15 @@ import argparse
 import datetime as dt
 import json
 import os
+import re
 import sys
 from pathlib import Path
 
 import requests
 
+from oracc_parser.settings import ZENODO_CONCEPT_ID
+
 API = "https://zenodo.org/api"
-DEFAULT_RECORD = "24336925"
 
 
 def _session(token: str) -> requests.Session:
@@ -50,10 +54,18 @@ def _check(r: requests.Response) -> dict:
     return r.json() if r.content else {}
 
 
+def newest_record_id() -> str:
+    """Id of the newest published version of the dataset."""
+    r = requests.get(f"{API}/records/{ZENODO_CONCEPT_ID}", timeout=30)
+    _check(r)
+    return str(r.json()["id"])
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--upload-dir", required=True, type=Path, help="Folder with MANIFEST.json and the changed files")
-    ap.add_argument("--record", default=DEFAULT_RECORD, help="Latest published record id to version from")
+    ap.add_argument("--record", default=None,
+                    help="Published record id to version from (default: the newest version)")
     ap.add_argument("--version-label", default=None, help='Optional version string, e.g. "2026-11"')
     ap.add_argument("--notes-file", type=Path, default=None,
                     help="HTML/text appended to the description as a 'Changes in this version' note")
@@ -64,12 +76,21 @@ def main() -> int:
     args = ap.parse_args()
     if args.publish and not args.create_draft:
         raise SystemExit("--publish requires --create-draft")
+    if args.record is None:
+        args.record = newest_record_id()
 
     manifest = json.loads((args.upload_dir / "MANIFEST.json").read_text(encoding="utf-8"))
     changed = [f for f in manifest["files"] if f["changed"]]
     expected = {f["filename"]: f for f in manifest["files"]}
 
     print(f"Previous version: https://zenodo.org/records/{args.record}")
+    base_id = re.search(r"(\d+)$", Path(manifest.get("base", "")).name)
+    if base_id and base_id.group(1) != str(args.record):
+        print(f"WARNING: the release was built from record {base_id.group(1)}, "
+              f"but the new version would be created from record {args.record}. "
+              "Rebuild from the newest version, or pass --record.")
+        if args.create_draft:
+            return 1
     print(f"Files in new version: {len(expected)}  (replaced/added: {len(changed)})")
     for f in changed:
         print(f"  {'add' if f.get('new') else 'replace'} {f['filename']:32s} {f['size'] / 1e6:9.1f} MB  md5 {f['md5']}")
@@ -140,7 +161,8 @@ def main() -> int:
 
     pub = _check(s.post(f"{draft_url}/actions/publish"))
     print(f"\nPublished: {pub['links']['record_html']}  DOI {pub.get('doi')}")
-    print(f'Update oracc_parser/settings.py:  ZENODO_RECORD_URL: str = "https://zenodo.org/records/{pub["id"]}"')
+    print("Users of oracc-parser >= 0.1.7 get this version automatically (newest version of the concept record).")
+    print(f'Optionally set ZENODO_FALLBACK_RECORD_ID = "{pub["id"]}" in oracc_parser/settings.py at the next release.')
     return 0
 
 

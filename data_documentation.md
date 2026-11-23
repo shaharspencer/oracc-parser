@@ -28,6 +28,15 @@ Some catalogued texts have no words in their ORACC JSON (e.g. `balt/P365637`). T
 
 `ckst` is listed as "Akkadian, Sumerian" in `projects_metadata.csv` but is not part of the dataset. The dataset build passes `--allow-missing ckst` to the completeness check.
 
+## Projects not built from ORACC: ctij
+
+`ctij` (Cuneiform Texts Mentioning Israelites, Judeans and Other Related Groups) is no longer on the ORACC server. Its dataset files were built in 2026 from the project's own working files: the ATF transliterations, Y. Bloch's 2014 re-editions and the last catalogue (27 Jan 2017). The catalogue has 174 texts, and 142 of them have transliterations.
+
+* **Lemmas come in two layers.** Names (and numbers) are lemmatised by the CTIJ editors. The other words carry unchecked BabyLemmatizer 2.2 predictions (C. Ziegeler's 2024 run). Every predicted word's `inst` starts with `babylemmatizer:`; to keep only the editors' lemmas, drop those rows. Predicted words have no normalisation, so they appear as `UNK` in normalised text.
+* **No translations.**
+* **Only from Zenodo.** `parse_project("ctij", download_from_oracc_server=True)` cannot work, and the dataset build cannot re-fetch `ctij` from ORACC.
+* The full description ships with the data as `ctij/README.md` in `ctij.zip`.
+
 ## Texts without catalogue metadata
 
 A sanity check was run matching all text files in `enriched_data/oracc_csvs/` against their project's catalogue CSV in `enriched_data/catalogues/`. Out of 40,473 texts checked, 263 texts across 16 projects have no corresponding entry in their project's catalogue.

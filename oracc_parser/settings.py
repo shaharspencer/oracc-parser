@@ -62,8 +62,20 @@ JSONZIP_DIR: Path = DATA_DIR / "jsonzip"
 WORD_CSV_DIR: Path = DATA_DIR / "oracc_csvs"
 CATALOGUE_DIR: Path = DATA_DIR / "catalogues"
 
-# URL for downloading reference data (Zenodo)
-ZENODO_RECORD_URL: str = "https://zenodo.org/records/24336925"
+# --- Zenodo dataset ---
+# The concept record stands for "every version" of the dataset: Zenodo resolves
+# it to the newest published version, so a new dataset version reaches users
+# without a new package release.
+ZENODO_CONCEPT_ID: str = "18643121"
+
+# Pin a specific dataset version by setting this to that version's record URL,
+# e.g. "https://zenodo.org/records/24336925" (or set the ORACC_ZENODO_RECORD_URL
+# environment variable). None means: use the newest version.
+ZENODO_RECORD_URL: str | None = os.environ.get("ORACC_ZENODO_RECORD_URL", "").strip() or None
+
+# Used only when the newest version cannot be looked up (Zenodo unreachable).
+# Keep it pointing at a published version; it does not need to be the newest.
+ZENODO_FALLBACK_RECORD_ID: str = "24336925"
 
 # Logging
 LOG_LEVEL: str = "INFO"
@@ -101,8 +113,18 @@ def catalogue_dir() -> Path:
     return CATALOGUE_DIR
 
 def zenodo_url() -> str:
+    """Record URL to download from: the pinned version, else the concept record.
+
+    The concept record URL is resolved to the newest version by
+    ``oracc_parser.download.fetch_data.resolve_record_id()``.
+    """
+    global ZENODO_RECORD_URL, ZENODO_CONCEPT_ID
+    return ZENODO_RECORD_URL or f"https://zenodo.org/records/{ZENODO_CONCEPT_ID}"
+
+def zenodo_is_pinned() -> bool:
+    """True when a specific dataset version was chosen instead of the newest."""
     global ZENODO_RECORD_URL
-    return ZENODO_RECORD_URL
+    return bool(ZENODO_RECORD_URL)
 
 def log_level() -> str:
     global LOG_LEVEL
@@ -120,6 +142,7 @@ def get_settings() -> dict:
         "jsonzip_dir": str(JSONZIP_DIR),
         "word_csv_dir": str(WORD_CSV_DIR),
         "catalogue_dir": str(CATALOGUE_DIR),
-        "zenodo_record_url": ZENODO_RECORD_URL,
+        "zenodo_record_url": zenodo_url(),
+        "zenodo_version": "pinned" if zenodo_is_pinned() else "newest",
         "log_level": LOG_LEVEL,
     }
